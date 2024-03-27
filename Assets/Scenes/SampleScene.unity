@@ -461,8 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b36e3d7bd3e864672bea632bfce77507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xIndex: 5
-  _yIndex: 0
+  _coords: {x: 5, y: 0}
 --- !u!4 &1163796299
 Transform:
   m_ObjectHideFlags: 0
@@ -630,6 +629,22 @@ PrefabInstance:
       propertyPath: _yIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1811081282867314772, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _index.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811081282867314772, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _index.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811081282867314772, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _coords.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811081282867314772, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _coords.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5946079942458350178, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -673,6 +688,14 @@ PrefabInstance:
     - target: {fileID: 5946079942458350178, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680270122639996165, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _coords.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6680270122639996165, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+      propertyPath: _coords.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006757256392103104, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
       propertyPath: m_Name
@@ -829,8 +852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c79f6c6e6f2a5408ba1ea70756ae81dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _xIndex: 0
-  _yIndex: 0
+  _coords: {x: 0, y: 0}
 --- !u!4 &1694179773
 Transform:
   m_ObjectHideFlags: 0
