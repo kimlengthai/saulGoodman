@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[ExecuteInEditMode]
 public class Board : MonoBehaviour
 {
 
@@ -13,13 +15,21 @@ public class Board : MonoBehaviour
     [SerializeField] float blockWidth;
     [SerializeField] float blockHeight;
 
+    [SerializeField] GameObject emptyBlockPrefab;
+    [SerializeField] GameObject backgroud;
+    [SerializeField] GameObject blocksParent;
+
     Block[,] blocks;
 
     public void Awake()
     {
         blocks = new Block[width, height];
-        Block.width = blockWidth;
-        Block.height = blockHeight;
+        ResetOffset();
+    }
+
+
+    void ResetOffset()
+    {
         offset = new Vector2(
             transform.position.x - width * blockWidth / 2 + blockWidth / 2,
             transform.position.y - height * blockHeight / 2 + blockHeight / 2
@@ -55,13 +65,12 @@ public class Board : MonoBehaviour
         }
 
         blocks[coords.x, coords.y] = block;
-        block.transform.position = GetBlockPosition(coords);
     }
 
 
     public Vector2 GetBlockPosition(Vector2Int coords)
     {
-        return new Vector2(coords.x * Block.width, coords.y * Block.height) + offset;
+        return new Vector2(coords.x * blockWidth, coords.y * blockHeight) + offset;
     }
 
 
@@ -86,5 +95,49 @@ public class Board : MonoBehaviour
             if (block != null)
                 block.OnTurnChange();
         }
+    }
+
+
+    void UpdateBoard()
+    {
+        if (this == null) return;
+
+        DestroyImmediate(backgroud);
+
+        backgroud = new GameObject("Background");
+        backgroud.transform.parent = transform;
+        
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                GameObject newBlock = Instantiate(emptyBlockPrefab, backgroud.transform);
+                newBlock.transform.position = GetBlockPosition(new Vector2Int(x, y));
+                newBlock.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
+                newBlock.name = $"({x}, {y})";
+            }
+        }
+
+        foreach (Transform blockTransform in blocksParent.transform)
+        {
+            Block block = blockTransform.GetComponent<Block>();
+
+            block.coords = block.coords;
+            blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
+        }
+        
+        foreach (Player player in Game.players)
+        {
+            player.coords = player.coords;
+            player.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
+        }
+    }
+
+
+    void OnValidate()
+    {
+        Awake();
+
+        UnityEditor.EditorApplication.delayCall += UpdateBoard;
     }
 }

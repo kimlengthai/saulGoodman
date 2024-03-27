@@ -5,7 +5,7 @@ using UnityEngine;
 public class BlockFlashing : Block
 {
     [SerializeField] bool isTransparent;
-
+    [SerializeField] float animationSpeed = 5f;
 
     public override void Start()
     {
@@ -17,11 +17,7 @@ public class BlockFlashing : Block
 
     void UpdateSprite()
     {
-        if (isTransparent)
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 0.5f);
-        
-        else
-            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, 1f);
+        StartCoroutine(ChangeStateAnimation());
     }
 
 
@@ -33,8 +29,29 @@ public class BlockFlashing : Block
 
     public override void OnTurnChange()
     {
-        print("BlockFlashing.OnTurnChange()");
         isTransparent = !isTransparent;
+        UpdateSprite();
+    }
+
+
+    protected override IEnumerator ChangeStateAnimation()
+    {
+        float timeRatio = 0;
+
+        while (timeRatio < 1)
+        {
+            timeRatio += Time.deltaTime * animationSpeed;
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, Mathf.Lerp(isTransparent ? 1f : 0.5f, isTransparent ? 0.5f : 1f, timeRatio));
+            yield return null;
+        }
+
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, isTransparent ? 0.5f : 1f);
+    }
+
+
+    public override void UpdateBlock()
+    {
+        base.UpdateBlock();
         UpdateSprite();
     }
 }

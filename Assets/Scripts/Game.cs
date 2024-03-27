@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[ExecuteInEditMode]
 public class Game : MonoBehaviour 
 {
+    public static bool isInitialized = false;
+
     [SerializeField] Board _board;
     public static Board board;
 
@@ -38,6 +42,8 @@ public class Game : MonoBehaviour
     [SerializeField] int _maxTurns;
     public static int maxTurns;
 
+    public static Player[] players;
+
     public void Awake()
     {
         board = _board;
@@ -45,6 +51,9 @@ public class Game : MonoBehaviour
         mainPlayer = _mainPlayer;
         chasedPlayer = _chasedPlayer;
         maxTurns = _maxTurns;
+        players = new Player[] { mainPlayer, chasedPlayer };
+
+        isInitialized = true;
     }
 
     static bool IsGameFinished(out bool won)
@@ -74,5 +83,11 @@ public class Game : MonoBehaviour
         chasedPlayer.OnTurnChange(playerDirection);
 
         turn++;
+    }
+
+
+    void OnValidate()
+    {
+        Awake();
     }
 }

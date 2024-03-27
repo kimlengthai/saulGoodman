@@ -1,0 +1,158 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2944069285743257455
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Name
+      value: MainPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9527312
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.0499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.0499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1952029022397948058}
+    - targetCorrespondingSourceObject: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2035507343632361307}
+  m_SourcePrefab: {fileID: 100100000, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+--- !u!1 &536340427152989358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+  m_PrefabInstance: {fileID: 2944069285743257455}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1952029022397948058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536340427152989358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 6093801d2b084452bb141102211432ae, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: c79f6c6e6f2a5408ba1ea70756ae81dc, type: 3}
+        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
+        m_MethodName: set_name
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: test
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: b6df2488-96f1-4e0a-99d9-4420e3393567
+    m_ActionName: Movements/Up[/Keyboard/w]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f1c583a-34e6-40bf-a7a9-4fc56a9e6c04
+    m_ActionName: Movements/Down[/Keyboard/s]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67ddec27-839d-4f11-8ae9-018cd51c05d9
+    m_ActionName: Movements/Left[/Keyboard/a]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 10b0001d-e333-45dd-ab56-e33a78c11313
+    m_ActionName: Movements/Right[/Keyboard/d]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movements
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &2035507343632361307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 536340427152989358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c79f6c6e6f2a5408ba1ea70756ae81dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coords: {x: 0, y: 0}
+  speed: 5

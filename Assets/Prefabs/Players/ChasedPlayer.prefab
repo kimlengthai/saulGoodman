@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1159549767296092533
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Name
+      value: ChasedPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4201112961334118364, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.0499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.0499997
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312469730933372591, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2412483477303115725}
+  m_SourcePrefab: {fileID: 100100000, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+--- !u!1 &4592992064671445684 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3434585892851809217, guid: d32d9cd443de14a6cabcac821cb0d048, type: 3}
+  m_PrefabInstance: {fileID: 1159549767296092533}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2412483477303115725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592992064671445684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b36e3d7bd3e864672bea632bfce77507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coords: {x: 0, y: 0}
+  speed: 5

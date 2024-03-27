@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[ExecuteInEditMode]
 public class Block : MonoBehaviour
 {
-    public static float width;
-    public static float height;
-
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
 
@@ -21,6 +20,7 @@ public class Block : MonoBehaviour
 
             _coords = value;
             Game.board.SetBlock(this, coords);
+            transform.position = Game.board.GetBlockPosition(coords);
         }
     }
 
@@ -36,5 +36,31 @@ public class Block : MonoBehaviour
     }
 
 
-    public virtual void OnTurnChange() { print(this); }
+    public virtual void OnTurnChange() {}
+
+
+    public virtual void UpdateBlock()
+    {
+        coords = _coords;
+    }
+
+
+    protected virtual IEnumerator ChangeStateAnimation()
+    {
+        yield return null;
+    }
+
+
+    void OnValidate()
+    {
+        // Check if the block is in the scene or is a prefab
+        if (transform.parent == null) return;
+
+        UnityEditor.EditorApplication.delayCall += () =>
+        {
+            if (this == null) return;
+
+            UpdateBlock();
+        };
+    }
 }
