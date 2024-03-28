@@ -16,13 +16,21 @@ public enum Direction
 public class Player : MonoBehaviour
 {
     [SerializeField] Vector2Int _coords;
+
+    Animator animator;
+
     public Vector2Int coords
     {
         get { return _coords; }
         set
         {
+            transform.up = Game.board.GetBlockPosition(value) - (Vector2)transform.position;
+
             if (!Game.board.CanPlayerMoveTo(value))
+            {
+                animator.SetTrigger("bumpIntoWall");
                 return;
+            }
             
             _coords = value;
             StartCoroutine(MovementAnimation(Game.board.GetBlockPosition(coords)));
@@ -34,6 +42,7 @@ public class Player : MonoBehaviour
     public void Start()
     {
         coords = _coords;
+        animator = GetComponent<Animator>();
     }
 
 
