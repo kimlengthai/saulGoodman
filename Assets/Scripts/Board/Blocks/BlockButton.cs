@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class BlockButton : Block
 {
-    public GameObject doorToUnlock;
+    [SerializeField] List<BlockDoor> doorsToUnlock;
     [SerializeField] bool isTransparent = true;
+    [SerializeField] float animationSpeed;
 
     public override bool CanPlayerMoveInside()
     {
         return isTransparent;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    protected override void OnPlayerInteract()
     {
-        if (collision.CompareTag("Player"))
-        {
-            spriteRenderer.color = new Color(0,255,0);
-            UnlockDoor();
-        }
+        UnlockDoors();
+        StartCoroutine(ChangeSpriteColor(new Color(0f, 1f, 0f), animationSpeed));
     }
 
-    void UnlockDoor()
+
+    void UnlockDoors()
     {
-        doorToUnlock.GetComponent<Door>().Unlock();
+        foreach (BlockDoor door in doorsToUnlock)
+        {
+            door.Unlock();
+        }
     }
 }

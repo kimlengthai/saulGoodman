@@ -2,10 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlockFlashing : Block
+public class BlockDoor : Block
 {
-    [SerializeField] bool isTransparent;
-    [SerializeField] float animationSpeed = 5f;
+    [SerializeField] bool isTransparent = false;
+
+    [SerializeField] float animationSpeed;
+
+    public override bool CanPlayerMoveInside()
+    {
+        return isTransparent;
+    }
 
 
     protected override void UpdateSprite()
@@ -19,14 +25,10 @@ public class BlockFlashing : Block
     }
 
 
-    public override bool CanPlayerMoveInside()
+    public void Unlock()
     {
-        return isTransparent;
-    }
-
-
-    protected override void OnTurnChange()
-    {
-        isTransparent = !isTransparent;
+        Debug.Log("Door unlocked!");
+        isTransparent = true;
+        UpdateSprite();
     }
 }

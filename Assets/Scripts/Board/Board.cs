@@ -130,7 +130,7 @@ public class Board : MonoBehaviour
         foreach (Block block in blocks)
         {
             if (block != null)
-                block.OnTurnChange();
+                block.TurnChange();
         }
     }
 

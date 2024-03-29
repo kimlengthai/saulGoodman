@@ -96,10 +96,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4211267750398386412}
-    - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3378612184026956451}
   m_SourcePrefab: {fileID: 100100000, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+--- !u!212 &1777204683765708770 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+  m_PrefabInstance: {fileID: 5596377628233697126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5590087274302742880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
@@ -117,52 +119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c392429f7cda6e545a9e99e89e6a39e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  coordsInInspector: {x: 2, y: 2}
-  doorToUnlock: {fileID: 5590087274302742880, guid: 2bb993743b0d3f542962b89b527acbd8, type: 3}
+  spriteRenderer: {fileID: 1777204683765708770}
+  startingCoords: {x: 0, y: 0}
+  doorsToUnlock: []
   isTransparent: 1
---- !u!61 &3378612184026956451
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5590087274302742880}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  animationSpeed: 5

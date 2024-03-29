@@ -75,9 +75,40 @@ public class Game : MonoBehaviour
     }
 
 
+    static void ActivateBumpingBlocks(Vector2Int playerDirection)
+    {
+        HashSet<Block> bumpingBlocks = new HashSet<Block>();
+        HashSet<Block> enteringBlocks = new HashSet<Block>();
+
+        foreach (Player player in players)
+        {
+            Block block = board.GetBlock(player.coords + playerDirection);
+            if (block == null)
+                continue;
+            
+            if (board.CanPlayerMoveTo(block.coords))
+                enteringBlocks.Add(block);
+            else
+                bumpingBlocks.Add(block);
+        }
+
+        foreach (Block block in enteringBlocks)
+        {
+            block.PlayerEnter();
+        }
+
+        foreach (Block block in bumpingBlocks)
+        {
+            block.PlayerBump();
+        }
+    }
+
+
     static public void OnTurnChange(Vector2Int playerDirection)
     {
         board.OnTurnChange();
+
+        ActivateBumpingBlocks(playerDirection);
 
         mainPlayer.OnTurnChange(playerDirection);
         chasedPlayer.OnTurnChange(playerDirection);

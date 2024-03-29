@@ -8,7 +8,6 @@ public class Block : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
-
     [SerializeField] Vector2Int startingCoords;
     Vector2Int _coords;
     public Vector2Int coords
@@ -30,6 +29,7 @@ public class Block : MonoBehaviour
         }
     }
 
+
     public virtual void Start()
     {
         coords = startingCoords;
@@ -49,18 +49,64 @@ public class Block : MonoBehaviour
     }
 
 
-    public virtual void OnTurnChange() {}
+    protected virtual void OnTurnChange() {}
 
 
-    public virtual void UpdateBlock()
+    public void TurnChange()
     {
-        coords = _coords;
+        OnTurnChange();
+        UpdateBlock();
     }
 
 
-    protected virtual IEnumerator ChangeStateAnimation()
+    protected virtual void UpdateBlock()
     {
-        yield return null;
+        coords = _coords;
+        UpdateSprite();
+    }
+
+
+    protected virtual void UpdateSprite() {}
+
+
+    protected virtual void OnPlayerInteract() {}
+
+
+    protected virtual void OnPlayerEnter() {}
+
+
+    public void PlayerEnter()
+    {
+        OnPlayerEnter();
+        OnPlayerInteract();
+        UpdateBlock();
+    }
+
+
+    protected virtual void OnPlayerBump() {}
+
+
+    public void PlayerBump()
+    {
+        OnPlayerBump();
+        OnPlayerInteract();
+        UpdateBlock();
+    }
+
+
+    protected IEnumerator ChangeSpriteColor(Color targetColor, float animationSpeed)
+    {
+        float timeRatio = 0;
+        Color initialColor = spriteRenderer.color;
+
+        while (timeRatio < 1)
+        {
+            timeRatio += Time.deltaTime * animationSpeed;
+            spriteRenderer.color = Color.Lerp(initialColor, targetColor, timeRatio);
+            yield return null;
+        }
+
+        spriteRenderer.color = targetColor;
     }
 
 
