@@ -9,7 +9,7 @@ public class Block : MonoBehaviour
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
 
-    [SerializeField] Vector2Int coordsInInspector;
+    [SerializeField] Vector2Int startingCoords;
     Vector2Int _coords;
     public Vector2Int coords
     {
@@ -32,6 +32,7 @@ public class Block : MonoBehaviour
 
     public virtual void Start()
     {
+        coords = startingCoords;
         UpdateBlock();
     }
 
@@ -72,7 +73,7 @@ public class Block : MonoBehaviour
         {
             if (this == null) return;
 
-            coords = coordsInInspector;
+            coords = startingCoords;
             UpdateBlock();
         };
     }
