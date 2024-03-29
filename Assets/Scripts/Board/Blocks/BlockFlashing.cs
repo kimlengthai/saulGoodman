@@ -7,13 +7,6 @@ public class BlockFlashing : Block
     [SerializeField] bool isTransparent;
     [SerializeField] float animationSpeed = 5f;
 
-    public override void Start()
-    {
-        base.Start();
-
-        UpdateSprite();
-    }
-
 
     void UpdateSprite()
     {

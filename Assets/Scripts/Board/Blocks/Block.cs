@@ -9,24 +9,36 @@ public class Block : MonoBehaviour
     [SerializeField] protected SpriteRenderer spriteRenderer;
 
 
-    [SerializeField] Vector2Int _coords;
+    [SerializeField] Vector2Int coordsInInspector;
+    Vector2Int _coords;
     public Vector2Int coords
     {
         get { return _coords; }
         set
         {
-            if (Game.board.GetBlock(value) != null)
+            if (Game.board.GetBlock(value) != null || coords == value)
                 return;
 
+            if (IsPlacedInBoard())
+                Game.board.MoveBlock(_coords, value);
+            else 
+                Game.board.SetBlock(this, value);
+            
             _coords = value;
-            Game.board.SetBlock(this, coords);
+
             transform.position = Game.board.GetBlockPosition(coords);
         }
     }
 
     public virtual void Start()
     {
-        coords = _coords;
+        UpdateBlock();
+    }
+
+
+    bool IsPlacedInBoard()
+    {
+        return Game.board.GetBlock(coords) == this;
     }
 
 
@@ -60,6 +72,7 @@ public class Block : MonoBehaviour
         {
             if (this == null) return;
 
+            coords = coordsInInspector;
             UpdateBlock();
         };
     }

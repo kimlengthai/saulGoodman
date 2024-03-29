@@ -68,6 +68,43 @@ public class Board : MonoBehaviour
     }
 
 
+    public void RemoveBlock(Vector2Int coords)
+    {
+        if (!IsInsideBoard(coords))
+        {
+            Debug.LogError("Trying to remove a block outside the board");
+            return;
+        }
+
+        blocks[coords.x, coords.y] = null;
+    }
+
+
+    public void MoveBlock(Vector2Int from, Vector2Int to)
+    {
+        if (!IsInsideBoard(from) || !IsInsideBoard(to))
+        {
+            Debug.LogError("Trying to move a block outside the board");
+            return;
+        }
+
+        if (blocks[to.x, to.y] != null)
+        {
+            Debug.LogError("Trying to move a block where there is already a block");
+            return;
+        }
+
+        if (blocks[from.x, from.y] == null)
+        {
+            Debug.LogError("Trying to move a block that doesn't exist");
+            return;
+        }
+
+        blocks[to.x, to.y] = blocks[from.x, from.y];
+        blocks[from.x, from.y] = null;
+    }
+
+
     public Vector2 GetBlockPosition(Vector2Int coords)
     {
         return new Vector2(coords.x * blockWidth, coords.y * blockHeight) + offset;
