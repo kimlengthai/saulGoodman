@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8991374045530518214
+--- !u!1001 &5596377628233697126
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Name
-      value: BlockFlashing
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
@@ -57,6 +61,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
@@ -75,32 +87,31 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6680270122639996165}
+      addedObject: {fileID: 2782793570383683959}
   m_SourcePrefab: {fileID: 100100000, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
---- !u!212 &3009656883961168450 stripped
+--- !u!212 &1777204683765708770 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-  m_PrefabInstance: {fileID: 8991374045530518214}
+  m_PrefabInstance: {fileID: 5596377628233697126}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9006757256392103104 stripped
+--- !u!1 &5590087274302742880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-  m_PrefabInstance: {fileID: 8991374045530518214}
+  m_PrefabInstance: {fileID: 5596377628233697126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6680270122639996165
+--- !u!114 &2782793570383683959
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9006757256392103104}
+  m_GameObject: {fileID: 5590087274302742880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53d771032758f46b2a8c335778c2107f, type: 3}
+  m_Script: {fileID: 11500000, guid: 2f1af39d91b58440d83f8137acd91850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 3009656883961168450}
+  spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
-  isTransparent: 1
+  isTransparent: 0
   isSolid: 0
-  animationSpeed: 5

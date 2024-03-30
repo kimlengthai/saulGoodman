@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockFlashing : Block
 {
-    [SerializeField] bool isTransparent;
     [SerializeField] float animationSpeed = 5f;
 
 
@@ -19,14 +18,9 @@ public class BlockFlashing : Block
     }
 
 
-    public override bool CanPlayerMoveInside()
-    {
-        return isTransparent;
-    }
-
-
     protected override void OnTurnChange()
     {
         isTransparent = !isTransparent;
+        isSolid = !isSolid;
     }
 }

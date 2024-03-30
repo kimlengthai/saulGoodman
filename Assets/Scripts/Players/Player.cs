@@ -15,7 +15,10 @@ public enum Direction
 [ExecuteInEditMode]
 public class Player : MonoBehaviour
 {
+    [SerializeField] new ParticleSystem particleSystem;
     [SerializeField] Vector2Int _coords;
+
+    [HideInInspector] public bool isDead = false;
 
     Animator animator;
 
@@ -29,6 +32,7 @@ public class Player : MonoBehaviour
             if (!Game.board.CanPlayerMoveTo(value))
             {
                 animator.SetTrigger("bumpIntoWall");
+                print("Bump into wall");
                 return;
             }
             
@@ -66,6 +70,13 @@ public class Player : MonoBehaviour
         if (transform.parent == null) return;
 
         UnityEditor.EditorApplication.delayCall += UpdatePlayer;
+    }
+
+
+    public void Die()
+    {
+        isDead = true;
+        particleSystem.Play();
     }
 
 

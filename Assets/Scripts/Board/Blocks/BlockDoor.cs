@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class BlockDoor : Block
 {
-    [SerializeField] bool isTransparent = false;
-
     [SerializeField] float animationSpeed;
-
-    public override bool CanPlayerMoveInside()
-    {
-        return isTransparent;
-    }
-
 
     protected override void UpdateSprite()
     {
@@ -27,8 +19,14 @@ public class BlockDoor : Block
 
     public void Unlock()
     {
-        Debug.Log("Door unlocked!");
-        isTransparent = true;
+        isSolid = false;
+        UpdateSprite();
+    }
+
+
+    public void Lock()
+    {
+        isSolid = true;
         UpdateSprite();
     }
 }

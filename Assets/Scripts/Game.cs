@@ -8,6 +8,8 @@ public class Game : MonoBehaviour
 {
     public static bool isInitialized = false;
 
+    public static bool isPaused = false;
+
     [SerializeField] Board _board;
     public static Board board;
 
@@ -31,10 +33,12 @@ public class Game : MonoBehaviour
 
             if (IsGameFinished(out bool won))
             {
+                isPaused = true;
+
                 if (won)
-                    Debug.Log("You Won!");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("LevelCleared", UnityEngine.SceneManagement.LoadSceneMode.Additive);
                 else
-                    Debug.Log("You Lost!");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Additive);
             }
         }
     }
@@ -60,6 +64,10 @@ public class Game : MonoBehaviour
     {
         won = false;
 
+        foreach (Player player in players)
+            if (player.isDead)
+                return true;
+
         if (mainPlayer.coords == chasedPlayer.coords)
         {
             won = true;
@@ -75,10 +83,11 @@ public class Game : MonoBehaviour
     }
 
 
-    static void ActivateBumpingBlocks(Vector2Int playerDirection)
+    static void ActivateBlocks(Vector2Int playerDirection)
     {
-        HashSet<Block> bumpingBlocks = new HashSet<Block>();
-        HashSet<Block> enteringBlocks = new HashSet<Block>();
+        Dictionary<Block, List<Player>> bumpingBlocks = new Dictionary<Block, List<Player>>();
+        Dictionary<Block, List<Player>> enteringBlocks = new Dictionary<Block, List<Player>>();
+        Dictionary<Block, List<Player>> interactingBlocks = new Dictionary<Block, List<Player>>();
 
         foreach (Player player in players)
         {
@@ -86,29 +95,42 @@ public class Game : MonoBehaviour
             if (block == null)
                 continue;
             
-            if (board.CanPlayerMoveTo(block.coords))
-                enteringBlocks.Add(block);
-            else
-                bumpingBlocks.Add(block);
+            Dictionary<Block, List<Player>> dict = block.CanPlayerMoveInside() ? enteringBlocks : bumpingBlocks;
+            
+            if (!dict.ContainsKey(block))
+                dict[block] = new List<Player>();
+            dict[block].Add(player);
+            
+            if (!interactingBlocks.ContainsKey(block))
+                interactingBlocks[block] = new List<Player>();
+            interactingBlocks[block].Add(player);
         }
 
-        foreach (Block block in enteringBlocks)
+        foreach (Block block in enteringBlocks.Keys)
         {
-            block.PlayerEnter();
+            block.PlayerEnter(enteringBlocks[block]);
         }
 
-        foreach (Block block in bumpingBlocks)
+        foreach (Block block in bumpingBlocks.Keys)
         {
-            block.PlayerBump();
+            block.PlayerBump(bumpingBlocks[block]);
+        }
+
+        foreach (Block block in interactingBlocks.Keys)
+        {
+            block.PlayerInteract(interactingBlocks[block]);
         }
     }
 
 
     static public void OnTurnChange(Vector2Int playerDirection)
     {
+        if (isPaused)
+            return;
+
         board.OnTurnChange();
 
-        ActivateBumpingBlocks(playerDirection);
+        ActivateBlocks(playerDirection);
 
         mainPlayer.OnTurnChange(playerDirection);
         chasedPlayer.OnTurnChange(playerDirection);

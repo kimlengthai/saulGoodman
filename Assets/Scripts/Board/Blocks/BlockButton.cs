@@ -5,19 +5,13 @@ using UnityEngine;
 public class BlockButton : Block
 {
     [SerializeField] List<BlockDoor> doorsToUnlock;
-    [SerializeField] bool isTransparent = true;
     [SerializeField] float animationSpeed;
 
-    public override bool CanPlayerMoveInside()
-    {
-        return isTransparent;
-    }
 
-
-    protected override void OnPlayerInteract()
+    protected override void OnPlayerInteract(List<Player> players)
     {
         UnlockDoors();
-        StartCoroutine(ChangeSpriteColor(new Color(0f, 1f, 0f), animationSpeed));
+        StartCoroutine(ChangeSpriteColor(Color.green, animationSpeed));
     }
 
 
@@ -26,6 +20,15 @@ public class BlockButton : Block
         foreach (BlockDoor door in doorsToUnlock)
         {
             door.Unlock();
+        }
+    }
+
+
+    void LockDoors()
+    {
+        foreach (BlockDoor door in doorsToUnlock)
+        {
+            door.Lock();
         }
     }
 }

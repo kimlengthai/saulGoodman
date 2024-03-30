@@ -7,18 +7,21 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
-
     [SerializeField] Vector2Int startingCoords;
+    [SerializeField] protected bool isTransparent;
+    [SerializeField] protected bool isSolid;
     Vector2Int _coords;
     public Vector2Int coords
     {
         get { return _coords; }
         set
         {
-            if (Game.board.GetBlock(value) != null || coords == value)
+            bool isPlacedInBoard = IsPlacedInBoard();
+
+            if (isPlacedInBoard && coords == value)
                 return;
 
-            if (IsPlacedInBoard())
+            if (isPlacedInBoard)
                 Game.board.MoveBlock(_coords, value);
             else 
                 Game.board.SetBlock(this, value);
@@ -45,7 +48,13 @@ public class Block : MonoBehaviour
 
     public virtual bool CanPlayerMoveInside()
     {
-        return false;
+        return !isSolid;
+    }
+
+
+    public virtual bool CanSeeThrough()
+    {
+        return isTransparent;
     }
 
 
@@ -69,27 +78,32 @@ public class Block : MonoBehaviour
     protected virtual void UpdateSprite() {}
 
 
-    protected virtual void OnPlayerInteract() {}
+    protected virtual void OnPlayerInteract(List<Player> players) {}
 
 
-    protected virtual void OnPlayerEnter() {}
-
-
-    public void PlayerEnter()
+    public void PlayerInteract(List<Player> players)
     {
-        OnPlayerEnter();
-        OnPlayerInteract();
+        OnPlayerInteract(players);
         UpdateBlock();
     }
 
 
-    protected virtual void OnPlayerBump() {}
+    protected virtual void OnPlayerEnter(List<Player> players) {}
 
 
-    public void PlayerBump()
+    public void PlayerEnter(List<Player> players)
     {
-        OnPlayerBump();
-        OnPlayerInteract();
+        OnPlayerEnter(players);
+        UpdateBlock();
+    }
+
+
+    protected virtual void OnPlayerBump(List<Player> players) {}
+
+
+    public void PlayerBump(List<Player> players)
+    {
+        OnPlayerBump(players);
         UpdateBlock();
     }
 
