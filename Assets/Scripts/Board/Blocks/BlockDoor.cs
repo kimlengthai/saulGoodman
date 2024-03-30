@@ -12,7 +12,7 @@ public class BlockDoor : Block
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            isTransparent ? 0.5f : 1f
+            isSolid ? 1f : 0.5f
         ), animationSpeed));
     }
 
