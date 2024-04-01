@@ -6,43 +6,38 @@ public class BlockIce : Block
 {
     [SerializeField] private float slideSpeed = 5f;
 
-    protected override void OnPlayerEnter(List<Player> players)
+    protected override void OnPlayerEnter(List<Player> players, Vector2Int playerDirection)
     {
-        base.OnPlayerEnter(players);
+        base.OnPlayerEnter(players, playerDirection);
         foreach (var player in players)
         {
-            StartCoroutine(SlidePlayerAcrossIce(player));
+            StartCoroutine(SlidePlayerAcrossIce(player, playerDirection));
         }
     }
 
-    private IEnumerator SlidePlayerAcrossIce(Player player)
+    private IEnumerator SlidePlayerAcrossIce(Player player, Vector2Int playerDirection)
     {
-        Vector2Int slideDirection = player.DirectionToVector2Int(player.lastMoveDirection); // Add lastMoveDirection to player to track their movement
-        bool canSlide = true;
-
-        while (canSlide)
+        float slideTime = 0f;
+        while (slideTime < 1f)
         {
-            Vector2Int nextCoords = player.coords + slideDirection;
-            if (Game.board.CanPlayerMoveTo(nextCoords))
-            {
-                float timeToSlide = 1f / slideSpeed;
-                Vector2 startPosition = player.transform.position;
-                Vector2 endPosition = Game.board.GetBlockPosition(nextCoords);
-                float slideTime = 0f;
+            slideTime += Time.deltaTime * player.speed;
+            yield return null;
+        }
+        
+        Vector2Int nextCoords = player.coords + playerDirection;
 
-                while (slideTime < 1f)
-                {
-                    slideTime += Time.deltaTime / timeToSlide;
-                    player.transform.position = Vector2.Lerp(startPosition, endPosition, slideTime);
-                    yield return null;
-                }
+        while (Game.board.CanPlayerMoveTo(nextCoords))
+        {
+            slideTime = 0f;
+            player.coords = nextCoords;
 
-                player.coords = nextCoords;
-            }
-            else
+            while (slideTime < 1f)
             {
-                canSlide = false;
+                slideTime += Time.deltaTime * slideSpeed;
+                yield return null;
             }
+
+            nextCoords = player.coords + playerDirection;
         }
     }
 }

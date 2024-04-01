@@ -78,32 +78,32 @@ public class Block : MonoBehaviour
     protected virtual void UpdateSprite() {}
 
 
-    protected virtual void OnPlayerInteract(List<Player> players) {}
+    protected virtual void OnPlayerInteract(List<Player> players, Vector2Int playerDirection) {}
 
 
-    public void PlayerInteract(List<Player> players)
+    public void PlayerInteract(List<Player> players, Vector2Int playerDirection)
     {
-        OnPlayerInteract(players);
+        OnPlayerInteract(players, playerDirection);
         UpdateBlock();
     }
 
 
-    protected virtual void OnPlayerEnter(List<Player> players) {}
+    protected virtual void OnPlayerEnter(List<Player> players, Vector2Int playerDirection) {}
 
 
-    public void PlayerEnter(List<Player> players)
+    public void PlayerEnter(List<Player> players, Vector2Int playerDirection)
     {
-        OnPlayerEnter(players);
+        OnPlayerEnter(players, playerDirection);
         UpdateBlock();
     }
 
 
-    protected virtual void OnPlayerBump(List<Player> players) {}
+    protected virtual void OnPlayerBump(List<Player> players, Vector2Int playerDirection) {}
 
 
-    public void PlayerBump(List<Player> players)
+    public void PlayerBump(List<Player> players, Vector2Int playerDirection)
     {
-        OnPlayerBump(players);
+        OnPlayerBump(players, playerDirection);
         UpdateBlock();
     }
 

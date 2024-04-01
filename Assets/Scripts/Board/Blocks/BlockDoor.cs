@@ -20,6 +20,7 @@ public class BlockDoor : Block
     public void Unlock()
     {
         isSolid = false;
+        isTransparent = true;
         UpdateSprite();
     }
 
@@ -27,6 +28,7 @@ public class BlockDoor : Block
     public void Lock()
     {
         isSolid = true;
+        isTransparent = false;
         UpdateSprite();
     }
 }

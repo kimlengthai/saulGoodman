@@ -108,17 +108,17 @@ public class Game : MonoBehaviour
 
         foreach (Block block in enteringBlocks.Keys)
         {
-            block.PlayerEnter(enteringBlocks[block]);
+            block.PlayerEnter(enteringBlocks[block], playerDirection);
         }
 
         foreach (Block block in bumpingBlocks.Keys)
         {
-            block.PlayerBump(bumpingBlocks[block]);
+            block.PlayerBump(bumpingBlocks[block], playerDirection);
         }
 
         foreach (Block block in interactingBlocks.Keys)
         {
-            block.PlayerInteract(interactingBlocks[block]);
+            block.PlayerInteract(interactingBlocks[block], playerDirection);
         }
     }
 
