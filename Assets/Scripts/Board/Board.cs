@@ -162,7 +162,7 @@ public class Board : MonoBehaviour
             block.coords = block.coords;
             blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
         }
-        
+
         foreach (Player player in Game.players)
         {
             player.coords = player.coords;

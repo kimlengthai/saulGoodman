@@ -2,12 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [ExecuteInEditMode]
-public class Game : MonoBehaviour 
+public class Game : MonoBehaviour
 {
     public static bool isInitialized = false;
-
     public static bool isPaused = false;
 
     [SerializeField] Board _board;
@@ -21,6 +19,8 @@ public class Game : MonoBehaviour
 
     [SerializeField] ChasedPlayer _chasedPlayer;
     public static ChasedPlayer chasedPlayer;
+
+    private static bool isMainPlayerVisible = true;
 
     static int _turn = 0;
     public static int turn
@@ -82,7 +82,6 @@ public class Game : MonoBehaviour
         return false;
     }
 
-
     static void ActivateBlocks(Vector2Int playerDirection)
     {
         Dictionary<Block, List<Player>> bumpingBlocks = new Dictionary<Block, List<Player>>();
@@ -94,13 +93,13 @@ public class Game : MonoBehaviour
             Block block = board.GetBlock(player.coords + playerDirection);
             if (block == null)
                 continue;
-            
+
             Dictionary<Block, List<Player>> dict = block.CanPlayerMoveInside() ? enteringBlocks : bumpingBlocks;
-            
+
             if (!dict.ContainsKey(block))
                 dict[block] = new List<Player>();
             dict[block].Add(player);
-            
+
             if (!interactingBlocks.ContainsKey(block))
                 interactingBlocks[block] = new List<Player>();
             interactingBlocks[block].Add(player);
@@ -122,13 +121,28 @@ public class Game : MonoBehaviour
         }
     }
 
-
     static public void OnTurnChange(Vector2Int playerDirection)
     {
         if (isPaused)
             return;
 
         board.OnTurnChange();
+
+        if (isInitialized)
+        {
+            if (isMainPlayerVisible)
+            {
+                mainPlayer.ToggleVisibility(true);
+                chasedPlayer.ToggleVisibility(false);
+            }
+            else
+            {
+                mainPlayer.ToggleVisibility(false);
+                chasedPlayer.ToggleVisibility(true);
+            }
+
+            isMainPlayerVisible = !isMainPlayerVisible;
+        }
 
         ActivateBlocks(playerDirection);
 
@@ -137,7 +151,6 @@ public class Game : MonoBehaviour
 
         turn++;
     }
-
 
     void OnValidate()
     {
