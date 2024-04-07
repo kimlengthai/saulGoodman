@@ -26,6 +26,23 @@ public class MainPlayer : Player
         base.Update();
 
         UpdateVisibilityLine();
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)) 
+        {
+            OnUp();
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            OnDown();
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            OnLeft();
+        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            OnRight();
+        }
     }
 
 
