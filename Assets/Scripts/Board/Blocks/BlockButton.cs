@@ -8,7 +8,7 @@ public class BlockButton : Block
     [SerializeField] float animationSpeed;
 
 
-    protected override void OnPlayerInteract(List<Player> players, Vector2Int playerDirection)
+    protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
     {
         UnlockDoors();
         StartCoroutine(ChangeSpriteColor(Color.green, animationSpeed));

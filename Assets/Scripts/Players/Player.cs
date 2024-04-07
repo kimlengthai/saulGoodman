@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
+    List<IEnumerator> coroutinesToPlay = new List<IEnumerator>();
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -22,18 +23,32 @@ public class Player : MonoBehaviour
         {
             if (value == coords || isDead)
                 return;
+            
+            Block block = Game.board.GetBlock(value);
 
-            transform.up = Game.board.GetBlockPosition(value) - (Vector2)transform.position;
-
-            if (!Game.board.CanPlayerMoveTo(value))
+            if (!Game.board.CanPlayerMoveTo(this, value))
             {
-                animator.SetTrigger("bumpIntoWall");
-                return;
+                if (block != null)
+                    block.PlayerBump(this, value - coords);
+                coroutinesToPlay.Add(BumpIntoWallAnimation(value));
+            }
+            else
+            {
+                Vector2Int direction = value - coords;
+                _coords = value;
+
+                if (block != null)
+                    block.PlayerEnter(this, direction);
+                coroutinesToPlay.Add(MovementAnimation(Game.board.GetBlockPosition(coords)));
+
             }
             
-            _coords = value;
-            StartCoroutine(MovementAnimation(Game.board.GetBlockPosition(coords)));
         }
+    }
+
+    public Vector3 truePosition
+    {
+        get { return Game.board.GetBlockPosition(coords); }
     }
 
     public float speed;
@@ -45,9 +60,25 @@ public class Player : MonoBehaviour
     }
 
 
+    public virtual void Update() {}
+
+
+    IEnumerator StartAllAnimation()
+    {
+        List<IEnumerator> coroutines = new List<IEnumerator>(coroutinesToPlay);
+        coroutinesToPlay.Clear();
+
+        foreach (IEnumerator coroutine in coroutines)
+        {
+            yield return StartCoroutine(coroutine);
+        }
+    }
+
+
     public void OnTurnChange(Vector2Int direction)
     {
         coords += direction;
+        StartCoroutine(StartAllAnimation());
     }
 
 
@@ -75,6 +106,27 @@ public class Player : MonoBehaviour
     }
 
 
+    bool CanSeePlayer(Player player)
+    {
+        if (player == this)
+            return true;
+
+        return Physics2D.Linecast(truePosition, player.truePosition).collider == null;
+    }
+
+
+    public bool CanSeeEveryPlayers()
+    {
+        foreach (Player player in Game.players)
+        {
+            if (!CanSeePlayer(player))
+                return false;
+        }
+
+        return true;
+    }
+
+
     IEnumerator MovementAnimation(Vector2 target)
     {
         Vector2 startPosition = transform.position;
@@ -88,5 +140,16 @@ public class Player : MonoBehaviour
         }
 
         transform.position = target;
+    }
+
+    IEnumerator BumpIntoWallAnimation(Vector2Int bumpingCoords)
+    {
+        transform.up = Game.board.GetBlockPosition(bumpingCoords) - (Vector2)transform.position;
+        animator.SetTrigger("bumpIntoWall");
+
+        while (animator.GetCurrentAnimatorStateInfo(0).shortNameHash != Animator.StringToHash("Idle"))
+        {
+            yield return null;
+        }
     }
 }

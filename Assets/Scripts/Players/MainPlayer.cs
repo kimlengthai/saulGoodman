@@ -7,13 +7,34 @@ public class MainPlayer : Player
     private SpriteRenderer spriteRenderer;
     public bool isVisible = true; // Track visibility status
 
+    public LineRenderer visibilityLine;
+
     new void Start()
     {
         base.Start();
 
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         ToggleVisibility(true); // Ensure visibility is set to true initially
+
+        visibilityLine = GetComponent<LineRenderer>();
+        UpdateVisibilityLine();
     }
+
+
+    public override void Update()
+    {
+        base.Update();
+
+        UpdateVisibilityLine();
+    }
+
+
+    void UpdateVisibilityLine()
+    {
+        visibilityLine.SetPosition(0, transform.position);
+        visibilityLine.SetPosition(1, Game.chasedPlayer.transform.position);
+    }
+
 
     void OnUp()
     {

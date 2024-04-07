@@ -131,6 +131,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1547868883643343599}
   startingCoords: {x: 1, y: 1}
-  isTransparent: 1
+  _isTransparent: 1
   isSolid: 0
-  slideSpeed: 100

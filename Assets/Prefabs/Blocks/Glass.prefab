@@ -105,5 +105,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
-  isTransparent: 1
+  _isTransparent: 1
   isSolid: 1

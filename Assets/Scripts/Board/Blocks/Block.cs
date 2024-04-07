@@ -7,8 +7,14 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     [SerializeField] protected SpriteRenderer spriteRenderer;
+    protected Collider2D collision;
     [SerializeField] Vector2Int startingCoords;
-    [SerializeField] protected bool isTransparent;
+    [SerializeField] bool _isTransparent = false;
+    protected bool isTransparent
+    {
+        get { return !collision.enabled; }
+        set { collision.enabled = !value; }
+    }
     [SerializeField] protected bool isSolid;
     Vector2Int _coords;
     public Vector2Int coords
@@ -35,6 +41,8 @@ public class Block : MonoBehaviour
 
     public virtual void Start()
     {
+        collision = GetComponent<Collider2D>();
+        isTransparent = _isTransparent;
         coords = startingCoords;
         UpdateBlock();
     }
@@ -46,7 +54,7 @@ public class Block : MonoBehaviour
     }
 
 
-    public virtual bool CanPlayerMoveInside()
+    public virtual bool CanPlayerMoveInside(Player player)
     {
         return !isSolid;
     }
@@ -78,33 +86,33 @@ public class Block : MonoBehaviour
     protected virtual void UpdateSprite() {}
 
 
-    protected virtual void OnPlayerInteract(List<Player> players, Vector2Int playerDirection) {}
+    protected virtual void OnPlayerInteract(Player player, Vector2Int playerDirection) {}
 
 
-    public void PlayerInteract(List<Player> players, Vector2Int playerDirection)
+    public void PlayerInteract(Player player, Vector2Int playerDirection)
     {
-        OnPlayerInteract(players, playerDirection);
+        OnPlayerInteract(player, playerDirection);
         UpdateBlock();
     }
 
 
-    protected virtual void OnPlayerEnter(List<Player> players, Vector2Int playerDirection) {}
+    protected virtual void OnPlayerEnter(Player player, Vector2Int playerDirection) {}
 
 
-    public void PlayerEnter(List<Player> players, Vector2Int playerDirection)
+    public void PlayerEnter(Player player, Vector2Int playerDirection)
     {
-        OnPlayerEnter(players, playerDirection);
-        UpdateBlock();
+        OnPlayerEnter(player, playerDirection);
+        PlayerInteract(player, playerDirection);
     }
 
 
-    protected virtual void OnPlayerBump(List<Player> players, Vector2Int playerDirection) {}
+    protected virtual void OnPlayerBump(Player player, Vector2Int playerDirection) {}
 
 
-    public void PlayerBump(List<Player> players, Vector2Int playerDirection)
+    public void PlayerBump(Player player, Vector2Int playerDirection)
     {
-        OnPlayerBump(players, playerDirection);
-        UpdateBlock();
+        OnPlayerBump(player, playerDirection);
+        PlayerInteract(player, playerDirection);
     }
 
 
