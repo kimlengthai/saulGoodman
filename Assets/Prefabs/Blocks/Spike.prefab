@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
-  isTransparent: 1
+  _isTransparent: 0
   isSolid: 0
 --- !u!60 &4661082730562543631
 PolygonCollider2D:
