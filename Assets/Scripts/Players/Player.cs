@@ -40,9 +40,7 @@ public class Player : MonoBehaviour
                 if (block != null)
                     block.PlayerEnter(this, direction);
                 coroutinesToPlay.Add(MovementAnimation(Game.board.GetBlockPosition(coords)));
-
             }
-            
         }
     }
 
@@ -87,6 +85,7 @@ public class Player : MonoBehaviour
         if (this == null) return;
 
         coords = startingCoords;
+        StartCoroutine(StartAllAnimation());
     }
 
 
