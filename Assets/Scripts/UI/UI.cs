@@ -5,17 +5,17 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI turnRemainingText;
+    [SerializeField] TextMeshProUGUI turnText;
 
 
     public void Start()
     {
-        UpdateTurnRemainingText(Game.maxTurns);
+        UpdateTurnText();
     
     }
 
-    public void UpdateTurnRemainingText(int turnRemaining)
+    public void UpdateTurnText()
     {
-        turnRemainingText.text = "Turn Remaining : " + turnRemaining;
+        turnText.text = "Turn : " + Game.turn;
     }
 }

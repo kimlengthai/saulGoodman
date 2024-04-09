@@ -27,22 +27,33 @@ public class Game : MonoBehaviour
         set
         {
             _turn = value;
-            ui.UpdateTurnRemainingText(maxTurns - _turn);
+            ui.UpdateTurnText();
 
             if (IsGameFinished(out bool won))
             {
                 isPaused = true;
 
                 if (won)
+                {
+                    PlayerPrefs.SetInt("Score", CalcScore());
                     UnityEngine.SceneManagement.SceneManager.LoadScene("LevelCleared", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                }
                 else
+                {
                     UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                }
             }
         }
     }
 
-    [SerializeField] int _maxTurns;
-    public static int maxTurns;
+    [SerializeField] int _threeStarsTurns;
+    public static int threeStarsTurns;
+
+    [SerializeField] int _twoStarsTurns;
+    public static int twoStarsTurns;
+
+    [SerializeField] int _oneStarTurns;
+    public static int oneStarTurns;
 
     public static Player[] players;
 
@@ -52,7 +63,9 @@ public class Game : MonoBehaviour
         ui = _ui;
         mainPlayer = _mainPlayer;
         chasedPlayer = _chasedPlayer;
-        maxTurns = _maxTurns;
+        threeStarsTurns = _threeStarsTurns;
+        twoStarsTurns = _twoStarsTurns;
+        oneStarTurns = _oneStarTurns;
         players = new Player[] { mainPlayer, chasedPlayer };
 
         isInitialized = true;
@@ -69,11 +82,6 @@ public class Game : MonoBehaviour
         if (mainPlayer.coords == chasedPlayer.coords)
         {
             won = true;
-            return true;
-        }
-
-        if (turn >= maxTurns)
-        {
             return true;
         }
 
@@ -96,11 +104,24 @@ public class Game : MonoBehaviour
         {
             if (!player.CanSeeEveryPlayers())
             {
-                mainPlayer.visibilityLine.SetColors(Color.red, Color.red);
+                mainPlayer.visibilityLine.startColor = Color.red;
+                mainPlayer.visibilityLine.endColor = Color.red;
                 player.Die();
             }
 
         }
+    }
+
+
+    static public int CalcScore()
+    {
+        if (turn <= threeStarsTurns)
+            return 3;
+        else if (turn <= twoStarsTurns)
+            return 2;
+        else if (turn <= oneStarTurns)
+            return 1;
+        return 0;
     }
 
 
