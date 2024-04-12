@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1207094122618114558}
   - component: {fileID: 4915061238321768043}
   - component: {fileID: 2633269795045668643}
+  - component: {fileID: 5325343818013272767}
   m_Layer: 0
   m_Name: MovingBlock
   m_TagString: Untagged
@@ -105,3 +106,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5325343818013272767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8235809904065877677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47536cf39e426f041bc6f491e91a6ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+  startingCoords: {x: 0, y: 0}
+  _isTransparent: 0
+  isSolid: 0
