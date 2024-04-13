@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 [ExecuteInEditMode]
 public class Game : MonoBehaviour
 {
-    public static bool isInitialized = false;
+    public static string[] levels = new string[]
+    {
+        "Tutorial 1", "Tutorial 2", "Tutorial 3", "Tutorial 4",
+        /*"Level 1.1", "Level 1.2", "Level 1.3",*/ "Level 1.4",
+        // "Level 2.1", "Level 2.2", "Level 2.3", "Level 2.4",
+        // "Level 3.1", "Level 3.2", "Level 3.3", "Level 3.4",
+        "Level 4.1", //"Level 4.2", "Level 4.3", "Level 4.4",
+    };
     public static bool isPaused = false;
 
     [SerializeField] Board _board;
@@ -35,12 +44,13 @@ public class Game : MonoBehaviour
 
                 if (won)
                 {
+                    print(mainPlayer.coords + " " + chasedPlayer.coords);
                     PlayerPrefs.SetInt("Score", CalcScore());
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("LevelCleared", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                    SceneManager.LoadScene("LevelCleared", LoadSceneMode.Additive);
                 }
                 else
                 {
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("GameOver", UnityEngine.SceneManagement.LoadSceneMode.Additive);
+                    SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
                 }
             }
         }
@@ -66,10 +76,20 @@ public class Game : MonoBehaviour
         threeStarsTurns = _threeStarsTurns;
         twoStarsTurns = _twoStarsTurns;
         oneStarTurns = _oneStarTurns;
-        players = new Player[] { mainPlayer, chasedPlayer };
 
-        isInitialized = true;
+        players = new Player[] { mainPlayer, chasedPlayer };
     }
+
+
+    public void Start()
+    {
+        foreach (Player player in players)
+            player.InitCoords();
+        
+        turn = 0;
+        isPaused = false;
+    }
+
 
     static bool IsGameFinished(out bool won)
     {
@@ -137,8 +157,10 @@ public class Game : MonoBehaviour
         turn++;
     }
 
+    #if UNITY_EDITOR
     void OnValidate()
     {
         Awake();
     }
+    #endif
 }

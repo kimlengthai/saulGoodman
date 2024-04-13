@@ -134,6 +134,7 @@ public class Block : MonoBehaviour
     }
 
 
+    #if UNITY_EDITOR
     void OnValidate()
     {
         // Check if the block is in the scene or is a prefab
@@ -147,4 +148,5 @@ public class Block : MonoBehaviour
             UpdateBlock();
         };
     }
+    #endif
 }

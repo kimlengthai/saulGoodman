@@ -53,8 +53,13 @@ public class Player : MonoBehaviour
 
     public void Start()
     {
-        coords = startingCoords;
         animator = GetComponent<Animator>();
+    }
+
+
+    public void InitCoords()
+    {
+        coords = startingCoords;
     }
 
 
@@ -88,7 +93,7 @@ public class Player : MonoBehaviour
         StartCoroutine(StartAllAnimation());
     }
 
-
+    #if UNITY_EDITOR
     void OnValidate()
     {
         // Check if the block is in the scene or is a prefab
@@ -96,6 +101,7 @@ public class Player : MonoBehaviour
 
         UnityEditor.EditorApplication.delayCall += UpdatePlayer;
     }
+    #endif
 
 
     public void Die()

@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [ExecuteInEditMode]
 public class Board : MonoBehaviour
 {
-
+    public string levelName;
     public int width;
     public int height;
 
@@ -25,6 +26,12 @@ public class Board : MonoBehaviour
     {
         blocks = new Block[width, height];
         ResetOffset();
+    }
+
+
+    public void Start()
+    {
+        levelName = SceneManager.GetActiveScene().name;
     }
 
 
@@ -171,10 +178,12 @@ public class Board : MonoBehaviour
     }
 
 
+    #if UNITY_EDITOR
     void OnValidate()
     {
         Awake();
 
         UnityEditor.EditorApplication.delayCall += UpdateBoard;
     }
+    #endif
 }
