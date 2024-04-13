@@ -113,7 +113,7 @@ public class Board : MonoBehaviour
 
     public bool CanPlayerMoveTo(Player player, Vector2Int coords)
     {
-        if (!IsInsideBoard(coords))
+        if (!IsInsideBoard(coords) || player.isDead)
             return false;
         
         Block block = GetBlock(coords);

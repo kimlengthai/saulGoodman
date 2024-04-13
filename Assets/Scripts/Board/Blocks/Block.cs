@@ -56,6 +56,8 @@ public class Block : MonoBehaviour
 
     public virtual bool CanPlayerMoveInside(Player player)
     {
+        if (player.isDead) return false;
+
         return !isSolid;
     }
 
