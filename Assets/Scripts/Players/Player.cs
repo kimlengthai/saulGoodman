@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
-    List<IEnumerator> coroutinesToPlay = new List<IEnumerator>();
+    PriorityQueue<IEnumerator, float> coroutinesToPlay = new PriorityQueue<IEnumerator, float>();
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
             {
                 if (block != null)
                     block.PlayerBump(this, value - coords);
-                coroutinesToPlay.Add(BumpIntoWallAnimation(value));
+                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value), 0f);
             }
             else
             {
@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
                 if (block != null)
                     block.PlayerEnter(this, direction);
-                coroutinesToPlay.Add(MovementAnimation(Game.board.GetBlockPosition(coords)));
+                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)), 0f);
             }
         }
     }
@@ -70,12 +70,9 @@ public class Player : MonoBehaviour
     }
 
 
-    public virtual void Update() {}
-
-
-    IEnumerator StartAllAnimation()
+    public IEnumerator StartAllAnimations()
     {
-        List<IEnumerator> coroutines = new List<IEnumerator>(coroutinesToPlay);
+        PriorityQueue<IEnumerator, float> coroutines = coroutinesToPlay.Clone();
         coroutinesToPlay.Clear();
 
         foreach (IEnumerator coroutine in coroutines)
@@ -88,7 +85,7 @@ public class Player : MonoBehaviour
     public void OnTurnChange(Vector2Int direction)
     {
         coords += direction;
-        StartCoroutine(StartAllAnimation());
+        StartCoroutine(StartAllAnimations());
     }
 
 
@@ -98,6 +95,7 @@ public class Player : MonoBehaviour
 
         ForceCoords(startingCoords);
     }
+
 
     #if UNITY_EDITOR
     void OnValidate()
@@ -115,7 +113,14 @@ public class Player : MonoBehaviour
         if (!Application.isPlaying) return;
         
         isDead = true;
+        coroutinesToPlay.Enqueue(DieAnimation(), -1f);
+    }
+
+
+    IEnumerator DieAnimation()
+    {
         particleSystem.Play();
+        yield return new WaitForSeconds(particleSystem.main.duration);
     }
 
 

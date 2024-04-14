@@ -50,6 +50,9 @@ public class Game : MonoBehaviour
                 {
                     SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
                 }
+
+                foreach (Player player in players)
+                    player.StartCoroutine(player.StartAllAnimations());
             }
         }
     }
@@ -102,12 +105,7 @@ public class Game : MonoBehaviour
                 visibilityLine.transform.parent = visibilityLinesObject.transform;
 
                 LineRenderer lineRenderer = visibilityLine.GetComponent<LineRenderer>();
-                lineRenderer.startWidth = 0.1f;
-                lineRenderer.endWidth = 0.1f;
-                lineRenderer.startColor = Color.green;
-                lineRenderer.endColor = Color.green;
-                lineRenderer.sortingOrder = 1000;
-                lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+                InitLineRenderer(lineRenderer);
                 visibilityLines.Add(lineRenderer, new Player[] { players[i], players[j] });
             }
         }
@@ -115,6 +113,17 @@ public class Game : MonoBehaviour
 
         turn = 0;
         isPaused = false;
+    }
+
+
+    void InitLineRenderer(LineRenderer lineRenderer)
+    {
+        lineRenderer.startWidth = 0.1f;
+        lineRenderer.endWidth = 0.1f;
+        lineRenderer.startColor = Color.green;
+        lineRenderer.endColor = Color.green;
+        lineRenderer.sortingOrder = 1000;
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
     }
 
 
@@ -189,9 +198,7 @@ public class Game : MonoBehaviour
     static void OnPlayersTurnChange(Vector2Int playerDirection)
     {
         foreach (Player player in players)
-        {
             player.OnTurnChange(playerDirection);
-        }
     }
 
 
