@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public bool isDead = false;
 
+    bool isAnimating = false;
+
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
@@ -28,18 +30,18 @@ public class Player : MonoBehaviour
 
             if (!Game.board.CanPlayerMoveTo(this, value))
             {
+                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value), 0f);
                 if (block != null)
                     block.PlayerBump(this, value - coords);
-                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value), 0f);
             }
             else
             {
                 Vector2Int direction = value - coords;
                 _coords = value;
 
+                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)), 0f);
                 if (block != null)
                     block.PlayerEnter(this, direction);
-                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)), 0f);
             }
         }
     }
@@ -57,6 +59,13 @@ public class Player : MonoBehaviour
     }
 
 
+    public void Update()
+    {
+        if (!isAnimating && coroutinesToPlay.Count > 0)
+            StartCoroutine(StartAllAnimations());
+    }
+
+
     public void ForceCoords(Vector2Int coords)
     {
         _coords = coords;
@@ -70,22 +79,27 @@ public class Player : MonoBehaviour
     }
 
 
-    public IEnumerator StartAllAnimations()
+    IEnumerator StartAllAnimations()
     {
+        if (isAnimating || coroutinesToPlay.Count == 0) yield break;
+        isAnimating = true;
+
         PriorityQueue<IEnumerator, float> coroutines = coroutinesToPlay.Clone();
         coroutinesToPlay.Clear();
 
         foreach (IEnumerator coroutine in coroutines)
-        {
             yield return StartCoroutine(coroutine);
-        }
+
+        isAnimating = false;
+
+        if (coroutinesToPlay.Count > 0)
+            StartCoroutine(StartAllAnimations());
     }
 
 
     public void OnTurnChange(Vector2Int direction)
     {
         coords += direction;
-        StartCoroutine(StartAllAnimations());
     }
 
 

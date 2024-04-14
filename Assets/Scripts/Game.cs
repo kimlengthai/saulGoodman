@@ -50,9 +50,6 @@ public class Game : MonoBehaviour
                 {
                     SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
                 }
-
-                foreach (Player player in players)
-                    player.StartCoroutine(player.StartAllAnimations());
             }
         }
     }

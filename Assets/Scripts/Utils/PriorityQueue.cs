@@ -76,7 +76,7 @@ public class PriorityQueue<T, U> : IEnumerable<T> where U : IComparable<U>
     {
         PriorityQueue<T, U> clone = new PriorityQueue<T, U>();
 
-        for (int i = elements.Count - 1; i >= 0; i--)
+        for (int i = 0; i < elements.Count; i++)
             clone.Enqueue(elements[i], priorities[i]);
 
         return clone;
