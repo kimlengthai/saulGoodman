@@ -6,10 +6,12 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Block : MonoBehaviour
 {
+    public string blockName;
+    [HideInInspector] public bool shouldInit = true;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     protected Collider2D collision;
     [SerializeField] Vector2Int startingCoords;
-    [SerializeField] bool _isTransparent = false;
+    [SerializeField] bool _isTransparent;
     protected bool isTransparent
     {
         get { return !collision.enabled; }
@@ -39,12 +41,25 @@ public class Block : MonoBehaviour
     }
 
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         collision = GetComponent<Collider2D>();
+    }
+
+
+    public virtual void Start()
+    {
+        if (shouldInit)
+            Init();
+
+        UpdateBlock();
+    }
+
+
+    protected virtual void Init()
+    {
         isTransparent = _isTransparent;
         coords = startingCoords;
-        UpdateBlock();
     }
 
 
@@ -131,6 +146,26 @@ public class Block : MonoBehaviour
         }
 
         spriteRenderer.color = targetColor;
+    }
+
+
+    public virtual Dictionary<string, object> GetData()
+    {
+        Dictionary<string, object> data = new Dictionary<string, object>();
+
+        data["coords"] = coords;
+        data["isTransparent"] = isTransparent;
+        data["isSolid"] = isSolid;
+
+        return data;
+    }
+
+
+    public virtual void SetData(Dictionary<string, object> data)
+    {
+        coords = (Vector2Int)data["coords"];
+        isTransparent = (bool)data["isTransparent"];
+        isSolid = (bool)data["isSolid"];
     }
 
 

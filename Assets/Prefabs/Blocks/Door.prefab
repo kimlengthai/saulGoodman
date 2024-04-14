@@ -103,8 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807254794ec4646dd9b8a63dcd55b416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Door
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
-  isTransparent: 0
+  _isTransparent: 0
   isSolid: 1
   animationSpeed: 5
+  _open: 0

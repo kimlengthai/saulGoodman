@@ -14,17 +14,14 @@ public class BlockBreakable : Block
         {
             _durability = value;
             if (_durability <= 0)
-            {
                 Game.board.RemoveBlock(coords);
-                Destroy(gameObject);
-            }
         }
     }
 
 
-    public override void Start()
+    protected override void Init()
     {
-        base.Start();
+        base.Init();
         durability = startingDurability;
     }
 
@@ -33,5 +30,20 @@ public class BlockBreakable : Block
     {
         base.OnPlayerBump(player, playerDirection);
         durability--;
+    }
+
+
+    public override Dictionary<string, object> GetData()
+    {
+        Dictionary<string, object> data = base.GetData();
+        data.Add("durability", durability);
+        return data;
+    }
+
+
+    public override void SetData(Dictionary<string, object> data)
+    {
+        base.SetData(data);
+        durability = (int)data["durability"];
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 
 
 [ExecuteInEditMode]
@@ -15,19 +16,17 @@ public class Game : MonoBehaviour
         // "Level 3.1", "Level 3.2", "Level 3.3", "Level 3.4",
         "Level 4.1", //"Level 4.2", "Level 4.3", "Level 4.4",
     };
+
+    public List<GameObject> blockPrefabs = new List<GameObject>();
+    public static Dictionary<string, GameObject> blockNameToPrefab = new Dictionary<string, GameObject>();
     public static bool isPaused = false;
+    public static Dictionary<LineRenderer, Player[]> visibilityLines = new Dictionary<LineRenderer, Player[]>();
 
     [SerializeField] Board _board;
     public static Board board;
 
     [SerializeField] UI _ui;
     public static UI ui;
-
-    [SerializeField] MainPlayer _mainPlayer;
-    public static MainPlayer mainPlayer;
-
-    [SerializeField] ChasedPlayer _chasedPlayer;
-    public static ChasedPlayer chasedPlayer;
 
     static int _turn = 0;
     public static int turn
@@ -44,7 +43,6 @@ public class Game : MonoBehaviour
 
                 if (won)
                 {
-                    print(mainPlayer.coords + " " + chasedPlayer.coords);
                     PlayerPrefs.SetInt("Score", CalcScore());
                     SceneManager.LoadScene("LevelCleared", LoadSceneMode.Additive);
                 }
@@ -65,19 +63,25 @@ public class Game : MonoBehaviour
     [SerializeField] int _oneStarTurns;
     public static int oneStarTurns;
 
+    [SerializeField] Player[] _players;
     public static Player[] players;
 
     public void Awake()
     {
         board = _board;
         ui = _ui;
-        mainPlayer = _mainPlayer;
-        chasedPlayer = _chasedPlayer;
         threeStarsTurns = _threeStarsTurns;
         twoStarsTurns = _twoStarsTurns;
         oneStarTurns = _oneStarTurns;
+        players = _players;
 
-        players = new Player[] { mainPlayer, chasedPlayer };
+        foreach (GameObject blockPrefab in blockPrefabs)
+        {
+            Block block = blockPrefab.GetComponent<Block>();
+            if (block == null)
+                throw new Exception($"Block prefab {blockPrefab.name} does not have a Block component attached to it.");
+            blockNameToPrefab[block.blockName] = blockPrefab;
+        }
     }
 
 
@@ -86,8 +90,81 @@ public class Game : MonoBehaviour
         foreach (Player player in players)
             player.InitCoords();
         
+        DestroyImmediate(GameObject.Find("Visibility Lines"));
+        GameObject visibilityLinesObject = new GameObject("Visibility Lines");
+
+        visibilityLines.Clear();
+        for (int i = 0; i < players.Length; i++)
+        {
+            for (int j = i + 1; j < players.Length; j++)
+            {
+                GameObject visibilityLine = new GameObject("Visibility Line", typeof(LineRenderer));
+                visibilityLine.transform.parent = visibilityLinesObject.transform;
+
+                LineRenderer lineRenderer = visibilityLine.GetComponent<LineRenderer>();
+                lineRenderer.startWidth = 0.1f;
+                lineRenderer.endWidth = 0.1f;
+                lineRenderer.startColor = Color.green;
+                lineRenderer.endColor = Color.green;
+                lineRenderer.sortingOrder = 1000;
+                lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+                visibilityLines.Add(lineRenderer, new Player[] { players[i], players[j] });
+            }
+        }
+        UpdateVisibilityLines();
+
         turn = 0;
         isPaused = false;
+    }
+
+
+    public void Update()
+    {
+        UpdateVisibilityLines();
+    }
+
+
+    void OnUp()
+    {
+        OnTurnChange(Vector2Int.up);
+    }
+
+    void OnDown()
+    {
+        OnTurnChange(Vector2Int.down);
+    }
+
+    void OnLeft()
+    {
+        OnTurnChange(Vector2Int.left);
+    }
+
+    void OnRight()
+    {
+        OnTurnChange(Vector2Int.right);
+    }
+
+
+    static void UpdateVisibilityLines()
+    {
+        foreach (KeyValuePair<LineRenderer, Player[]> visibilityLine in visibilityLines)
+        {
+            visibilityLine.Key.SetPosition(0, visibilityLine.Value[0].transform.position);
+            visibilityLine.Key.SetPosition(1, visibilityLine.Value[1].transform.position);
+        }
+    }
+
+
+    static bool AllPlayersHaveSameCoords()
+    {
+        if (players.Length == 0)
+            return true;
+
+        Vector2Int coords = players[0].coords;
+        foreach (Player player in players)
+            if (player.coords != coords)
+                return false;
+        return true;
     }
 
 
@@ -99,7 +176,7 @@ public class Game : MonoBehaviour
             if (player.isDead)
                 return true;
         
-        if (mainPlayer.coords == chasedPlayer.coords)
+        if (AllPlayersHaveSameCoords())
         {
             won = true;
             return true;
@@ -120,15 +197,15 @@ public class Game : MonoBehaviour
 
     static void CheckPlayersVisibility()
     {
-        foreach (Player player in players)
+        foreach (KeyValuePair<LineRenderer, Player[]> visibilityLine in visibilityLines)
         {
-            if (!player.CanSeeEveryPlayers())
+            if (!visibilityLine.Value[0].CanSeePlayer(visibilityLine.Value[1]))
             {
-                mainPlayer.visibilityLine.startColor = Color.red;
-                mainPlayer.visibilityLine.endColor = Color.red;
-                player.Die();
+                visibilityLine.Key.startColor = Color.red;
+                visibilityLine.Key.endColor = Color.red;
+                visibilityLine.Value[0].Die();
+                visibilityLine.Value[1].Die();
             }
-
         }
     }
 
@@ -155,7 +232,10 @@ public class Game : MonoBehaviour
         CheckPlayersVisibility();
 
         turn++;
+
+        board.SaveBoardState();
     }
+
 
     #if UNITY_EDITOR
     void OnValidate()

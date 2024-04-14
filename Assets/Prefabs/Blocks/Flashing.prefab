@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53d771032758f46b2a8c335778c2107f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Flashing
   spriteRenderer: {fileID: 3009656883961168450}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0

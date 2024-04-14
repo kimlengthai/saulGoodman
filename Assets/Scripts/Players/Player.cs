@@ -57,9 +57,16 @@ public class Player : MonoBehaviour
     }
 
 
+    public void ForceCoords(Vector2Int coords)
+    {
+        _coords = coords;
+        transform.position = Game.board.GetBlockPosition(coords);
+    }
+
+
     public void InitCoords()
     {
-        coords = startingCoords;
+        ForceCoords(startingCoords);
     }
 
 
@@ -89,8 +96,7 @@ public class Player : MonoBehaviour
     {
         if (this == null) return;
 
-        coords = startingCoords;
-        StartCoroutine(StartAllAnimation());
+        ForceCoords(startingCoords);
     }
 
     #if UNITY_EDITOR
@@ -106,29 +112,19 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        if (!Application.isPlaying) return;
+        
         isDead = true;
         particleSystem.Play();
     }
 
 
-    bool CanSeePlayer(Player player)
+    public bool CanSeePlayer(Player player)
     {
         if (player == this)
             return true;
 
         return Physics2D.Linecast(truePosition, player.truePosition).collider == null;
-    }
-
-
-    public bool CanSeeEveryPlayers()
-    {
-        foreach (Player player in Game.players)
-        {
-            if (!CanSeePlayer(player))
-                return false;
-        }
-
-        return true;
     }
 
 

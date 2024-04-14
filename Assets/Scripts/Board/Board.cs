@@ -7,9 +7,11 @@ using UnityEngine.SceneManagement;
 [ExecuteInEditMode]
 public class Board : MonoBehaviour
 {
-    public string levelName;
+    [HideInInspector] public string levelName;
     public int width;
     public int height;
+
+    List<BoardState> boardStates = new List<BoardState>();
 
     Vector2 offset;
 
@@ -17,8 +19,8 @@ public class Board : MonoBehaviour
     [SerializeField] float blockHeight;
 
     [SerializeField] GameObject emptyBlockPrefab;
-    [SerializeField] GameObject backgroud;
-    [SerializeField] GameObject blocksParent;
+    GameObject background;
+    public GameObject blocksParent;
 
     Block[,] blocks;
 
@@ -32,6 +34,9 @@ public class Board : MonoBehaviour
     public void Start()
     {
         levelName = SceneManager.GetActiveScene().name;
+
+        boardStates.Clear();
+        SaveBoardState();
     }
 
 
@@ -83,6 +88,10 @@ public class Board : MonoBehaviour
             return;
         }
 
+        if (blocks[coords.x, coords.y] == null)
+            return;
+
+        Destroy(blocks[coords.x, coords.y].gameObject);
         blocks[coords.x, coords.y] = null;
     }
 
@@ -109,6 +118,14 @@ public class Board : MonoBehaviour
 
         blocks[to.x, to.y] = blocks[from.x, from.y];
         blocks[from.x, from.y] = null;
+    }
+
+
+    public void Clear()
+    {
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                RemoveBlock(new Vector2Int(x, y));
     }
 
 
@@ -146,16 +163,17 @@ public class Board : MonoBehaviour
     {
         if (this == null) return;
 
-        DestroyImmediate(backgroud);
+        if (background == null)
+            background = GameObject.Find("Background");
+        DestroyImmediate(background);
 
-        backgroud = new GameObject("Background");
-        backgroud.transform.parent = transform;
+        background = new GameObject("Background");
         
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
             {
-                GameObject newBlock = Instantiate(emptyBlockPrefab, backgroud.transform);
+                GameObject newBlock = Instantiate(emptyBlockPrefab, background.transform);
                 newBlock.transform.position = GetBlockPosition(new Vector2Int(x, y));
                 newBlock.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
                 newBlock.name = $"({x}, {y})";
@@ -175,6 +193,24 @@ public class Board : MonoBehaviour
             player.coords = player.coords;
             player.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
         }
+    }
+
+
+    public void UndoLastMove()
+    {
+        if (boardStates.Count <= 1)
+            return;
+
+        boardStates.RemoveAt(boardStates.Count - 1);
+        boardStates[boardStates.Count - 1].Restore(this);
+
+        Game.turn--;
+    }
+
+
+    public void SaveBoardState()
+    {
+        boardStates.Add(new BoardState(this));
     }
 
 

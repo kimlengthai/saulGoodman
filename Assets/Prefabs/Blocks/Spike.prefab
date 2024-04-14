@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f1af39d91b58440d83f8137acd91850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Spike
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0

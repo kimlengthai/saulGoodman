@@ -18,17 +18,13 @@ public class BlockButton : Block
     void UnlockDoors()
     {
         foreach (BlockDoor door in doorsToUnlock)
-        {
-            door.Unlock();
-        }
+            door.open = true;
     }
 
 
     void LockDoors()
     {
         foreach (BlockDoor door in doorsToUnlock)
-        {
-            door.Lock();
-        }
+            door.open = false;
     }
 }

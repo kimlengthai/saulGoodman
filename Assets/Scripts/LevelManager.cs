@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
 
     public void UndoLastMove()
     {
-
+        Game.board.UndoLastMove();
     }
 
 

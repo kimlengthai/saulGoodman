@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c392429f7cda6e545a9e99e89e6a39e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Button
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
-  isTransparent: 0
+  _isTransparent: 0
   isSolid: 1
   doorsToUnlock: []
   animationSpeed: 5

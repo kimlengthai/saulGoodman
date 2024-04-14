@@ -6,6 +6,27 @@ public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
 
+    [SerializeField] bool _open = false;
+    public bool open
+    {
+        get => _open;
+        set
+        {
+            _open = value;
+            isSolid = !value;
+            isTransparent = value;
+            UpdateSprite();
+        }
+    }
+
+
+    protected override void UpdateBlock()
+    {
+        open = _open;
+        base.UpdateBlock();
+    }
+
+
     protected override void UpdateSprite()
     {
         StartCoroutine(ChangeSpriteColor(new Color(
@@ -17,18 +38,17 @@ public class BlockDoor : Block
     }
 
 
-    public void Unlock()
+    public override Dictionary<string, object> GetData()
     {
-        isSolid = false;
-        isTransparent = true;
-        UpdateSprite();
+        Dictionary<string, object> data = base.GetData();
+        data.Add("open", open);
+        return data;
     }
 
 
-    public void Lock()
+    public override void SetData(Dictionary<string, object> data)
     {
-        isSolid = true;
-        isTransparent = false;
-        UpdateSprite();
+        base.SetData(data);
+        open = (bool)data["open"];
     }
 }

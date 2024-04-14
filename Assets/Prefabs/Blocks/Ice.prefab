@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf13483d814bfbc4181c1260c1c23840, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Ice
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1

@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02578fb4ab1a14430a97a9a621ff57d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockName: Breakable
   spriteRenderer: {fileID: 5378547562867623168}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
