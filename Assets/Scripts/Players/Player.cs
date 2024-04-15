@@ -9,13 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] new ParticleSystem particleSystem;
 
     [HideInInspector] public bool isDead = false;
-
-    bool isAnimating = false;
+    [HideInInspector] public bool isAnimating = false;
 
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
-    PriorityQueue<IEnumerator, float> coroutinesToPlay = new PriorityQueue<IEnumerator, float>();
+    Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -30,7 +29,7 @@ public class Player : MonoBehaviour
 
             if (!Game.board.CanPlayerMoveTo(this, value))
             {
-                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value), 0f);
+                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value));
                 if (block != null)
                     block.PlayerBump(this, value - coords);
             }
@@ -39,7 +38,7 @@ public class Player : MonoBehaviour
                 Vector2Int direction = value - coords;
                 _coords = value;
 
-                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)), 0f);
+                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
                 if (block != null)
                     block.PlayerEnter(this, direction);
             }
@@ -56,13 +55,7 @@ public class Player : MonoBehaviour
     public void Start()
     {
         animator = GetComponent<Animator>();
-    }
-
-
-    public void Update()
-    {
-        if (!isAnimating && coroutinesToPlay.Count > 0)
-            StartCoroutine(StartAllAnimations());
+        StartCoroutine(PlayerAnimationsLoop());
     }
 
 
@@ -79,21 +72,19 @@ public class Player : MonoBehaviour
     }
 
 
-    IEnumerator StartAllAnimations()
+    IEnumerator PlayerAnimationsLoop()
     {
-        if (isAnimating || coroutinesToPlay.Count == 0) yield break;
-        isAnimating = true;
-
-        PriorityQueue<IEnumerator, float> coroutines = coroutinesToPlay.Clone();
-        coroutinesToPlay.Clear();
-
-        foreach (IEnumerator coroutine in coroutines)
-            yield return StartCoroutine(coroutine);
-
-        isAnimating = false;
-
-        if (coroutinesToPlay.Count > 0)
-            StartCoroutine(StartAllAnimations());
+        while (true)
+        {
+            while (coroutinesToPlay.Count == 0)
+            {
+                isAnimating = false;
+                yield return null;
+            }
+            
+            isAnimating = true;
+            yield return StartCoroutine(coroutinesToPlay.Dequeue());
+        }
     }
 
 
@@ -124,10 +115,8 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
-        if (!Application.isPlaying) return;
-        
         isDead = true;
-        coroutinesToPlay.Enqueue(DieAnimation(), -1f);
+        coroutinesToPlay.Enqueue(DieAnimation());
     }
 
 
@@ -138,12 +127,20 @@ public class Player : MonoBehaviour
     }
 
 
-    public bool CanSeePlayer(Player player)
+    public bool CanSeePlayer(Player player, out Block[] obstacles)
     {
+        obstacles = null;
+
         if (player == this)
             return true;
 
-        return Physics2D.Linecast(truePosition, player.truePosition).collider == null;
+        RaycastHit2D[] hits = Physics2D.LinecastAll(truePosition, player.truePosition);
+
+        obstacles = new Block[hits.Length];
+        for (int i = 0; i < hits.Length; i++)
+            obstacles[i] = hits[i].collider.GetComponent<Block>();
+        
+        return hits.Length == 0;
     }
 
 

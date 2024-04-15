@@ -7,6 +7,7 @@ using UnityEngine;
 public class Block : MonoBehaviour
 {
     public string blockName;
+    [HideInInspector] public Color defaultColor;
     [HideInInspector] public bool shouldInit = true;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     protected Collider2D collision;
@@ -52,6 +53,7 @@ public class Block : MonoBehaviour
         if (shouldInit)
             Init();
 
+        defaultColor = spriteRenderer.color;
         UpdateBlock();
     }
 
@@ -133,7 +135,7 @@ public class Block : MonoBehaviour
     }
 
 
-    protected IEnumerator ChangeSpriteColor(Color targetColor, float animationSpeed)
+    public IEnumerator ChangeSpriteColor(Color targetColor, float animationSpeed)
     {
         float timeRatio = 0;
         Color initialColor = spriteRenderer.color;

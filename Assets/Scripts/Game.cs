@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using System.Linq;
 
 
 [ExecuteInEditMode]
@@ -28,6 +29,8 @@ public class Game : MonoBehaviour
     [SerializeField] UI _ui;
     public static UI ui;
 
+    public static Game game;
+
     static int _turn = 0;
     public static int turn
     {
@@ -38,19 +41,7 @@ public class Game : MonoBehaviour
             ui.UpdateTurnText();
 
             if (IsGameFinished(out bool won))
-            {
-                isPaused = true;
-
-                if (won)
-                {
-                    PlayerPrefs.SetInt("Score", CalcScore());
-                    SceneManager.LoadScene("LevelCleared", LoadSceneMode.Additive);
-                }
-                else
-                {
-                    SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
-                }
-            }
+                OnGameFinish(won);
         }
     }
 
@@ -66,8 +57,11 @@ public class Game : MonoBehaviour
     [SerializeField] Player[] _players;
     public static Player[] players;
 
+    public static Queue<IEnumerator> coroutinesToPlayAtEnd = new Queue<IEnumerator>();
+
     public void Awake()
     {
+        game = this;
         board = _board;
         ui = _ui;
         threeStarsTurns = _threeStarsTurns;
@@ -110,6 +104,37 @@ public class Game : MonoBehaviour
 
         turn = 0;
         isPaused = false;
+    }
+
+
+    static void OnGameFinish(bool won)
+    {
+        isPaused = true;
+        game.StartCoroutine(GameAnimationsEndLoop());
+
+        if (won)
+        {
+            PlayerPrefs.SetInt("Score", CalcScore());
+            coroutinesToPlayAtEnd.Enqueue(LevelClearedAnimation());
+        }
+        else
+        {
+            coroutinesToPlayAtEnd.Enqueue(GameOverAniamtion());
+        }
+    }
+
+
+    static IEnumerator LevelClearedAnimation()
+    {
+        yield return null;
+        SceneManager.LoadScene("LevelCleared", LoadSceneMode.Additive);
+    }
+
+
+    static IEnumerator GameOverAniamtion()
+    {
+        yield return null;
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
     }
 
 
@@ -203,14 +228,47 @@ public class Game : MonoBehaviour
     {
         foreach (KeyValuePair<LineRenderer, Player[]> visibilityLine in visibilityLines)
         {
-            if (!visibilityLine.Value[0].CanSeePlayer(visibilityLine.Value[1]))
+            if (!visibilityLine.Value[0].CanSeePlayer(visibilityLine.Value[1], out Block[] obstacles))
             {
-                visibilityLine.Key.startColor = Color.red;
-                visibilityLine.Key.endColor = Color.red;
-                visibilityLine.Value[0].Die();
-                visibilityLine.Value[1].Die();
+                visibilityLine.Value[0].isDead = true;
+                visibilityLine.Value[1].isDead = true;
+
+                coroutinesToPlayAtEnd.Enqueue(PlayerLostVisibilityAnimation(visibilityLine, obstacles));
             }
         }
+    }
+
+
+    static IEnumerator PlayerLostVisibilityAnimation(KeyValuePair<LineRenderer, Player[]> visibilityLine, Block[] obstacles)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            visibilityLine.Key.startColor = Color.green;
+            visibilityLine.Key.endColor = Color.green;
+            foreach (Block obstacle in obstacles)
+                obstacle.StartCoroutine(obstacle.ChangeSpriteColor(obstacle.defaultColor, 1 / 0.1f));
+            yield return new WaitForSeconds(0.1f);
+            visibilityLine.Key.startColor = Color.red;
+            visibilityLine.Key.endColor = Color.red;
+            foreach (Block obstacle in obstacles)
+                obstacle.StartCoroutine(obstacle.ChangeSpriteColor(Color.red, 1 / 0.1f));
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        visibilityLine.Value[0].Die();
+        visibilityLine.Value[1].Die();
+    }
+
+
+    static IEnumerator GameAnimationsEndLoop()
+    {
+        yield return null;
+
+        while (players.Any(player => player.isAnimating))
+            yield return null;
+        
+        while (coroutinesToPlayAtEnd.Count > 0)
+            yield return game.StartCoroutine(coroutinesToPlayAtEnd.Dequeue());
     }
 
 
