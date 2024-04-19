@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlockBreakable : Block
 {
     [SerializeField] int startingDurability = 1;
+    [SerializeField] Sprite[] spriteSheet;
 
     int _durability;
     int durability
@@ -45,5 +46,16 @@ public class BlockBreakable : Block
     {
         base.SetData(data);
         durability = (int)data["durability"];
+    }
+
+
+    protected override void UpdateSprite()
+    {
+        base.UpdateSprite();
+
+        if (durability <= 0)
+            return;
+        
+        spriteRenderer.sprite = spriteSheet[startingDurability - durability];
     }
 }

@@ -102,8 +102,18 @@ public class Game : MonoBehaviour
         }
         UpdateVisibilityLines();
 
+        StartCoroutine(StartGame());
+    }
+
+
+    public IEnumerator StartGame()
+    {
+        yield return null;
+
         turn = 0;
         isPaused = false;
+
+        board.ResetBoardState();
     }
 
 

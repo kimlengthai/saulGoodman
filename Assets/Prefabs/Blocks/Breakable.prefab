@@ -12,13 +12,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakable
       objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -57,16 +65,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1562323998, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.g
-      value: 0.6811326
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -94,11 +118,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Breakable
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  shouldInit: 1
   spriteRenderer: {fileID: 5378547562867623168}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
   isSolid: 1
-  startingDurability: 1
+  startingDurability: 3
+  spriteSheet:
+  - {fileID: 1562323998, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
+  - {fileID: -514302504, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
+  - {fileID: -1969796826, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
 --- !u!212 &5378547562867623168 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}

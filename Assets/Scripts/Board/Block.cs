@@ -158,6 +158,9 @@ public class Block : MonoBehaviour
         data["coords"] = coords;
         data["isTransparent"] = isTransparent;
         data["isSolid"] = isSolid;
+        data["position"] = transform.localPosition;
+        data["rotation"] = transform.localRotation;
+        data["scale"] = transform.localScale;
 
         return data;
     }
@@ -168,6 +171,9 @@ public class Block : MonoBehaviour
         coords = (Vector2Int)data["coords"];
         isTransparent = (bool)data["isTransparent"];
         isSolid = (bool)data["isSolid"];
+        transform.localPosition = (Vector3)data["position"];
+        transform.localRotation = (Quaternion)data["rotation"];
+        transform.localScale = (Vector3)data["scale"];
     }
 
 

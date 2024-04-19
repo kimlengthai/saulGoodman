@@ -34,7 +34,11 @@ public class Board : MonoBehaviour
     public void Start()
     {
         levelName = SceneManager.GetActiveScene().name;
+    }
 
+
+    public void ResetBoardState()
+    {
         boardStates.Clear();
         SaveBoardState();
     }
