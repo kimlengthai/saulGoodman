@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
-    public Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
+    Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
             if (!Game.board.CanPlayerMoveTo(this, value))
             {
-                coroutinesToPlay.Enqueue(BumpIntoWallAnimation(value));
+                AddAnimationToQueue(BumpIntoWallAnimation(value));
                 if (block != null)
                     block.PlayerBump(this, value - coords);
             }
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
                 Vector2Int direction = value - coords;
                 _coords = value;
 
-                coroutinesToPlay.Enqueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
+                AddAnimationToQueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
                 if (block != null)
                     block.PlayerEnter(this, direction);
             }
@@ -56,6 +56,12 @@ public class Player : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         StartCoroutine(PlayerAnimationsLoop());
+    }
+
+
+    public void AddAnimationToQueue(IEnumerator animation)
+    {
+        coroutinesToPlay.Enqueue(animation);
     }
 
 
@@ -116,7 +122,7 @@ public class Player : MonoBehaviour
     public void Die()
     {
         isDead = true;
-        coroutinesToPlay.Enqueue(DieAnimation());
+        AddAnimationToQueue(DieAnimation());
     }
 
 

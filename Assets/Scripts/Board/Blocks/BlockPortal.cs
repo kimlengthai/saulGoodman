@@ -11,7 +11,9 @@ public class BlockPortal : Block
     {
         base.OnPlayerEnter(player, playerDirection);
         player.ForceCoords(destinationPortal.coords);
-        player.coroutinesToPlay.Enqueue(player.MovementAnimation(Game.board.GetBlockPosition(destinationPortal.coords)));
+
+        Vector2 destinationPosition = Game.board.GetBlockPosition(destinationPortal.coords);
+        player.AddAnimationToQueue(player.MovementAnimation(destinationPosition));
     }
 
 
