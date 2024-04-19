@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     Animator animator;
 
     [SerializeField] Vector2Int startingCoords;
-    Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
+    public Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -62,13 +62,6 @@ public class Player : MonoBehaviour
     public void ForceCoords(Vector2Int coords)
     {
         _coords = coords;
-        transform.position = Game.board.GetBlockPosition(coords);
-    }
-
-
-    public void InitCoords()
-    {
-        ForceCoords(startingCoords);
     }
 
 
@@ -94,11 +87,18 @@ public class Player : MonoBehaviour
     }
 
 
-    void UpdatePlayer()
+    public void UpdatePlayerCoords()
+    {
+        transform.position = truePosition;
+    }
+
+
+    public void UpdatePlayerToStartingCoords()
     {
         if (this == null) return;
 
         ForceCoords(startingCoords);
+        UpdatePlayerCoords();
     }
 
 
@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         // Check if the block is in the scene or is a prefab
         if (transform.parent == null) return;
 
-        UnityEditor.EditorApplication.delayCall += UpdatePlayer;
+        UnityEditor.EditorApplication.delayCall += UpdatePlayerToStartingCoords;
     }
     #endif
 
@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
     }
 
 
-    IEnumerator MovementAnimation(Vector2 target)
+    public IEnumerator MovementAnimation(Vector2 target)
     {
         Vector2 startPosition = transform.position;
         float timeRatio = 0f;

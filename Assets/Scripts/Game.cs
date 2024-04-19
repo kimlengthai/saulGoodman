@@ -82,7 +82,7 @@ public class Game : MonoBehaviour
     public void Start()
     {
         foreach (Player player in players)
-            player.InitCoords();
+            player.UpdatePlayerToStartingCoords();
         
         DestroyImmediate(GameObject.Find("Visibility Lines"));
         GameObject visibilityLinesObject = new GameObject("Visibility Lines");

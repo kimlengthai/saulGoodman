@@ -19,6 +19,7 @@ public class PlayerState
     public void Restore(Player player)
     {
         player.ForceCoords(coords);
+        player.UpdatePlayerCoords();
         player.isDead = isDead;
     }
 }

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8667200463661328743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Name
+      value: Bump
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.43268514
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -6882578043024414410}
+  m_SourcePrefab: {fileID: 100100000, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+--- !u!212 &3263879468731701731 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+  m_PrefabInstance: {fileID: 8667200463661328743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8678926768671641441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+  m_PrefabInstance: {fileID: 8667200463661328743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &-6882578043024414410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8678926768671641441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f70e5831f41d4b44a3b4ad371d3874b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: Bump
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  shouldInit: 1
+  spriteRenderer: {fileID: 3263879468731701731}
+  startingCoords: {x: 0, y: 0}
+  _isTransparent: 0
+  isSolid: 1
