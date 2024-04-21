@@ -19,7 +19,6 @@ public class BlockDoor : Block
             _open = value;
             isSolid = !open;
             isTransparent = open;
-            print("Setting open to " + value + " -> " + CanSeeThrough());
             UpdateSprite();
             Game.board.OnBoardChange();
         }

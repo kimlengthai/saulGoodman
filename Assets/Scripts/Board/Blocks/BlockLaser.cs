@@ -49,8 +49,6 @@ public class BlockLaser : Block
             beam.transform.position = Game.board.GetBlockPosition(beamCoords);
             beam.transform.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
         }
-
-        print("Updating sprite at " + coords + " with direction " + direction + " -> " + GetLaserPath().Count + " blocks long.");
     }
 
 
