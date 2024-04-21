@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
                 
                 AddAnimationToQueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
 
-                Game.board.OnBoardChange();
+                StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
 
                 if (block != null)
                     block.PlayerEnter(this, direction);

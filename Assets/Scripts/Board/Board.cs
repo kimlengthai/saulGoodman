@@ -79,12 +79,19 @@ public class Board : MonoBehaviour
     }
 
 
-    public void OnBoardChange()
+    void OnBoardChange()
     {
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
                 if (blocks[x, y] != null)
                     blocks[x, y].BoardChange();
+    }
+
+
+    public IEnumerator OnBoardChangeEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        OnBoardChange();
     }
 
 

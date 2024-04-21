@@ -40,8 +40,7 @@ public class Game : MonoBehaviour
             _turn = value;
             ui.UpdateTurnText();
 
-            if (IsGameFinished(out bool won))
-                OnGameFinish(won);
+            game.StartCoroutine(OnGameFinish());
         }
     }
 
@@ -117,8 +116,13 @@ public class Game : MonoBehaviour
     }
 
 
-    static void OnGameFinish(bool won)
+    static IEnumerator OnGameFinish()
     {
+        yield return null;
+
+        if (!IsGameFinished(out bool won))
+            yield break;
+
         isPaused = true;
         game.StartCoroutine(GameAnimationsEndLoop());
 
