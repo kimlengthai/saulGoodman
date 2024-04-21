@@ -13,10 +13,18 @@ public class BlockDoor : Block
         set
         {
             _open = value;
-            isSolid = !value;
-            isTransparent = value;
-            UpdateSprite();
+            StartCoroutine(ChangeStateEndOfFrame());
         }
+    }
+
+
+    IEnumerator ChangeStateEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+
+        isSolid = !open;
+        isTransparent = open;
+        UpdateSprite();
     }
 
 

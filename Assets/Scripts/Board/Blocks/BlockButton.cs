@@ -34,7 +34,7 @@ public class BlockButton : Block
 
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
     {
-        pressed = true;
+        pressed = !pressed;
     }
 
 

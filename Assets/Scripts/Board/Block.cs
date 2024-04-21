@@ -20,8 +20,12 @@ public class Block : MonoBehaviour
     }
     [SerializeField] protected bool isSolid;
 
-    [HideInInspector] public bool hasInit = false;
-    Vector2Int _coords;
+    public bool hasInit
+    {
+        get => IsPlacedInBoard();
+    }
+
+    Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
     {
         get { return _coords; }
@@ -57,8 +61,6 @@ public class Block : MonoBehaviour
 
         defaultColor = spriteRenderer.color;
         UpdateBlock();
-
-        hasInit = true;
     }
 
 
@@ -128,6 +130,7 @@ public class Block : MonoBehaviour
     {
         OnPlayerInteract(player, playerDirection);
         UpdateBlock();
+        Game.board.OnBoardChange();
     }
 
 
