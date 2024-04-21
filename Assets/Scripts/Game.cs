@@ -118,7 +118,7 @@ public class Game : MonoBehaviour
 
     static IEnumerator OnGameFinish()
     {
-        yield return null;
+        yield return new WaitForFixedUpdate();
 
         if (!IsGameFinished(out bool won))
             yield break;
