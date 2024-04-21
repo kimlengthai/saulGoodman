@@ -6,27 +6,41 @@ public class BlockButton : Block
 {
     [SerializeField] List<BlockDoor> doorsToUnlock;
     [SerializeField] float animationSpeed;
+    bool isPressed = false;
+
+
+    protected override void OnTurnChange()
+    {
+        isPressed = false;
+    }
 
 
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
     {
-        StartCoroutine(ChangeDoorsStateEndOfFrame());
+        isPressed = true;
     }
 
 
-    IEnumerator ChangeDoorsStateEndOfFrame()
+    protected override void OnTurnEnd()
     {
-        yield return new WaitForEndOfFrame();
-
-        foreach (BlockDoor door in doorsToUnlock)
-            door.open = !door.open;
+        if (isPressed)
+            foreach (BlockDoor door in doorsToUnlock)
+                door.open = !door.open;
     }
 
 
     protected override void UpdateSprite()
     {
-        StartCoroutine(ChangeSpriteColor(Color.green, animationSpeed));
-        StartCoroutine(ChangeSpriteColor(defaultColor, animationSpeed));
+        base.UpdateSprite();
+        if (isPressed)
+            StartCoroutine(PressAnimation());
+    }
+
+
+    IEnumerator PressAnimation()
+    {
+        yield return ChangeSpriteColor(Color.green, animationSpeed);
+        yield return ChangeSpriteColor(defaultColor, animationSpeed);
     }
 
 

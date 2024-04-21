@@ -113,6 +113,15 @@ public class Block : MonoBehaviour
     }
 
 
+    protected virtual void OnTurnEnd() {}
+
+    public void TurnEnd()
+    {
+        OnTurnEnd();
+        UpdateBlock();
+    }
+
+
     protected virtual void UpdateBlock()
     {
         coords = _coords;

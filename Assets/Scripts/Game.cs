@@ -307,6 +307,7 @@ public class Game : MonoBehaviour
 
         board.OnTurnChange();
         OnPlayersTurnChange(playerDirection);
+        board.OnTurnEnd();
 
         turn++;
 

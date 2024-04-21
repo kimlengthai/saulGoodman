@@ -199,6 +199,16 @@ public class Board : MonoBehaviour
     }
 
 
+    public void OnTurnEnd()
+    {
+        foreach (Block block in blocks)
+        {
+            if (block != null)
+                block.TurnEnd();
+        }
+    }
+
+
     void UpdateBoard()
     {
         if (this == null) return;
