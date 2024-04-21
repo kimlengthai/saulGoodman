@@ -12,6 +12,9 @@ public class BlockLaser : Block
     {
         List<Vector2Int> path = new List<Vector2Int>();
 
+        if (direction == Vector2Int.zero)
+            return path;
+
         Block block;
         Vector2Int currentCoords = coords;
         do

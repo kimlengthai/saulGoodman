@@ -206,8 +206,8 @@ public class Block : MonoBehaviour
         {
             if (this == null) return;
 
-            coords = startingCoords;
-            UpdateBlock();
+            Init();
+            Game.board.OnBoardChange();
         };
     }
     #endif

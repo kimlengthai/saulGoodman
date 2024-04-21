@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0499997
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.0499997
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -88,10 +88,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2782793570383683959}
+      addedObject: {fileID: 4661082730562543631}
     - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4661082730562543631}
+      addedObject: {fileID: 2782793570383683959}
   m_SourcePrefab: {fileID: 100100000, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
 --- !u!212 &1777204683765708770 stripped
 SpriteRenderer:
@@ -103,23 +103,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
   m_PrefabInstance: {fileID: 5596377628233697126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2782793570383683959
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5590087274302742880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f1af39d91b58440d83f8137acd91850, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blockName: Spike
-  spriteRenderer: {fileID: 1777204683765708770}
-  startingCoords: {x: 0, y: 0}
-  _isTransparent: 0
-  isSolid: 0
 --- !u!60 &4661082730562543631
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -168,3 +151,22 @@ PolygonCollider2D:
       - {x: -0.501, y: -0.501}
       - {x: 0.501, y: -0.501}
   m_UseDelaunayMesh: 0
+--- !u!114 &2782793570383683959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590087274302742880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f1af39d91b58440d83f8137acd91850, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockName: Spike
+  defaultColor: {r: 0, g: 0, b: 0, a: 1}
+  shouldInit: 1
+  spriteRenderer: {fileID: 1777204683765708770}
+  startingCoords: {x: 0, y: 0}
+  _isTransparent: 0
+  isSolid: 0

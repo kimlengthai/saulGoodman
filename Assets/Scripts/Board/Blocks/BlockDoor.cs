@@ -6,25 +6,26 @@ public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
 
-    [SerializeField] bool _open = false;
+    [SerializeField] bool startingOpen = false;
+
+    bool _open;
     public bool open
     {
         get => _open;
         set
         {
             _open = value;
-            StartCoroutine(ChangeStateEndOfFrame());
+            isSolid = !open;
+            isTransparent = open;
+            UpdateSprite();
         }
     }
 
 
-    IEnumerator ChangeStateEndOfFrame()
+    protected override void Init()
     {
-        yield return new WaitForEndOfFrame();
-
-        isSolid = !open;
-        isTransparent = open;
-        UpdateSprite();
+        base.Init();
+        open = startingOpen;
     }
 
 

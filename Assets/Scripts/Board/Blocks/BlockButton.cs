@@ -7,54 +7,26 @@ public class BlockButton : Block
     [SerializeField] List<BlockDoor> doorsToUnlock;
     [SerializeField] float animationSpeed;
 
-    [SerializeField] bool startingPressed = false;
-
-    bool _pressed;
-    bool pressed
-    {
-        get { return _pressed; }
-        set
-        {
-            _pressed = value;
-
-            if (pressed)
-                UnlockDoors();
-            else
-                LockDoors();
-        }
-    }
-
-
-    protected override void Init()
-    {
-        base.Init();
-        pressed = startingPressed;
-    }
-
 
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
     {
-        pressed = !pressed;
+        StartCoroutine(ChangeDoorsStateEndOfFrame());
+    }
+
+
+    IEnumerator ChangeDoorsStateEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+
+        foreach (BlockDoor door in doorsToUnlock)
+            door.open = !door.open;
     }
 
 
     protected override void UpdateSprite()
     {
-        StartCoroutine(ChangeSpriteColor(pressed ? Color.green : defaultColor, animationSpeed));
-    }
-
-
-    void UnlockDoors()
-    {
-        foreach (BlockDoor door in doorsToUnlock)
-            door.open = true;
-    }
-
-
-    void LockDoors()
-    {
-        foreach (BlockDoor door in doorsToUnlock)
-            door.open = false;
+        StartCoroutine(ChangeSpriteColor(Color.green, animationSpeed));
+        StartCoroutine(ChangeSpriteColor(defaultColor, animationSpeed));
     }
 
 
@@ -62,7 +34,6 @@ public class BlockButton : Block
     {
         Dictionary<string, object> data = base.GetData();
         data["doorsToUnlock"] = doorsToUnlock.ConvertAll(door => door.coords);
-        data["pressed"] = pressed;
         return data;
     }
 
@@ -71,7 +42,6 @@ public class BlockButton : Block
     {
         base.SetData(data);
         StartCoroutine(ResetDoorsToUnlockFromData(data));
-        pressed = (bool)data["pressed"];
     }
 
 

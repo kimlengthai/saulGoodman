@@ -79,7 +79,7 @@ public class Board : MonoBehaviour
     }
 
 
-    void OnBoardChange()
+    public void OnBoardChange()
     {
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)

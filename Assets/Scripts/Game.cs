@@ -216,6 +216,8 @@ public class Game : MonoBehaviour
     static bool IsGameFinished(out bool won)
     {
         won = false;
+
+        CheckPlayersVisibility();
         
         foreach (Player player in players)
             if (player.isDead)
@@ -305,7 +307,6 @@ public class Game : MonoBehaviour
 
         board.OnTurnChange();
         OnPlayersTurnChange(playerDirection);
-        CheckPlayersVisibility();
 
         turn++;
 
