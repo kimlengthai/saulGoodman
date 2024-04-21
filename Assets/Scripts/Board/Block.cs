@@ -130,7 +130,6 @@ public class Block : MonoBehaviour
     {
         OnPlayerInteract(player, playerDirection);
         UpdateBlock();
-        StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
     }
 
 

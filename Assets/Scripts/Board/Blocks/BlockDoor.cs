@@ -5,19 +5,23 @@ using UnityEngine;
 public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
-
     [SerializeField] bool startingOpen = false;
 
-    bool _open;
+    bool? _open = null;
     public bool open
     {
-        get => _open;
+        get => _open ?? startingOpen;
         set
         {
+            if (_open == value)
+                return;
+
             _open = value;
             isSolid = !open;
             isTransparent = open;
+            print("Setting open to " + value + " -> " + CanSeeThrough());
             UpdateSprite();
+            Game.board.OnBoardChange();
         }
     }
 
@@ -31,7 +35,7 @@ public class BlockDoor : Block
 
     protected override void UpdateBlock()
     {
-        open = _open;
+        open = _open ?? startingOpen;
         base.UpdateBlock();
     }
 

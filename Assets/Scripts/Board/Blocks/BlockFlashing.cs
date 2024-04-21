@@ -5,16 +5,23 @@ using UnityEngine;
 public class BlockFlashing : Block
 {
     [SerializeField] float animationSpeed = 5f;
+    [SerializeField] Sprite[] sprites;
 
 
     protected override void UpdateSprite()
     {
-        StartCoroutine(ChangeSpriteColor(new Color(
-            spriteRenderer.color.r,
-            spriteRenderer.color.g,
-            spriteRenderer.color.b,
-            isTransparent ? 0.5f : 1f
-        ), animationSpeed));
+        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+        StartCoroutine(FlashingAnimation());
+    }
+
+
+    IEnumerator FlashingAnimation()
+    {
+        for (int i = 0; i < sprites.Length; i++)
+        {
+            spriteRenderer.sprite = isTransparent ? sprites[sprites.Length - i - 1] : sprites[i];
+            yield return new WaitForSeconds(1 / animationSpeed);
+        }
     }
 
 

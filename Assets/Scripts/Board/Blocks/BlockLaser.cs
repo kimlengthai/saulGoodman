@@ -35,11 +35,11 @@ public class BlockLaser : Block
 
         transform.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
 
-        GameObject beamSprites = transform.Find("BeamSprites")?.gameObject;
-        if (beamSprites != null)
-            DestroyImmediate(beamSprites);
+        foreach (Transform child in transform)
+            if (child.name == "BeamSprites")
+                DestroyImmediate(child.gameObject);
         
-        beamSprites = new GameObject("BeamSprites");
+        GameObject beamSprites = new GameObject("BeamSprites");
         beamSprites.transform.SetParent(transform);
         beamSprites.transform.localPosition = Vector3.zero;
 
@@ -49,6 +49,8 @@ public class BlockLaser : Block
             beam.transform.position = Game.board.GetBlockPosition(beamCoords);
             beam.transform.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
         }
+
+        print("Updating sprite at " + coords + " with direction " + direction + " -> " + GetLaserPath().Count + " blocks long.");
     }
 
 

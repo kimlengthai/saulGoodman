@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Name
-      value: BlockFlashing
+      value: Flashing
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
@@ -18,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,16 +65,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4280464, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.r
-      value: 0
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
@@ -100,8 +104,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Flashing
+  defaultColor: {r: 1, g: 1, b: 1, a: 0.5}
+  shouldInit: 1
   spriteRenderer: {fileID: 3009656883961168450}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
   isSolid: 1
-  animationSpeed: 5
+  animationSpeed: 20
+  sprites:
+  - {fileID: -722175337, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: -1110310004, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: 1265620516, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: -4280464, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}

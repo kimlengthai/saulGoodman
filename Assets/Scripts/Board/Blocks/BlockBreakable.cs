@@ -7,15 +7,20 @@ public class BlockBreakable : Block
     [SerializeField] int startingDurability = 1;
     [SerializeField] Sprite[] spriteSheet;
 
-    int _durability;
+    int _durability = -1;
     int durability
     {
         get => _durability;
         set
         {
+            if (durability == value)
+                return;
+            
             _durability = value;
             if (_durability <= 0)
                 Game.board.RemoveBlock(coords);
+            
+            Game.board.OnBoardChange();
         }
     }
 
