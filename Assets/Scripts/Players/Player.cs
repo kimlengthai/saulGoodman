@@ -37,8 +37,11 @@ public class Player : MonoBehaviour
             {
                 Vector2Int direction = value - coords;
                 _coords = value;
-
+                
                 AddAnimationToQueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
+
+                Game.board.OnBoardChange();
+
                 if (block != null)
                     block.PlayerEnter(this, direction);
             }

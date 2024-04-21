@@ -19,6 +19,8 @@ public class Block : MonoBehaviour
         set { collision.enabled = !value; }
     }
     [SerializeField] protected bool isSolid;
+
+    [HideInInspector] public bool hasInit = false;
     Vector2Int _coords;
     public Vector2Int coords
     {
@@ -55,6 +57,8 @@ public class Block : MonoBehaviour
 
         defaultColor = spriteRenderer.color;
         UpdateBlock();
+
+        hasInit = true;
     }
 
 
@@ -82,6 +86,18 @@ public class Block : MonoBehaviour
     public virtual bool CanSeeThrough()
     {
         return isTransparent;
+    }
+
+
+    protected virtual void OnBoardChange() {}
+
+
+    public void BoardChange()
+    {
+        if (!hasInit) return;
+
+        OnBoardChange();
+        UpdateBlock();
     }
 
 

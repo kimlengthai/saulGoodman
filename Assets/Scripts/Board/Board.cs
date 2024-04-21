@@ -24,6 +24,25 @@ public class Board : MonoBehaviour
 
     Block[,] blocks;
 
+
+    bool _hasInit = false;
+    public bool hasInit
+    {
+        get
+        {
+            if (!_hasInit)
+                return false;
+            
+            for (int x = 0; x < width; x++)
+                for (int y = 0; y < height; y++)
+                    if (blocks[x, y] != null && !blocks[x, y].hasInit)
+                        return false;
+            
+            return true;
+        }
+    }
+
+
     public void Awake()
     {
         blocks = new Block[width, height];
@@ -34,6 +53,7 @@ public class Board : MonoBehaviour
     public void Start()
     {
         levelName = SceneManager.GetActiveScene().name;
+        _hasInit = true;
     }
 
 
@@ -53,9 +73,18 @@ public class Board : MonoBehaviour
     }
 
 
-    bool IsInsideBoard(Vector2Int coords)
+    public bool IsInsideBoard(Vector2Int coords)
     {
         return (coords.x >= 0 && coords.x < width && coords.y >= 0 && coords.y < height);
+    }
+
+
+    public void OnBoardChange()
+    {
+        for (int x = 0; x < width; x++)
+            for (int y = 0; y < height; y++)
+                if (blocks[x, y] != null)
+                    blocks[x, y].BoardChange();
     }
 
 
@@ -67,7 +96,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public void SetBlock(Block block, Vector2Int coords)
+    public void SetBlock(Block block, Vector2Int coords, bool boardChange = true)
     {
         if (!IsInsideBoard(coords))
         {
@@ -81,10 +110,13 @@ public class Board : MonoBehaviour
         }
 
         blocks[coords.x, coords.y] = block;
+
+        if (boardChange)
+            OnBoardChange();
     }
 
 
-    public void RemoveBlock(Vector2Int coords)
+    public void RemoveBlock(Vector2Int coords, bool boardChange = true)
     {
         if (!IsInsideBoard(coords))
         {
@@ -97,10 +129,13 @@ public class Board : MonoBehaviour
 
         Destroy(blocks[coords.x, coords.y].gameObject);
         blocks[coords.x, coords.y] = null;
+
+        if (boardChange)
+            OnBoardChange();
     }
 
 
-    public void MoveBlock(Vector2Int from, Vector2Int to)
+    public void MoveBlock(Vector2Int from, Vector2Int to, bool boardChange = true)
     {
         if (!IsInsideBoard(from) || !IsInsideBoard(to))
         {
@@ -122,14 +157,20 @@ public class Board : MonoBehaviour
 
         blocks[to.x, to.y] = blocks[from.x, from.y];
         blocks[from.x, from.y] = null;
+
+        if (boardChange)
+            OnBoardChange();
     }
 
 
-    public void Clear()
+    public void Clear(bool boardChange = true)
     {
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
-                RemoveBlock(new Vector2Int(x, y));
+                RemoveBlock(new Vector2Int(x, y), false);
+        
+        if (boardChange)
+            OnBoardChange();
     }
 
 

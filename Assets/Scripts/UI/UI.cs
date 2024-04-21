@@ -11,7 +11,6 @@ public class UI : MonoBehaviour
     public void Start()
     {
         UpdateTurnText();
-    
     }
 
     public void UpdateTurnText()
