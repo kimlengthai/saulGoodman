@@ -77,7 +77,7 @@ public class Block : MonoBehaviour
     }
 
 
-    public virtual bool CanPlayerMoveInside(Player player)
+    public virtual bool CanPlayerMoveInside(Player player, Vector2Int playerDirection)
     {
         if (player.isDead) return false;
 

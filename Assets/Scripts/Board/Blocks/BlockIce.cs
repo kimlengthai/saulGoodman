@@ -14,7 +14,7 @@ public class BlockIce : Block
     {
         Vector2Int nextCoords = player.coords + playerDirection;
 
-        while (Game.board.CanPlayerMoveTo(player, nextCoords))
+        while (Game.board.CanPlayerMoveTo(player, nextCoords, playerDirection))
         {
             player.coords = nextCoords;
             nextCoords = player.coords + playerDirection;

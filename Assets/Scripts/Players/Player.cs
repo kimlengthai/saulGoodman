@@ -26,8 +26,9 @@ public class Player : MonoBehaviour
                 return;
             
             Block block = Game.board.GetBlock(value);
+            Vector2Int direction = value - coords;
 
-            if (!Game.board.CanPlayerMoveTo(this, value))
+            if (!Game.board.CanPlayerMoveTo(this, value, direction))
             {
                 AddAnimationToQueue(BumpIntoWallAnimation(value));
                 if (block != null)
@@ -35,7 +36,6 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Vector2Int direction = value - coords;
                 _coords = value;
                 
                 AddAnimationToQueue(MovementAnimation(Game.board.GetBlockPosition(coords)));

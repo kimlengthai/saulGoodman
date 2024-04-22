@@ -175,7 +175,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public bool CanPlayerMoveTo(Player player, Vector2Int coords)
+    public bool CanPlayerMoveTo(Player player, Vector2Int coords, Vector2Int playerDirection)
     {
         if (!IsInsideBoard(coords) || player.isDead)
             return false;
@@ -185,7 +185,7 @@ public class Board : MonoBehaviour
         if (block == null)
             return true;
         
-        return block.CanPlayerMoveInside(player);
+        return block.CanPlayerMoveInside(player, playerDirection);
     }
 
 
