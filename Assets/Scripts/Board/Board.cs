@@ -54,6 +54,7 @@ public class Board : MonoBehaviour
     {
         levelName = SceneManager.GetActiveScene().name;
         _hasInit = true;
+        StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
     }
 
 
