@@ -6,6 +6,10 @@ public class BlockPushable : Block
 {
     protected override void OnPlayerEnter(Player player, Vector2Int playerDirection)
     {
+        Block nextBlock = Game.board.GetBlock(coords + playerDirection);
+        if (nextBlock is BlockPushable)
+            nextBlock.PlayerEnter(player, playerDirection);
+
         base.OnPlayerEnter(player, playerDirection);
         coords += playerDirection;
     }
@@ -18,6 +22,14 @@ public class BlockPushable : Block
         if (!Game.board.IsInsideBoard(nextCoords))
             return false;
         
-        return Game.board.GetBlock(nextCoords) == null;
+        Block nextBlock = Game.board.GetBlock(nextCoords);
+
+        if (nextBlock == null)
+            return true;
+        
+        if (nextBlock is BlockPushable)
+            return nextBlock.CanPlayerMoveInside(player, playerDirection);
+        
+        return false;
     }
 }
