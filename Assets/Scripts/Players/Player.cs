@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         if (player == this)
             return true;
 
-        RaycastHit2D[] hits = Physics2D.LinecastAll(truePosition, player.truePosition);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(truePosition, player.truePosition, LayerMask.GetMask("Blocks"));
 
         obstacles = new Block[hits.Length];
         for (int i = 0; i < hits.Length; i++)
