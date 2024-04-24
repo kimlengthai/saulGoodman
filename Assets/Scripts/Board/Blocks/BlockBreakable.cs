@@ -61,6 +61,6 @@ public class BlockBreakable : Block
         if (durability <= 0)
             return;
         
-        spriteRenderer.sprite = spriteSheet[startingDurability - durability];
+        spriteRenderer.sprite = spriteSheet[3 - durability];
     }
 }
