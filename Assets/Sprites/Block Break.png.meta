@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 80b369b5e984f4a459b3464b2cee0374
+guid: 3b340576ae18147ac94351d3af1cc37c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -133,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7c52142db01346449f61ba95f32c961
-      internalID: 1562323998
+      spriteID: 1a32ad66345de4266a778de6bc43b1fa
+      internalID: 893859131
       vertices: []
       indices: 
       edges: []
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: afadf16692c4b4ed4943b09c71a5b927
-      internalID: -514302504
+      spriteID: 4640a4bd699b94d47afe201fb5e46822
+      internalID: 1456089282
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d9f71967396b04738b6ef8a14be3d9d4
-      internalID: -1969796826
+      spriteID: 65538c0a0542c4a24933a929d841e94a
+      internalID: 1089864759
       vertices: []
       indices: 
       edges: []
@@ -192,9 +192,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Block Break_0: 1562323998
-      Block Break_1: -514302504
-      Block Break_2: -1969796826
+      Block Break_0: 893859131
+      Block Break_1: 1456089282
+      Block Break_2: 1089864759
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.4
+      value: -4.0499997
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -3.1499999
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -65,11 +65,23 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -4280464, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+      objectReference: {fileID: 350633816, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -104,15 +116,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Flashing
-  defaultColor: {r: 1, g: 1, b: 1, a: 0.5}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   shouldInit: 1
   spriteRenderer: {fileID: 3009656883961168450}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
-  isSolid: 1
   animationSpeed: 20
   sprites:
-  - {fileID: -722175337, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
-  - {fileID: -1110310004, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
-  - {fileID: 1265620516, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
-  - {fileID: -4280464, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: 778964486, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: 1401227620, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: -905232897, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}
+  - {fileID: 350633816, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}

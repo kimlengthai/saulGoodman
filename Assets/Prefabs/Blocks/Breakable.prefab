@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.5
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
@@ -26,11 +26,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.5
+      value: -4.0499997
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: -3.1499999
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -66,16 +66,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Size.x
-      value: 1
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Size.y
-      value: 1
+      value: 0.64
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1562323998, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
+      objectReference: {fileID: 893859131, guid: 3b340576ae18147ac94351d3af1cc37c, type: 3}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_DrawMode
       value: 0
@@ -106,17 +106,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Breakable
-  defaultColor: {r: 1, g: 1, b: 1, a: 0.5}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   shouldInit: 1
   spriteRenderer: {fileID: 5378547562867623168}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
-  isSolid: 1
   startingDurability: 3
   spriteSheet:
-  - {fileID: 1562323998, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
-  - {fileID: -514302504, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
-  - {fileID: -1969796826, guid: 80b369b5e984f4a459b3464b2cee0374, type: 3}
+  - {fileID: 893859131, guid: 3b340576ae18147ac94351d3af1cc37c, type: 3}
+  - {fileID: 1456089282, guid: 3b340576ae18147ac94351d3af1cc37c, type: 3}
+  - {fileID: 1089864759, guid: 3b340576ae18147ac94351d3af1cc37c, type: 3}
 --- !u!212 &5378547562867623168 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}

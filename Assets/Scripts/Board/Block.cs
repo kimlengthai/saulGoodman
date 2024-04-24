@@ -188,6 +188,8 @@ public class Block : MonoBehaviour
         data["position"] = transform.localPosition;
         data["rotation"] = transform.localRotation;
         data["scale"] = transform.localScale;
+        if (spriteRenderer != null)
+            data["color"] = spriteRenderer.color;
 
         return data;
     }
@@ -200,6 +202,8 @@ public class Block : MonoBehaviour
         transform.localPosition = (Vector3)data["position"];
         transform.localRotation = (Quaternion)data["rotation"];
         transform.localScale = (Vector3)data["scale"];
+        if (spriteRenderer != null)
+            spriteRenderer.color = (Color)data["color"];
     }
 
 

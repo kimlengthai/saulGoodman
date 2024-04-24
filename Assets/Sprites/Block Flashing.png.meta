@@ -133,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e18f9905e15594f2595cd1bde5ab1cdb
-      internalID: -722175337
+      spriteID: c484e4a69c27b487791d9a3384d70625
+      internalID: 778964486
       vertices: []
       indices: 
       edges: []
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa7b1d26650e4416af90c217c3983e7
-      internalID: -1110310004
+      spriteID: 751766a8a4d494237a25c2356e1efac4
+      internalID: 1401227620
       vertices: []
       indices: 
       edges: []
@@ -175,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20f8c126fa372461da1a8287845aec9f
-      internalID: 1265620516
+      spriteID: 8031e21369967434b89d0b7f6fe8f31c
+      internalID: -905232897
       vertices: []
       indices: 
       edges: []
@@ -196,8 +196,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce7efc7fa582e4661a3416b5374be5fe
-      internalID: -4280464
+      spriteID: f090451475fca4a5da471d3cd4f65a51
+      internalID: 350633816
       vertices: []
       indices: 
       edges: []
@@ -213,10 +213,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Block Flashing_0: -722175337
-      Block Flashing_1: -1110310004
-      Block Flashing_2: 1265620516
-      Block Flashing_3: -4280464
+      Block Flashing_0: 778964486
+      Block Flashing_1: 1401227620
+      Block Flashing_2: -905232897
+      Block Flashing_3: 350633816
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
