@@ -28,6 +28,5 @@ public class BlockFlashing : Block
     protected override void OnTurnChange()
     {
         isTransparent = !isTransparent;
-        isSolid = !isSolid;
     }
 }

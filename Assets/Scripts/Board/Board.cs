@@ -19,7 +19,7 @@ public class Board : MonoBehaviour
     [SerializeField] float blockHeight;
 
     [SerializeField] GameObject emptyBlockPrefab;
-    GameObject background;
+    public GameObject background;
     public GameObject blocksParent;
 
     Block[,] blocks;
@@ -54,6 +54,7 @@ public class Board : MonoBehaviour
     {
         levelName = SceneManager.GetActiveScene().name;
         _hasInit = true;
+        StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
     }
 
 
@@ -209,6 +210,15 @@ public class Board : MonoBehaviour
     }
 
 
+    public void AddBackgroundBlock(Vector2Int coords)
+    {
+        GameObject newBlock = Instantiate(emptyBlockPrefab, background.transform);
+        newBlock.transform.position = GetBlockPosition(coords);
+        newBlock.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
+        newBlock.name = $"({coords.x}, {coords.y})";
+    }
+
+
     void UpdateBoard()
     {
         if (this == null) return;
@@ -220,15 +230,8 @@ public class Board : MonoBehaviour
         background = new GameObject("Background");
         
         for (int x = 0; x < width; x++)
-        {
             for (int y = 0; y < height; y++)
-            {
-                GameObject newBlock = Instantiate(emptyBlockPrefab, background.transform);
-                newBlock.transform.position = GetBlockPosition(new Vector2Int(x, y));
-                newBlock.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
-                newBlock.name = $"({x}, {y})";
-            }
-        }
+                AddBackgroundBlock(new Vector2Int(x, y));
 
         foreach (Transform blockTransform in blocksParent.transform)
         {
