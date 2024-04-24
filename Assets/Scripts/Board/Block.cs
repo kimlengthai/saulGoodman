@@ -18,7 +18,6 @@ public class Block : MonoBehaviour
         get { return !collision.enabled; }
         set { collision.enabled = !value; }
     }
-    [SerializeField] protected bool isSolid;
 
     public bool hasInit
     {
@@ -26,7 +25,7 @@ public class Block : MonoBehaviour
     }
 
     Vector2Int _coords = new Vector2Int(-1, -1);
-    public Vector2Int coords
+    public virtual Vector2Int coords
     {
         get { return _coords; }
         set
@@ -59,7 +58,9 @@ public class Block : MonoBehaviour
         if (shouldInit)
             Init();
 
-        defaultColor = spriteRenderer.color;
+        if (spriteRenderer != null)
+            defaultColor = spriteRenderer.color;
+        
         UpdateBlock();
     }
 
@@ -81,7 +82,7 @@ public class Block : MonoBehaviour
     {
         if (player.isDead) return false;
 
-        return !isSolid;
+        return isTransparent;
     }
 
 
@@ -184,7 +185,6 @@ public class Block : MonoBehaviour
 
         data["coords"] = coords;
         data["isTransparent"] = isTransparent;
-        data["isSolid"] = isSolid;
         data["position"] = transform.localPosition;
         data["rotation"] = transform.localRotation;
         data["scale"] = transform.localScale;
@@ -197,7 +197,6 @@ public class Block : MonoBehaviour
     {
         coords = (Vector2Int)data["coords"];
         isTransparent = (bool)data["isTransparent"];
-        isSolid = (bool)data["isSolid"];
         transform.localPosition = (Vector3)data["position"];
         transform.localRotation = (Quaternion)data["rotation"];
         transform.localScale = (Vector3)data["scale"];

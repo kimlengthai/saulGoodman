@@ -17,7 +17,6 @@ public class BlockDoor : Block
                 return;
 
             _open = value;
-            isSolid = !open;
             isTransparent = open;
             UpdateSprite();
             Game.board.OnBoardChange();
@@ -45,7 +44,7 @@ public class BlockDoor : Block
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            isSolid ? 1f : 0.5f
+            isTransparent ? 0.5f : 1f
         ), animationSpeed));
     }
 

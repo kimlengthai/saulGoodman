@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -4.0499997
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2
+      value: -3.1499999
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78,24 +78,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5058631878494785599, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5048423327646198983}
+      addedObject: {fileID: -3188147779939889063}
   m_SourcePrefab: {fileID: 100100000, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
---- !u!212 &1777204683765708770 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-  m_PrefabInstance: {fileID: 5596377628233697126}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5590087274302742880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
   m_PrefabInstance: {fileID: 5596377628233697126}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5048423327646198983
+--- !u!114 &-3188147779939889063
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,11 +100,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5590087274302742880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea4465593db72408ba3a3dc670bc800f, type: 3}
+  m_Script: {fileID: 11500000, guid: 53021bbec32d7402091ba8ead09eae29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Glass
-  spriteRenderer: {fileID: 1777204683765708770}
+  defaultColor: {r: 0, g: 0, b: 0, a: 0}
+  shouldInit: 1
+  spriteRenderer: {fileID: 0}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
-  isSolid: 1
