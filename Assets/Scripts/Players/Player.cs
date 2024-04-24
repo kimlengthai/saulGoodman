@@ -55,6 +55,11 @@ public class Player : MonoBehaviour
 
     public float speed;
 
+    void Awake()
+    {
+        isDead = false;
+    }
+
     public void Start()
     {
         animator = GetComponent<Animator>();
