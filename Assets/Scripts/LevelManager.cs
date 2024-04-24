@@ -41,6 +41,11 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(level);
     }
 
+    public void MainMenuButtonLoader(string level)
+    {
+        SceneManager.LoadScene(level);
+    }
+
     public void LoadMenu()
     {
         SceneManager.LoadScene("Level Menu");
