@@ -492,7 +492,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 797068101}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: MainMenuButtonLoader
+        m_MethodName: LoadLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -626,7 +626,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 797068101}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: MainMenuButtonLoader
+        m_MethodName: LoadLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

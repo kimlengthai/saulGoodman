@@ -210,7 +210,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public void AddBackgroundBlock(Vector2Int coords)
+    void AddBackgroundBlock(Vector2Int coords)
     {
         GameObject newBlock = Instantiate(emptyBlockPrefab, background.transform);
         newBlock.transform.position = GetBlockPosition(coords);
@@ -223,6 +223,14 @@ public class Board : MonoBehaviour
     {
         if (this == null) return;
 
+        foreach (Transform blockTransform in blocksParent.transform)
+        {
+            Block block = blockTransform.GetComponent<Block>();
+
+            block.coords = block.coords;
+            blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
+        }
+
         if (background == null)
             background = GameObject.Find("Background");
         DestroyImmediate(background);
@@ -231,15 +239,8 @@ public class Board : MonoBehaviour
         
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
-                AddBackgroundBlock(new Vector2Int(x, y));
-
-        foreach (Transform blockTransform in blocksParent.transform)
-        {
-            Block block = blockTransform.GetComponent<Block>();
-
-            block.coords = block.coords;
-            blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
-        }
+                if (blocks[x, y] is not BlockVoid)
+                    AddBackgroundBlock(new Vector2Int(x, y));
 
         foreach (Player player in Game.players)
         {
@@ -268,7 +269,7 @@ public class Board : MonoBehaviour
 
 
     #if UNITY_EDITOR
-    void OnValidate()
+    public void OnValidate()
     {
         Awake();
 

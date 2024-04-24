@@ -204,7 +204,7 @@ public class Block : MonoBehaviour
 
 
     #if UNITY_EDITOR
-    void OnValidate()
+    protected virtual void OnValidate()
     {
         // Check if the block is in the scene or is a prefab
         if (transform.parent == null) return;

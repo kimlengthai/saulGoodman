@@ -13,11 +13,13 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(Game.board.levelName);
     }
 
+
     public void UndoLastMove()
     {
         if (Game.isPaused) return;
         Game.board.UndoLastMove();
     }
+
 
     public void LoadNextLevel()
     {
@@ -32,19 +34,12 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(nextLevel);
     }
 
-    public void LoadLevel()
-    { 
-        Button button = GetComponent<Button>();
-        TextMeshProUGUI buttonText = button.GetComponentInChildren<TextMeshProUGUI>();
 
-        string level = buttonText.text;
-        SceneManager.LoadScene(level);
-    }
-
-    public void MainMenuButtonLoader(string level)
+    public void LoadLevel(string level)
     {
         SceneManager.LoadScene(level);
     }
+
 
     public void LoadMenu()
     {

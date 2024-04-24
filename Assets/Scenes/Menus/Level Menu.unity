@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 87181178}
   - component: {fileID: 87181177}
   - component: {fileID: 87181176}
-  - component: {fileID: 87181175}
   m_Layer: 5
   m_Name: Level 4.2
   m_TagString: Untagged
@@ -164,18 +163,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -220}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &87181175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 87181173}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &87181176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,16 +207,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 87181175}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 4.2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &87181177
@@ -282,7 +269,6 @@ GameObject:
   - component: {fileID: 135215723}
   - component: {fileID: 135215722}
   - component: {fileID: 135215721}
-  - component: {fileID: 135215724}
   m_Layer: 5
   m_Name: Tutorial 3
   m_TagString: Untagged
@@ -355,10 +341,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 135215724}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -405,18 +391,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135215719}
   m_CullTransparentMesh: 1
---- !u!114 &135215724
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 135215719}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &162824007
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,7 +630,6 @@ GameObject:
   - component: {fileID: 267220472}
   - component: {fileID: 267220471}
   - component: {fileID: 267220470}
-  - component: {fileID: 267220469}
   m_Layer: 5
   m_Name: Level 1.1
   m_TagString: Untagged
@@ -685,18 +658,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300.00006, y: 20}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &267220469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267220467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &267220470
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,16 +702,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 267220469}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 4
+          m_StringArgument: Level 1.1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &267220471
@@ -938,7 +899,6 @@ GameObject:
   - component: {fileID: 371055465}
   - component: {fileID: 371055464}
   - component: {fileID: 371055463}
-  - component: {fileID: 371055462}
   m_Layer: 5
   m_Name: Level 4.1
   m_TagString: Untagged
@@ -967,18 +927,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300.00006, y: -220}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &371055462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 371055460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &371055463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1023,16 +971,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 371055462}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 4
+          m_StringArgument: Level 4.1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &371055464
@@ -1085,7 +1033,6 @@ GameObject:
   - component: {fileID: 453728886}
   - component: {fileID: 453728885}
   - component: {fileID: 453728884}
-  - component: {fileID: 453728887}
   m_Layer: 5
   m_Name: Tutorial 1
   m_TagString: Untagged
@@ -1158,16 +1105,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 453728887}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Tutorial 1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &453728885
@@ -1208,18 +1155,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453728882}
   m_CullTransparentMesh: 1
---- !u!114 &453728887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 453728882}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &480219757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1167,6 @@ GameObject:
   - component: {fileID: 480219762}
   - component: {fileID: 480219761}
   - component: {fileID: 480219760}
-  - component: {fileID: 480219759}
   m_Layer: 5
   m_Name: Level 4.4
   m_TagString: Untagged
@@ -1261,18 +1195,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -220}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &480219759
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 480219757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &480219760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1317,16 +1239,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 480219759}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 4.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &480219761
@@ -1379,7 +1301,6 @@ GameObject:
   - component: {fileID: 534914351}
   - component: {fileID: 534914350}
   - component: {fileID: 534914349}
-  - component: {fileID: 534914348}
   m_Layer: 5
   m_Name: Level 3.4
   m_TagString: Untagged
@@ -1408,18 +1329,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -140}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &534914348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534914346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &534914349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,16 +1373,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 534914348}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 3.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &534914350
@@ -1526,7 +1435,6 @@ GameObject:
   - component: {fileID: 558882943}
   - component: {fileID: 558882942}
   - component: {fileID: 558882941}
-  - component: {fileID: 558882940}
   m_Layer: 5
   m_Name: Level 1.4
   m_TagString: Untagged
@@ -1555,18 +1463,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: 20}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &558882940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 558882938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &558882941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1611,16 +1507,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 558882940}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 1.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &558882942
@@ -1673,7 +1569,6 @@ GameObject:
   - component: {fileID: 599175146}
   - component: {fileID: 599175145}
   - component: {fileID: 599175144}
-  - component: {fileID: 599175143}
   m_Layer: 5
   m_Name: Level 1.2
   m_TagString: Untagged
@@ -1702,18 +1597,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: 20}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &599175143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599175141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &599175144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1758,16 +1641,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 599175143}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 1.2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &599175145
@@ -2563,7 +2446,6 @@ GameObject:
   - component: {fileID: 845922519}
   - component: {fileID: 845922518}
   - component: {fileID: 845922517}
-  - component: {fileID: 845922516}
   m_Layer: 5
   m_Name: Level 3.2
   m_TagString: Untagged
@@ -2592,18 +2474,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -140}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &845922516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 845922514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &845922517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2648,16 +2518,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 845922516}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 3.2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &845922518
@@ -2902,7 +2772,6 @@ GameObject:
   - component: {fileID: 995875845}
   - component: {fileID: 995875844}
   - component: {fileID: 995875843}
-  - component: {fileID: 995875842}
   m_Layer: 5
   m_Name: Level 2.2
   m_TagString: Untagged
@@ -2931,18 +2800,6 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -60}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &995875842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 995875840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &995875843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2987,16 +2844,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 995875842}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 2.2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &995875844
@@ -3184,7 +3041,6 @@ GameObject:
   - component: {fileID: 1048127816}
   - component: {fileID: 1048127815}
   - component: {fileID: 1048127814}
-  - component: {fileID: 1048127813}
   m_Layer: 5
   m_Name: Level 1.3
   m_TagString: Untagged
@@ -3213,18 +3069,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: 20}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1048127813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1048127811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1048127814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3269,16 +3113,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1048127813}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 1.3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1048127815
@@ -3736,7 +3580,6 @@ GameObject:
   - component: {fileID: 1232529041}
   - component: {fileID: 1232529040}
   - component: {fileID: 1232529039}
-  - component: {fileID: 1232529042}
   m_Layer: 5
   m_Name: Tutorial 2
   m_TagString: Untagged
@@ -3809,10 +3652,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1232529042}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3859,18 +3702,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232529037}
   m_CullTransparentMesh: 1
---- !u!114 &1232529042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232529037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1262172476
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,7 +3817,6 @@ GameObject:
   - component: {fileID: 1336562926}
   - component: {fileID: 1336562925}
   - component: {fileID: 1336562924}
-  - component: {fileID: 1336562923}
   m_Layer: 5
   m_Name: Main Menu
   m_TagString: Untagged
@@ -4014,18 +3844,6 @@ RectTransform:
   m_AnchoredPosition: {x: -500, y: 250}
   m_SizeDelta: {x: 60, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1336562923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1336562921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1336562924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4070,9 +3888,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1336562923}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: MainMenuButtonLoader
+        m_MethodName: LoadLevel
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4267,7 +4085,6 @@ GameObject:
   - component: {fileID: 1533703706}
   - component: {fileID: 1533703705}
   - component: {fileID: 1533703704}
-  - component: {fileID: 1533703703}
   m_Layer: 5
   m_Name: Level 2.1
   m_TagString: Untagged
@@ -4296,18 +4113,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300.00006, y: -60}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1533703703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1533703701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1533703704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4352,16 +4157,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1533703703}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 4
+          m_StringArgument: Level 2.1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1533703705
@@ -4819,7 +4624,6 @@ GameObject:
   - component: {fileID: 1646323029}
   - component: {fileID: 1646323028}
   - component: {fileID: 1646323027}
-  - component: {fileID: 1646323030}
   m_Layer: 5
   m_Name: Tutorial 4
   m_TagString: Untagged
@@ -4892,10 +4696,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1646323030}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4942,18 +4746,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646323025}
   m_CullTransparentMesh: 1
---- !u!114 &1646323030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1646323025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1700707657
 GameObject:
   m_ObjectHideFlags: 0
@@ -5236,7 +5028,6 @@ GameObject:
   - component: {fileID: 1719746031}
   - component: {fileID: 1719746030}
   - component: {fileID: 1719746029}
-  - component: {fileID: 1719746028}
   m_Layer: 5
   m_Name: Level 3.3
   m_TagString: Untagged
@@ -5265,18 +5056,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -140}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1719746028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719746026}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1719746029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5321,16 +5100,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1719746028}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 3.3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1719746030
@@ -5383,7 +5162,6 @@ GameObject:
   - component: {fileID: 1723166203}
   - component: {fileID: 1723166202}
   - component: {fileID: 1723166201}
-  - component: {fileID: 1723166200}
   m_Layer: 5
   m_Name: Level 3.1
   m_TagString: Untagged
@@ -5412,18 +5190,6 @@ RectTransform:
   m_AnchoredPosition: {x: -300.00006, y: -140}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1723166200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1723166198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1723166201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5468,16 +5234,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1723166200}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 4
+          m_StringArgument: Level 3.1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1723166202
@@ -5665,7 +5431,6 @@ GameObject:
   - component: {fileID: 1804110665}
   - component: {fileID: 1804110664}
   - component: {fileID: 1804110663}
-  - component: {fileID: 1804110662}
   m_Layer: 5
   m_Name: Level 2.4
   m_TagString: Untagged
@@ -5694,18 +5459,6 @@ RectTransform:
   m_AnchoredPosition: {x: 300, y: -60}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1804110662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804110660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1804110663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5750,16 +5503,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1804110662}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 2.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1804110664
@@ -5812,7 +5565,6 @@ GameObject:
   - component: {fileID: 2028176905}
   - component: {fileID: 2028176904}
   - component: {fileID: 2028176903}
-  - component: {fileID: 2028176902}
   m_Layer: 5
   m_Name: Level 2.3
   m_TagString: Untagged
@@ -5841,18 +5593,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -60}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2028176902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028176900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2028176903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5897,16 +5637,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2028176902}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 2.3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2028176904
@@ -6094,7 +5834,6 @@ GameObject:
   - component: {fileID: 2111145312}
   - component: {fileID: 2111145311}
   - component: {fileID: 2111145310}
-  - component: {fileID: 2111145309}
   m_Layer: 5
   m_Name: Level 4.3
   m_TagString: Untagged
@@ -6123,18 +5862,6 @@ RectTransform:
   m_AnchoredPosition: {x: 100, y: -220}
   m_SizeDelta: {x: 160, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2111145309
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2111145307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a313869bd6aa94d2693cb958acda4f6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2111145310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6179,16 +5906,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2111145309}
+      - m_Target: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: LoadLevel
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Tutorial 2
+          m_StringArgument: Level 4.3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2111145311
@@ -6241,7 +5968,7 @@ GameObject:
   - component: {fileID: 2119348387}
   - component: {fileID: 2119348386}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Select a level
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

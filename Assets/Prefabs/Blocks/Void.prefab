@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 16229957305837062, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Name
-      value: Glass
+      value: Void
       objectReference: {fileID: 0}
     - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Enabled
@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.0499997
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.1499999
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100,10 +100,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5590087274302742880}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53021bbec32d7402091ba8ead09eae29, type: 3}
+  m_Script: {fileID: 11500000, guid: 3067784a40da1417b8585cac2a1a51aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockName: Glass
+  blockName: Void
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
   shouldInit: 1
   spriteRenderer: {fileID: 0}
