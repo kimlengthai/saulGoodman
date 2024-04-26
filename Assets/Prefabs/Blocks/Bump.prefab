@@ -120,3 +120,4 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3263879468731701731}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
+
