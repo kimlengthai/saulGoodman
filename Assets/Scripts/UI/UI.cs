@@ -23,6 +23,6 @@ public class UI : MonoBehaviour
 
     public void UpdateLevelText()
     {
-        levelText.text = "Level : " + Game.board.levelName;
+        levelText.text = Game.board.levelName.ToString();
     }
 }
