@@ -111,5 +111,4 @@ MonoBehaviour:
   shouldInit: 1
   spriteRenderer: {fileID: 3263879468731701731}
   startingCoords: {x: 0, y: 0}
-  _isTransparent: 0
-  isSolid: 1
+  _isTransparent: 1
