@@ -233,13 +233,6 @@ public class Game : MonoBehaviour
     }
 
 
-    static void OnPlayersTurnChange(Vector2Int playerDirection)
-    {
-        foreach (Player player in players)
-            player.OnTurnChange(playerDirection);
-    }
-
-
     static void CheckPlayersVisibility()
     {
         foreach (KeyValuePair<LineRenderer, Player[]> visibilityLine in visibilityLines)
@@ -271,8 +264,8 @@ public class Game : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        visibilityLine.Value[0].Die();
-        visibilityLine.Value[1].Die();
+        visibilityLine.Value[0].Die(animate: true);
+        visibilityLine.Value[1].Die(animate: true);
     }
 
 
@@ -305,13 +298,32 @@ public class Game : MonoBehaviour
         if (isPaused)
             return;
 
-        board.OnTurnChange();
-        OnPlayersTurnChange(playerDirection);
-        board.OnTurnEnd();
+        CalcNextTurn(playerDirection, animate: true);
 
         turn++;
 
         board.SaveBoardState();
+    }
+
+
+    static public void CalcNextTurn(Vector2Int playerDirection, bool animate)
+    {
+        board.OnTurnChange(animate);
+        
+        foreach (Player player in players)
+            player.QueueMove(playerDirection, animate);
+        
+        while (players.Any(player => player.HasActions()))
+            CalcNextTick(animate);
+    }
+
+
+    static public void CalcNextTick(bool animate)
+    {
+        foreach (Player player in players)
+            player.DoNextAction();
+        
+        board.OnPlayersActionFinish(animate);
     }
 
 

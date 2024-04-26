@@ -19,22 +19,20 @@ public class BlockBreakable : Block
             _durability = value;
             if (_durability <= 0)
                 Game.board.RemoveBlock(coords);
-            
-            Game.board.OnBoardChange();
         }
     }
 
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
         durability = startingDurability;
     }
 
 
-    protected override void OnPlayerBump(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerBump(Player player, Vector2Int playerDirection, bool animate)
     {
-        base.OnPlayerBump(player, playerDirection);
+        base.OnPlayerBump(player, playerDirection, animate);
         durability--;
     }
 
@@ -54,7 +52,7 @@ public class BlockBreakable : Block
     }
 
 
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         base.UpdateSprite();
 

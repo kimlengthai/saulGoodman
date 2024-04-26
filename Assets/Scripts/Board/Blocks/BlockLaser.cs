@@ -7,6 +7,8 @@ public class BlockLaser : Block
     [SerializeField] Vector2Int direction;
     [SerializeField] GameObject beamPrefab;
 
+    bool spriteUpdated = false;
+
 
     List<Vector2Int> GetLaserPath()
     {
@@ -29,10 +31,30 @@ public class BlockLaser : Block
     }
 
 
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         base.UpdateSprite();
 
+        if (spriteUpdated)
+            return;
+        
+        StartCoroutine(UpdateSpriteEndOfFrame());
+        spriteUpdated = true;
+    }
+
+
+    IEnumerator UpdateSpriteEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+
+        UpdateSpriteNow();
+
+        spriteUpdated = false;
+    }
+
+
+    void UpdateSpriteNow()
+    {
         transform.localRotation = Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, direction));
 
         foreach (Transform child in transform)
@@ -52,14 +74,22 @@ public class BlockLaser : Block
     }
 
 
-    protected override void OnBoardChange()
+
+    protected override void OnPlayersActionFinish(bool animate)
     {
-        base.OnBoardChange();
+        base.OnPlayersActionFinish(animate);
 
         foreach (Vector2Int beamCoords in GetLaserPath())
             foreach (Player player in Game.players)
                 if (player.coords == beamCoords)
-                    player.Die();
+                    player.Die(animate);
+    }
+
+
+    public override void Init()
+    {
+        base.Init();
+        UpdateSpriteNow();
     }
 
 

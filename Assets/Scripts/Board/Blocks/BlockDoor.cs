@@ -18,27 +18,18 @@ public class BlockDoor : Block
 
             _open = value;
             isTransparent = open;
-            UpdateSprite();
-            Game.board.OnBoardChange();
         }
     }
 
 
-    protected override void Init()
+    public override void Init()
     {
         base.Init();
         open = startingOpen;
     }
 
 
-    protected override void UpdateBlock()
-    {
-        open = _open ?? startingOpen;
-        base.UpdateBlock();
-    }
-
-
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         StartCoroutine(ChangeSpriteColor(new Color(
             spriteRenderer.color.r,

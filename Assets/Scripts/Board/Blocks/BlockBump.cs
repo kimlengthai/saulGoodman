@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BlockBump : Block
 {
-    protected override void OnPlayerBump(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerBump(Player player, Vector2Int playerDirection, bool animate)
     {
-        base.OnPlayerBump(player, playerDirection);
-        player.coords -= playerDirection; 
+        base.OnPlayerBump(player, playerDirection, animate);
+        player.QueueMove(-playerDirection, animate);
     }
 }

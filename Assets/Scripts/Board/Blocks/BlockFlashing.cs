@@ -8,7 +8,7 @@ public class BlockFlashing : Block
     [SerializeField] Sprite[] sprites;
 
 
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(FlashingAnimation());
@@ -25,7 +25,7 @@ public class BlockFlashing : Block
     }
 
 
-    protected override void OnTurnChange()
+    protected override void OnTurnChange(bool animate)
     {
         isTransparent = !isTransparent;
     }

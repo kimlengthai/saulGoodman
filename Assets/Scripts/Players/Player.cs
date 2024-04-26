@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 
 [ExecuteInEditMode]
@@ -16,36 +17,13 @@ public class Player : MonoBehaviour
     [SerializeField] Vector2Int startingCoords;
     Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
 
+    Queue<Action> actionsToPlay = new Queue<Action>();
+
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
     {
-        get { return _coords; }
-        set
-        {
-            if (value == coords || isDead)
-                return;
-            
-            Block block = Game.board.GetBlock(value);
-            Vector2Int direction = value - coords;
-
-            if (!Game.board.CanPlayerMoveTo(this, value, direction))
-            {
-                AddAnimationToQueue(BumpIntoWallAnimation(value));
-                if (block != null)
-                    block.PlayerBump(this, value - coords);
-            }
-            else
-            {
-                _coords = value;
-                
-                AddAnimationToQueue(MovementAnimation(Game.board.GetBlockPosition(coords)));
-
-                StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
-
-                if (block != null)
-                    block.PlayerEnter(this, direction);
-            }
-        }
+        get => _coords;
+        private set => _coords = value;
     }
 
     public Vector3 truePosition
@@ -67,15 +45,68 @@ public class Player : MonoBehaviour
     }
 
 
-    public void AddAnimationToQueue(IEnumerator animation)
+    public void Init()
+    {
+        coords = startingCoords;
+    }
+
+
+    Action MovementAction(Vector2Int direction, bool animate)
+    {
+        return () => 
+        {
+            Vector2Int nextCoords = coords + direction;
+            Block block = Game.board.GetBlock(nextCoords);
+
+            if (!Game.board.CanPlayerMoveTo(this, nextCoords, direction))
+            {
+                if (animate)
+                    QueueAnimation(BumpIntoWallAnimation(direction));
+                
+                if (block != null)
+                    block.PlayerBump(this, direction, animate);
+            }
+            else
+            {
+                coords = nextCoords;
+                
+                if (animate)
+                    QueueAnimation(MovementAnimation(Game.board.GetBlockPosition(coords)));
+
+                if (block != null)
+                    block.PlayerEnter(this, direction, animate);
+            }
+        };
+    }
+
+
+    public void QueueAction(Action action)
+    {
+        actionsToPlay.Enqueue(action);
+    }
+
+
+    public void QueueMove(Vector2Int direction, bool animate)
+    {
+        QueueAction(MovementAction(direction, animate));
+    }
+
+
+    public void Move(Vector2Int direction, bool animate)
+    {
+        MovementAction(direction, animate)();
+    }
+
+
+    public void QueueAnimation(IEnumerator animation)
     {
         coroutinesToPlay.Enqueue(animation);
     }
 
 
-    public void ForceCoords(Vector2Int coords)
+    public void ForceCoords(Vector2Int newCoords)
     {
-        _coords = coords;
+        coords = newCoords;
     }
 
 
@@ -95,12 +126,6 @@ public class Player : MonoBehaviour
     }
 
 
-    public void OnTurnChange(Vector2Int direction)
-    {
-        coords += direction;
-    }
-
-
     public void UpdatePlayerCoords()
     {
         transform.position = truePosition;
@@ -116,6 +141,21 @@ public class Player : MonoBehaviour
     }
 
 
+    public bool HasActions()
+    {
+        return actionsToPlay.Count > 0;
+    }
+
+
+    public void DoNextAction()
+    {
+        if (actionsToPlay.Count == 0) return;
+
+        print(name + " is doing an action " + actionsToPlay.Count + " left");
+        actionsToPlay.Dequeue()();
+    }
+
+
     #if UNITY_EDITOR
     void OnValidate()
     {
@@ -127,10 +167,11 @@ public class Player : MonoBehaviour
     #endif
 
 
-    public void Die()
+    public void Die(bool animate)
     {
         isDead = true;
-        AddAnimationToQueue(DieAnimation());
+        if (animate)
+            QueueAnimation(DieAnimation());
     }
 
 
@@ -173,9 +214,9 @@ public class Player : MonoBehaviour
         transform.position = target;
     }
 
-    IEnumerator BumpIntoWallAnimation(Vector2Int bumpingCoords)
+    IEnumerator BumpIntoWallAnimation(Vector2Int direction)
     {
-        transform.up = Game.board.GetBlockPosition(bumpingCoords) - (Vector2)transform.position;
+        transform.up = (Vector2)direction;
         animator.SetTrigger("bumpIntoWall");
 
         while (animator.GetCurrentAnimatorStateInfo(0).shortNameHash != Animator.StringToHash("Idle"))

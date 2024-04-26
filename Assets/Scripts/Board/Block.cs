@@ -15,8 +15,12 @@ public class Block : MonoBehaviour
     [SerializeField] bool _isTransparent;
     protected bool isTransparent
     {
-        get { return !collision.enabled; }
-        set { collision.enabled = !value; }
+        get => _isTransparent;
+        set
+        {
+            _isTransparent = value;
+            collision.enabled = !value;
+        }
     }
 
     public bool hasInit
@@ -60,12 +64,10 @@ public class Block : MonoBehaviour
 
         if (spriteRenderer != null)
             defaultColor = spriteRenderer.color;
-        
-        UpdateBlock();
     }
 
 
-    protected virtual void Init()
+    public virtual void Init()
     {
         isTransparent = _isTransparent;
         coords = startingCoords;
@@ -92,74 +94,53 @@ public class Block : MonoBehaviour
     }
 
 
-    protected virtual void OnBoardChange() {}
+    protected virtual void OnPlayersActionFinish(bool animate) {}
 
 
-    public void BoardChange()
+    public void PlayersActionFinish(bool animate)
     {
-        if (!hasInit) return;
-
-        OnBoardChange();
-        UpdateBlock();
+        OnPlayersActionFinish(animate);
     }
 
 
-    protected virtual void OnTurnChange() {}
+    protected virtual void OnTurnChange(bool animate) {}
 
 
-    public void TurnChange()
+    public void TurnChange(bool animate)
     {
-        OnTurnChange();
-        UpdateBlock();
+        OnTurnChange(animate);
     }
 
 
-    protected virtual void OnTurnEnd() {}
+    public virtual void UpdateSprite() {}
 
-    public void TurnEnd()
+
+    protected virtual void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate) {}
+
+
+    public void PlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
-        OnTurnEnd();
-        UpdateBlock();
+        OnPlayerInteract(player, playerDirection, animate);
     }
 
 
-    protected virtual void UpdateBlock()
+    protected virtual void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate) {}
+
+
+    public void PlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
-        coords = _coords;
-        UpdateSprite();
+        OnPlayerEnter(player, playerDirection, animate);
+        PlayerInteract(player, playerDirection, animate);
     }
 
 
-    protected virtual void UpdateSprite() {}
+    protected virtual void OnPlayerBump(Player player, Vector2Int playerDirection, bool animate) {}
 
 
-    protected virtual void OnPlayerInteract(Player player, Vector2Int playerDirection) {}
-
-
-    public void PlayerInteract(Player player, Vector2Int playerDirection)
+    public void PlayerBump(Player player, Vector2Int playerDirection, bool animate)
     {
-        OnPlayerInteract(player, playerDirection);
-        UpdateBlock();
-    }
-
-
-    protected virtual void OnPlayerEnter(Player player, Vector2Int playerDirection) {}
-
-
-    public void PlayerEnter(Player player, Vector2Int playerDirection)
-    {
-        OnPlayerEnter(player, playerDirection);
-        PlayerInteract(player, playerDirection);
-    }
-
-
-    protected virtual void OnPlayerBump(Player player, Vector2Int playerDirection) {}
-
-
-    public void PlayerBump(Player player, Vector2Int playerDirection)
-    {
-        OnPlayerBump(player, playerDirection);
-        PlayerInteract(player, playerDirection);
+        OnPlayerBump(player, playerDirection, animate);
+        PlayerInteract(player, playerDirection, animate);
     }
 
 
@@ -218,7 +199,6 @@ public class Block : MonoBehaviour
             if (this == null) return;
 
             Init();
-            Game.board.OnBoardChange();
         };
     }
     #endif

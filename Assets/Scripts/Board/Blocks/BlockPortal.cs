@@ -7,13 +7,16 @@ public class BlockPortal : Block
     [SerializeField] BlockPortal destinationPortal;
 
 
-    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
-        base.OnPlayerEnter(player, playerDirection);
+        base.OnPlayerEnter(player, playerDirection, animate);
         player.ForceCoords(destinationPortal.coords);
 
-        Vector2 destinationPosition = Game.board.GetBlockPosition(destinationPortal.coords);
-        player.AddAnimationToQueue(player.MovementAnimation(destinationPosition));
+        if (animate)
+        {
+            Vector2 destinationPositionCoords = Game.board.GetBlockPosition(destinationPortal.coords);
+            player.QueueAnimation(player.MovementAnimation(destinationPositionCoords));
+        }
     }
 
 

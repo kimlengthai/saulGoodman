@@ -54,7 +54,6 @@ public class Board : MonoBehaviour
     {
         levelName = SceneManager.GetActiveScene().name;
         _hasInit = true;
-        StartCoroutine(Game.board.OnBoardChangeEndOfFrame());
     }
 
 
@@ -77,22 +76,6 @@ public class Board : MonoBehaviour
     public bool IsInsideBoard(Vector2Int coords)
     {
         return (coords.x >= 0 && coords.x < width && coords.y >= 0 && coords.y < height);
-    }
-
-
-    public void OnBoardChange()
-    {
-        for (int x = 0; x < width; x++)
-            for (int y = 0; y < height; y++)
-                if (blocks[x, y] != null)
-                    blocks[x, y].BoardChange();
-    }
-
-
-    public IEnumerator OnBoardChangeEndOfFrame()
-    {
-        yield return new WaitForEndOfFrame();
-        OnBoardChange();
     }
 
 
@@ -190,23 +173,28 @@ public class Board : MonoBehaviour
     }
 
 
-    public void OnTurnChange()
+    public void OnTurnChange(bool animate)
     {
         foreach (Block block in blocks)
-        {
             if (block != null)
-                block.TurnChange();
-        }
+                block.TurnChange(animate);
     }
 
 
-    public void OnTurnEnd()
+    public void OnPlayersActionFinish(bool animate)
     {
         foreach (Block block in blocks)
-        {
-            if (block != null)
-                block.TurnEnd();
-        }
+            if (block != null && block is not BlockLaser)
+                block.PlayersActionFinish(animate);
+        
+        foreach (Block block in blocks)
+            if (block != null && block is BlockLaser)
+                block.PlayersActionFinish(animate);
+        
+        if (animate)
+            foreach (Block block in blocks)
+                if (block != null)
+                    block.UpdateSprite();
     }
 
 
@@ -227,7 +215,7 @@ public class Board : MonoBehaviour
         {
             Block block = blockTransform.GetComponent<Block>();
 
-            block.coords = block.coords;
+            block.Init();
             blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
         }
 
@@ -244,7 +232,7 @@ public class Board : MonoBehaviour
 
         foreach (Player player in Game.players)
         {
-            player.coords = player.coords;
+            player.Init();
             player.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
         }
     }

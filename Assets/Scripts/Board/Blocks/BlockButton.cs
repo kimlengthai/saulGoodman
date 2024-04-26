@@ -9,27 +9,23 @@ public class BlockButton : Block
     bool isPressed = false;
 
 
-    protected override void OnTurnChange()
-    {
-        isPressed = false;
-    }
-
-
-    protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
         isPressed = true;
     }
 
 
-    protected override void OnTurnEnd()
+    protected override void OnPlayersActionFinish(bool animate)
     {
         if (isPressed)
             foreach (BlockDoor door in doorsToUnlock)
                 door.open = !door.open;
+        
+        isPressed = false;
     }
 
 
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         base.UpdateSprite();
         if (isPressed)

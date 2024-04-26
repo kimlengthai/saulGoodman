@@ -6,19 +6,19 @@ public class BlockRotation : Block
 {
     [SerializeField] bool invertRotation = false;
 
-    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
-        base.OnPlayerEnter(player, playerDirection);
-        player.coords += RotateDirection(playerDirection);
+        base.OnPlayerEnter(player, playerDirection, animate);
+        player.QueueMove(RotateDirection(playerDirection), animate);
     }
 
 
-    protected override void OnPlayerBump(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerBump(Player player, Vector2Int playerDirection, bool animate)
     {
-        base.OnPlayerBump(player, playerDirection);
+        base.OnPlayerBump(player, playerDirection, animate);
 
         Vector2Int newDirection = RotateDirection(playerDirection);
-        Game.board.GetBlock(coords + newDirection)?.PlayerBump(player, newDirection);
+        Game.board.GetBlock(coords + newDirection)?.PlayerBump(player, newDirection, animate);
     }
 
 
@@ -37,7 +37,7 @@ public class BlockRotation : Block
     }
 
 
-    protected override void UpdateSprite()
+    public override void UpdateSprite()
     {
         base.UpdateSprite();
 

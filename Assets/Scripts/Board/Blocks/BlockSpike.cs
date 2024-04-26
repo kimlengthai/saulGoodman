@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class BlockSpike : Block
 {
-    protected override void OnPlayerInteract(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
-        player.Die();
+        player.Die(animate);
+    }
+
+
+    public override bool CanPlayerMoveInside(Player player, Vector2Int playerDirection)
+    {
+        return true;
     }
 }

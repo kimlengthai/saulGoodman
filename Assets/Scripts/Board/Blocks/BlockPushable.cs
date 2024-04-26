@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BlockPushable : Block
 {
-    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection)
+    protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
         Block nextBlock = Game.board.GetBlock(coords + playerDirection);
         if (nextBlock is BlockPushable)
-            nextBlock.PlayerEnter(player, playerDirection);
+            nextBlock.PlayerEnter(player, playerDirection, animate);
 
-        base.OnPlayerEnter(player, playerDirection);
+        base.OnPlayerEnter(player, playerDirection, animate);
         coords += playerDirection;
     }
 
