@@ -28,7 +28,6 @@ public class BlockState
         block.transform.parent = Game.board.blocksParent.transform;
 
         block.SetData(blockData);
-        block.shouldInit = false;
     }
 
 

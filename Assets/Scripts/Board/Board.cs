@@ -57,6 +57,17 @@ public class Board : MonoBehaviour
     }
 
 
+    public void Init()
+    {
+        foreach (Block block in blocks)
+            if (block != null)
+                block.Init();
+        
+        foreach (Player player in Game.players)
+            player.Init();
+    }
+
+
     public void ResetBoardState()
     {
         boardStates.Clear();
@@ -207,18 +218,16 @@ public class Board : MonoBehaviour
     }
 
 
-    void UpdateBoard()
+    public void UpdateBoard()
     {
         if (this == null) return;
 
         foreach (Transform blockTransform in blocksParent.transform)
-        {
-            Block block = blockTransform.GetComponent<Block>();
-
-            block.Init();
             blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
-        }
 
+        foreach (Player player in Game.players)
+            player.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
+        
         if (background == null)
             background = GameObject.Find("Background");
         DestroyImmediate(background);
@@ -229,12 +238,12 @@ public class Board : MonoBehaviour
             for (int y = 0; y < height; y++)
                 if (blocks[x, y] is not BlockVoid)
                     AddBackgroundBlock(new Vector2Int(x, y));
+        
+        Init();
 
-        foreach (Player player in Game.players)
-        {
-            player.Init();
-            player.transform.localScale = new Vector3(blockWidth, blockHeight, 1);
-        }
+        foreach (Block block in blocks)
+            if (block != null)
+                block.UpdateSprite();
     }
 
 

@@ -109,6 +109,8 @@ public class Game : MonoBehaviour
     {
         yield return null;
 
+        board.UpdateBoard();
+
         turn = 0;
         isPaused = false;
 
