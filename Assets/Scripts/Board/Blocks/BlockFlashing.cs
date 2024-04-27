@@ -10,7 +10,6 @@ public class BlockFlashing : Block
 
     public override void UpdateSprite()
     {
-        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         StartCoroutine(FlashingAnimation());
     }
 
