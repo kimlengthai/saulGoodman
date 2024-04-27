@@ -13,7 +13,10 @@ public class Buttons : MonoBehaviour
     void OnUndo()
     {
         if (undo)
-            levelManager.UndoLastMove();
+            if (Game.isPaused)
+                levelManager.UndoLastMoveOnGameOver();
+            else
+                levelManager.UndoLastMove();
     }
 
 

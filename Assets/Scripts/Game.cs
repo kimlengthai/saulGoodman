@@ -154,7 +154,7 @@ public class Game : MonoBehaviour
     }
 
 
-    void InitLineRenderer(LineRenderer lineRenderer)
+    public static void InitLineRenderer(LineRenderer lineRenderer)
     {
         lineRenderer.startWidth = 0.1f;
         lineRenderer.endWidth = 0.1f;
