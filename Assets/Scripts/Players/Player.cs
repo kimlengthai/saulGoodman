@@ -151,7 +151,6 @@ public class Player : MonoBehaviour
     {
         if (actionsToPlay.Count == 0) return;
 
-        print(name + " is doing an action " + actionsToPlay.Count + " left");
         actionsToPlay.Dequeue()();
     }
 

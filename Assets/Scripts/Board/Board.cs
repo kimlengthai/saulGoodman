@@ -255,6 +255,10 @@ public class Board : MonoBehaviour
         boardStates.RemoveAt(boardStates.Count - 1);
         boardStates[boardStates.Count - 1].Restore(this);
 
+        foreach (Block block in blocks)
+            if (block != null)
+                block.UpdateSprite();
+
         Game.turn--;
     }
 
