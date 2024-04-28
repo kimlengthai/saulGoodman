@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.56
+      objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -61,6 +73,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.x
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -42821901, guid: d8887ee034624f94ab76e2d4bb9e2138, type: 3}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -70,11 +94,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.g
-      value: 0.013985416
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.r
-      value: 0.8018868
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
@@ -109,7 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockName: Button
   defaultColor: {r: 0.8018868, g: 0.013985416, b: 0, a: 1}
-  shouldInit: 1
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
