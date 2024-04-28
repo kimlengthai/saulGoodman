@@ -142,3 +142,6 @@ MonoBehaviour:
   _isTransparent: 0
   doorsToUnlock: []
   animationSpeed: 5
+  sprites:
+  - {fileID: -1570658349, guid: f026722eef981a644a7c8c9c5c16d9b8, type: 3}
+  - {fileID: 705982346, guid: f026722eef981a644a7c8c9c5c16d9b8, type: 3}

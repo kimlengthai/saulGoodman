@@ -6,12 +6,17 @@ public class BlockButton : Block
 {
     [SerializeField] List<BlockDoor> doorsToUnlock;
     [SerializeField] float animationSpeed;
+    [SerializeField] Sprite[] sprites;
     bool isPressed = false;
+    bool leftState = true;
+    bool shouldUpdateSprite = false;
 
 
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
         isPressed = true;
+        if (animate)
+            shouldUpdateSprite = true;
     }
 
 
@@ -28,15 +33,27 @@ public class BlockButton : Block
     public override void UpdateSprite()
     {
         base.UpdateSprite();
-        if (isPressed)
+        if (shouldUpdateSprite)
             StartCoroutine(PressAnimation());
+        
+        shouldUpdateSprite = false;
     }
 
 
     IEnumerator PressAnimation()
     {
-        yield return ChangeSpriteColor(Color.green, animationSpeed);
-        yield return ChangeSpriteColor(defaultColor, animationSpeed);
+        float time = 0;
+        while (time < 1)
+        {
+            time += Time.deltaTime * animationSpeed;
+
+            int state = Mathf.FloorToInt(time * sprites.Length);
+            if (state == sprites.Length) state--;
+            spriteRenderer.sprite = sprites[leftState ? state : sprites.Length - 1 - state];
+            yield return null;
+        }
+
+        leftState = !leftState;
     }
 
 
