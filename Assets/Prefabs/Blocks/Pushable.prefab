@@ -83,19 +83,7 @@ PrefabInstance:
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 83dc36b4cc7c3473abe6925bfd7859fc, type: 3}
-    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.g
-      value: 0.25199306
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Color.r
-      value: 0.5943396
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21300000, guid: 2c3bb84cb4c2340c2b188031ab8edac8, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -128,7 +116,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockName: Pushable
   defaultColor: {r: 0.5943396, g: 0.25199306, b: 0, a: 1}
-  shouldInit: 1
   spriteRenderer: {fileID: 3263879468731701731}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
