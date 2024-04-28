@@ -14,11 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.56
+      value: 1.5625001
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.56
+      value: 1.5625001
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0016026
       objectReference: {fileID: 0}
     - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -116,7 +120,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockName: Moving
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  shouldInit: 1
   spriteRenderer: {fileID: 3263879468731701731}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
