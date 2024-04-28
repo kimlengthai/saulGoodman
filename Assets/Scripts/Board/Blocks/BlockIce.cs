@@ -21,6 +21,8 @@ public class BlockIce : Block
 
             if (Game.board.CanPlayerMoveTo(player, player.coords + playerDirection, playerDirection) && nextBlock is not BlockIce)
                 player.QueueAction(SlidePlayerAcrossIce(player, playerDirection, animate));
+            else
+                player.Move(playerDirection, animate);
         };
     }
 }

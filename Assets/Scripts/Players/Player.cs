@@ -218,8 +218,10 @@ public class Player : MonoBehaviour
         transform.up = (Vector2)direction;
         animator.SetTrigger("bumpIntoWall");
 
-        while (animator.GetCurrentAnimatorStateInfo(0).shortNameHash != Animator.StringToHash("Idle"))
+        float timeRatio = 0f;
+        while (timeRatio < 1f)
         {
+            timeRatio += Time.deltaTime * speed;
             yield return null;
         }
     }
