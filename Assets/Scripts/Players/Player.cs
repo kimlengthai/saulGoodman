@@ -16,8 +16,9 @@ public class Player : MonoBehaviour
 
     [SerializeField] Vector2Int startingCoords;
     Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
-
     Queue<Action> actionsToPlay = new Queue<Action>();
+
+    [HideInInspector] public bool isSliding = false;
 
     Vector2Int _coords = new Vector2Int(-1, -1);
     public Vector2Int coords
@@ -33,11 +34,6 @@ public class Player : MonoBehaviour
 
     public float speed;
 
-    void Awake()
-    {
-        isDead = false;
-    }
-
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -47,6 +43,9 @@ public class Player : MonoBehaviour
 
     public void Init()
     {
+        isDead = false;
+        isAnimating = false;
+        isSliding = false;
         coords = startingCoords;
     }
 
