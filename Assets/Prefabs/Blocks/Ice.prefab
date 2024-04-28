@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ice
       objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.56
+      objectReference: {fileID: 0}
     - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -61,6 +73,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c376ba79646978c43b891b9823164096, type: 3}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
@@ -70,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.g
-      value: 0.95686275
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.r
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
@@ -108,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Ice
+  defaultColor: {r: 0.6, g: 0.95686275, b: 1, a: 1}
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
-  isSolid: 0

@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -42821901, guid: d8887ee034624f94ab76e2d4bb9e2138, type: 3}
+      objectReference: {fileID: -1570658349, guid: f026722eef981a644a7c8c9c5c16d9b8, type: 3}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Button
-  defaultColor: {r: 0.8018868, g: 0.013985416, b: 0, a: 1}
+  defaultColor: {r: 0.9622642, g: 0, b: 0, a: 1}
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0

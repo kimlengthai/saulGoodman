@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ButtonTransparent
       objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 802881090390822490, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.56
+      objectReference: {fileID: 0}
     - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -61,8 +73,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 37393273, guid: f026722eef981a644a7c8c9c5c16d9b8, type: 3}
+    - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
-      value: 0.5882353
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.b
@@ -108,11 +124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: ButtonTransparent
-  defaultColor: {r: 1, g: 0, b: 0, a: 0.5882353}
-  shouldInit: 1
+  defaultColor: {r: 0.8, g: 0.015686275, b: 0, a: 1}
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
-  isSolid: 1
   doorsToUnlock: []
   animationSpeed: 5

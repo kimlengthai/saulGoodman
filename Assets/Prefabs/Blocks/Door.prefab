@@ -71,7 +71,7 @@ PrefabInstance:
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1999626442, guid: fa9b56732b724dd4eb926aaf4c195475, type: 3}
+      objectReference: {fileID: 21300000, guid: 76c38ff1a6ce7a547a4261f02a583bc7, type: 3}
     - target: {fileID: 6125939974020001924, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockName: Door
-  defaultColor: {r: 0.49056602, g: 0.1569903, b: 0, a: 1}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
