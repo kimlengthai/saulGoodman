@@ -20,6 +20,7 @@ public class Board : MonoBehaviour
 
     [SerializeField] GameObject emptyBlockPrefab;
     public GameObject background;
+    [SerializeField] GameObject backgroundPrefab;
     public GameObject blocksParent;
 
     Block[,] blocks;
@@ -33,10 +34,9 @@ public class Board : MonoBehaviour
             if (!_hasInit)
                 return false;
             
-            for (int x = 0; x < width; x++)
-                for (int y = 0; y < height; y++)
-                    if (blocks[x, y] != null && !blocks[x, y].hasInit)
-                        return false;
+            foreach (Block block in blocks)
+                if (block != null && !block.hasInit)
+                    return false;
             
             return true;
         }
@@ -232,7 +232,8 @@ public class Board : MonoBehaviour
             background = GameObject.Find("Background");
         DestroyImmediate(background);
 
-        background = new GameObject("Background");
+        background = Instantiate(backgroundPrefab);
+        background.name = "Background";
         
         for (int x = 0; x < width; x++)
             for (int y = 0; y < height; y++)
