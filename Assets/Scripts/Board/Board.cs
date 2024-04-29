@@ -57,11 +57,22 @@ public class Board : MonoBehaviour
     }
 
 
+    void InitBlocks()
+    {
+        foreach (Transform blockTransform in blocksParent.transform)
+        {
+            Block block = blockTransform.GetComponent<Block>();
+            if (block == null)
+                continue;
+            
+            block.Init();
+        }
+    }
+
+
     public void Init()
     {
-        foreach (Block block in blocks)
-            if (block != null)
-                block.Init();
+        InitBlocks();
         
         foreach (Player player in Game.players)
             player.Init();
@@ -222,6 +233,8 @@ public class Board : MonoBehaviour
     {
         if (this == null) return;
 
+        Init();
+
         foreach (Transform blockTransform in blocksParent.transform)
             blockTransform.localScale = new Vector3(blockWidth, blockHeight, 1);
 
@@ -239,8 +252,6 @@ public class Board : MonoBehaviour
             for (int y = 0; y < height; y++)
                 if (blocks[x, y] is not BlockVoid)
                     AddBackgroundBlock(new Vector2Int(x, y));
-        
-        Init();
 
         foreach (Block block in blocks)
             if (block != null)

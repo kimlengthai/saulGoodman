@@ -142,6 +142,9 @@ public class Block : MonoBehaviour
 
     public IEnumerator ChangeSpriteColor(Color targetColor, float animationSpeed)
     {
+        if (spriteRenderer == null)
+            yield break;
+
         float timeRatio = 0;
         Color initialColor = spriteRenderer.color;
 
