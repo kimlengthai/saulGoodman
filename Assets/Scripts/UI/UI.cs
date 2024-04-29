@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
+[ExecuteInEditMode]
 public class UI : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI numberOfTurnsText;
