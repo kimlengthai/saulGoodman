@@ -23,7 +23,5 @@ public class LevelCleared : MonoBehaviour
                     star1.enabled = false;
             }
         }
-
-        scoreAnimation.Play();
     }
 }
