@@ -188,7 +188,18 @@
                 },
                 {
                     "name": "",
-                    "id": "dbc0e01a-217d-470e-8e1a-2d581bf67ff0",
+                    "id": "d7f841e7-d49e-4afa-b222-055c9b969362",
+                    "path": "<Keyboard>/b",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Undo",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1085fd06-02f4-4f9d-9c8f-49aff1262559",
                     "path": "<Keyboard>/backspace",
                     "interactions": "",
                     "processors": "",
@@ -200,7 +211,18 @@
                 {
                     "name": "",
                     "id": "1ceae75b-5b43-4b08-a19b-8123cb446aaa",
-                    "path": "<Keyboard>/escape",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2e44d74-7e3b-4e82-ad54-5f6eb7df404b",
+                    "path": "*/{Menu}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
