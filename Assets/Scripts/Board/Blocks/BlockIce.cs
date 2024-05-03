@@ -22,18 +22,14 @@ public class BlockIce : Block
         return () =>
         {
             Block nextBlock = Game.board.GetBlock(player.coords + playerDirection);
+            bool canMove = Game.board.CanPlayerMoveTo(player, player.coords + playerDirection, playerDirection);
 
             player.Move(playerDirection, animate);
 
-            if (Game.board.CanPlayerMoveTo(player, player.coords + playerDirection, playerDirection))
-            {
+            if (canMove)
                 player.QueueAction(SlidePlayer(player, playerDirection, animate));
-            }
             else
-            {
-                player.Move(playerDirection, animate);
                 player.isSliding = false;
-            }
         };
     }
 }
