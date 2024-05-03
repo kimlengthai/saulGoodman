@@ -34,6 +34,9 @@ public class BlockBreakable : Block
     {
         base.OnPlayerBump(player, playerDirection, animate);
         durability--;
+
+        if (animate)
+            player.QueueAnimation(Animation());
     }
 
 

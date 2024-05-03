@@ -10,6 +10,14 @@ public class BlockFlashing : Block
 
     public override void UpdateSprite()
     {
+        base.UpdateSprite();
+        spriteRenderer.sprite = sprites[isTransparent ? 0 : sprites.Length - 1];
+    }
+
+
+    public override IEnumerator Animation()
+    {
+        yield return null;
         StartCoroutine(FlashingAnimation());
     }
 
@@ -27,5 +35,7 @@ public class BlockFlashing : Block
     protected override void OnTurnChange(bool animate)
     {
         isTransparent = !isTransparent;
+        if (animate)
+            StartCoroutine(Animation());
     }
 }

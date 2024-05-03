@@ -108,6 +108,13 @@ public class Block : MonoBehaviour
     }
 
 
+    public virtual IEnumerator Animation()
+    {
+        yield return null;
+        UpdateSprite();
+    }
+
+
     public virtual void UpdateSprite() {}
 
 

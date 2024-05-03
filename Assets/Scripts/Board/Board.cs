@@ -212,11 +212,6 @@ public class Board : MonoBehaviour
         foreach (Block block in blocks)
             if (block != null && block is BlockLaser)
                 block.PlayersActionFinish(animate);
-        
-        if (animate)
-            foreach (Block block in blocks)
-                if (block != null)
-                    block.UpdateSprite();
     }
 
 

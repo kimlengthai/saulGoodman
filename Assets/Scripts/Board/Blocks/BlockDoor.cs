@@ -31,6 +31,18 @@ public class BlockDoor : Block
 
     public override void UpdateSprite()
     {
+        spriteRenderer.color = new Color(
+            spriteRenderer.color.r,
+            spriteRenderer.color.g,
+            spriteRenderer.color.b,
+            isTransparent ? 0.5f : 1f
+        );
+    }
+
+
+    public override IEnumerator Animation()
+    {
+        yield return null;
         StartCoroutine(ChangeSpriteColor(new Color(
             spriteRenderer.color.r,
             spriteRenderer.color.g,

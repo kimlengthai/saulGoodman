@@ -9,14 +9,18 @@ public class BlockButton : Block
     [SerializeField] Sprite[] sprites;
     bool isPressed = false;
     bool leftState = true;
-    bool shouldUpdateSprite = false;
 
 
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
         isPressed = true;
+
         if (animate)
-            shouldUpdateSprite = true;
+        {
+            player.QueueAnimation(Animation());
+            foreach (BlockDoor door in doorsToUnlock)
+                player.QueueAnimation(door.Animation());
+        }
     }
 
 
@@ -33,14 +37,18 @@ public class BlockButton : Block
     public override void UpdateSprite()
     {
         base.UpdateSprite();
-        if (shouldUpdateSprite)
-            StartCoroutine(PressAnimation());
-        
-        shouldUpdateSprite = false;
+        spriteRenderer.sprite = sprites[leftState ? 0 : sprites.Length - 1];
     }
 
 
-    IEnumerator PressAnimation()
+    public override IEnumerator Animation()
+    {
+        yield return null;
+        StartCoroutine(LeverAnimation());
+    }
+
+
+    IEnumerator LeverAnimation()
     {
         float time = 0;
         while (time < 1)
