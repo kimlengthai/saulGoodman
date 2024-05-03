@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
     public void UndoLastMoveOnGameOver()
     {
         SceneManager.UnloadSceneAsync("GameOver");
-        UndoLastMove();
+        Game.board.RestoreLastBoardState();
         Game.isPaused = false;
         foreach (LineRenderer line in Game.visibilityLines.Keys)
             Game.InitLineRenderer(line);
