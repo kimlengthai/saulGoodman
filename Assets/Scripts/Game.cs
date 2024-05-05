@@ -18,6 +18,8 @@ public class Game : MonoBehaviour
         "Level 4.1", "Level 4.2", "Level 4.3", "Level 4.4",
     };
 
+    public static Dictionary<string, (int, int)> scores = null;
+
     public List<GameObject> blockPrefabs = new List<GameObject>();
     public static Dictionary<string, GameObject> blockNameToPrefab = new Dictionary<string, GameObject>();
     public static bool isPaused = false;
@@ -68,6 +70,8 @@ public class Game : MonoBehaviour
         oneStarTurns = _oneStarTurns;
         players = _players;
 
+        InitScores();
+
         foreach (GameObject blockPrefab in blockPrefabs)
         {
             Block block = blockPrefab.GetComponent<Block>();
@@ -75,6 +79,17 @@ public class Game : MonoBehaviour
                 throw new Exception($"Block prefab {blockPrefab.name} does not have a Block component attached to it.");
             blockNameToPrefab[block.blockName] = blockPrefab;
         }
+    }
+
+
+    public static void InitScores()
+    {
+        if (scores != null)
+            return;
+
+        scores = new Dictionary<string, (int, int)>();
+        foreach (string level in levels)
+            scores[level] = (0, 0);
     }
 
 
@@ -130,7 +145,9 @@ public class Game : MonoBehaviour
 
         if (won)
         {
-            PlayerPrefs.SetInt("Score", CalcScore());
+            if (scores[board.levelName].Item1 == 0 || turn < scores[board.levelName].Item1)
+                scores[board.levelName] = (turn, CalcStars());
+
             coroutinesToPlayAtEnd.Enqueue(LevelClearedAnimation());
         }
         else
@@ -283,7 +300,7 @@ public class Game : MonoBehaviour
     }
 
 
-    static public int CalcScore()
+    static public int CalcStars()
     {
         if (turn <= threeStarsTurns)
             return 3;

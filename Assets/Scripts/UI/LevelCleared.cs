@@ -13,15 +13,10 @@ public class LevelCleared : MonoBehaviour
 
     public void Start()
     {
-        if (Game.turn > Game.threeStarsTurns)
-        {
-            star3.enabled = false;
-            if (Game.turn > Game.twoStarsTurns)
-            {
-                star2.enabled = false;
-                if (Game.turn > Game.oneStarTurns)
-                    star1.enabled = false;
-            }
-        }
+        Image[] starsImages = new Image[] { star1, star2, star3 };
+        int stars = Game.CalcStars();
+
+        for (int star = 0; star < starsImages.Length; star++)
+            starsImages[star].enabled = star < stars;
     }
 }

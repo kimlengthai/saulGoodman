@@ -1553,17 +1553,9 @@ PrefabInstance:
       value: Level 3.4
       objectReference: {fileID: 0}
     - target: {fileID: 2757399780699793319, guid: a73f816e85f38403cb3ec08719925308, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757399780699793319, guid: a73f816e85f38403cb3ec08719925308, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2757399780699793319, guid: a73f816e85f38403cb3ec08719925308, type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 110248711, guid: 0fabee2d28c10443ba07c239024d6d45, type: 3}
     - target: {fileID: 2757399781300720064, guid: a73f816e85f38403cb3ec08719925308, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level 3.4
@@ -2170,6 +2162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 995823095}
+  - component: {fileID: 995823096}
   m_Layer: 5
   m_Name: LevelButtons
   m_TagString: Untagged
@@ -2221,6 +2214,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 20}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &995823096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 995823094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adeebbde722264db6a69ca16a995142f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  noStarColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!224 &995875841 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2757399781300720071, guid: a73f816e85f38403cb3ec08719925308, type: 3}
@@ -4866,6 +4872,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 995823095}
     m_Modifications:
+    - target: {fileID: 2646674050496161421, guid: a73f816e85f38403cb3ec08719925308, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2757399781300720070, guid: a73f816e85f38403cb3ec08719925308, type: 3}
       propertyPath: m_Name
       value: Tutorial 1
