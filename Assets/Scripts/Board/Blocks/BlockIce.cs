@@ -5,9 +5,15 @@ using System;
 
 public class BlockIce : Block
 {
+    public AudioSource audioIceBlock;
     protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
         base.OnPlayerEnter(player, playerDirection, animate);
+
+        if (audioIceBlock != null)
+        {
+            audioIceBlock.Play();
+        }
 
         if (player.isSliding)
             return;
