@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class MovingBlock : Block
 {
+    public AudioSource audioMovingBlock;
     protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
         base.OnPlayerEnter(player, playerDirection, animate);
+        if (audioMovingBlock != null)
+        {
+            audioMovingBlock.Play();
+        }
         player.QueueMove(playerDirection, animate);
     }
 
@@ -23,3 +28,11 @@ public class MovingBlock : Block
         return Game.board.CanPlayerMoveTo(player, coords + playerDirection, playerDirection);
     }
 }
+
+/*public void OnCollisionEnter3D(Collision2D collision)
+{
+    if (collision.gameObject.tag == "CollisionMovingBlockTag")
+    {
+        audioMovingBlock.Play();
+    }
+}*/

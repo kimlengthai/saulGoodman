@@ -6,6 +6,8 @@ public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
     [SerializeField] bool startingOpen = false;
+    public AudioSource audioDoorOpen;
+    public AudioSource audioDoorClose;
 
     bool? _open = null;
     public bool open

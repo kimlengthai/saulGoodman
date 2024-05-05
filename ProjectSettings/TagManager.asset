@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - FloorButton
+  - CollisionMovingBlockTag
   layers:
   - Default
   - TransparentFX
