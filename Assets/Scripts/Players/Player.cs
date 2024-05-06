@@ -205,8 +205,6 @@ public class Player : MonoBehaviour
         Vector2 startPosition = transform.position;
         float timeRatio = 0f;
 
-        audioSource.Play();
-
         while (timeRatio < 1f)
         {
             timeRatio += Time.deltaTime * speed;

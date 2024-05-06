@@ -34,7 +34,7 @@ Transform:
   - {fileID: 764896722077794517}
   - {fileID: 9135643954206725468}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &4653479222517466897
 Animator:
@@ -71,6 +71,7 @@ MonoBehaviour:
   particleSystem: {fileID: 6768743902631264512}
   isDead: 0
   isAnimating: 0
+  audioSource: {fileID: 3727177010026648667}
   startingCoords: {x: 0, y: 0}
   isSliding: 0
   speed: 10
@@ -85,7 +86,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 13ee6bb2852850e43bec35eb718a8b97, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
