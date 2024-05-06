@@ -6,6 +6,7 @@ public class BlockLaser : Block
 {
     [SerializeField] Vector2Int direction;
     [SerializeField] GameObject beamPrefab;
+    [SerializeField] AudioSource audioLaserBeam;
 
 
     List<Vector2Int> GetLaserPath()
@@ -59,7 +60,13 @@ public class BlockLaser : Block
         foreach (Vector2Int beamCoords in GetLaserPath())
             foreach (Player player in Game.players)
                 if (player.coords == beamCoords)
+                {
+                    if (audioLaserBeam != null)
+                    {
+                        audioLaserBeam.Play();
+                    }
                     player.Die(animate);
+                }
         
         if (animate)
             Game.players[0].QueueAnimation(Animation());
