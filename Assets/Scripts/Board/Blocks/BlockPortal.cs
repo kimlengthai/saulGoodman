@@ -5,11 +5,16 @@ using UnityEngine;
 public class BlockPortal : Block
 {
     [SerializeField] BlockPortal destinationPortal;
-
+    [SerializeField] AudioSource audioPortalBlock;
 
     protected override void OnPlayerEnter(Player player, Vector2Int playerDirection, bool animate)
     {
         base.OnPlayerEnter(player, playerDirection, animate);
+
+        if (audioPortalBlock != null)
+        {
+            audioPortalBlock.Play();
+        }
         player.ForceCoords(destinationPortal.coords);
 
         if (animate)
