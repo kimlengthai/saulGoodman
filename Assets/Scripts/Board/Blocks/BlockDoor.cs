@@ -6,8 +6,8 @@ public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
     [SerializeField] bool startingOpen = false;
-    public AudioSource audioDoorOpen;
-    public AudioSource audioDoorClose;
+    [SerializeField] AudioSource audioDoorOpen;
+    [SerializeField] AudioSource audioDoorClose;
 
     bool? _open = null;
     public bool open
@@ -37,7 +37,7 @@ public class BlockDoor : Block
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            isTransparent ? 0.5f : 1f
+            open ? 0.5f : 1f
         );
     }
 
@@ -49,8 +49,13 @@ public class BlockDoor : Block
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
-            isTransparent ? 0.5f : 1f
+            open ? 0.5f : 1f
         ), animationSpeed));
+
+        if (open)
+            audioDoorOpen.Play();
+        else
+            audioDoorClose.Play();
     }
 
 

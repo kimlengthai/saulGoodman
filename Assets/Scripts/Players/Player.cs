@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool isAnimating = false;
 
     Animator animator;
+    public AudioSource audioSource;
 
     [SerializeField] Vector2Int startingCoords;
     Queue<IEnumerator> coroutinesToPlay = new Queue<IEnumerator>();
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
     public void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
+        
         StartCoroutine(PlayerAnimationsLoop());
     }
 
