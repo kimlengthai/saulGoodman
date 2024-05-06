@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BlockSpike : Block
 {
+    [SerializeField] AudioSource audioSpikeBlock;
     protected override void OnPlayerInteract(Player player, Vector2Int playerDirection, bool animate)
     {
+        if (audioSpikeBlock != null)
+        {
+            audioSpikeBlock.Play();
+        }
         player.Die(animate);
     }
 
