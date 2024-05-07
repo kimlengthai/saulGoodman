@@ -12,6 +12,7 @@ public class Block : MonoBehaviour
     protected Collider2D collision;
     [SerializeField] Vector2Int startingCoords;
     [SerializeField] bool _isTransparent;
+    protected AudioSource audioSource;
     protected bool isTransparent
     {
         get => _isTransparent;
@@ -53,6 +54,7 @@ public class Block : MonoBehaviour
     public virtual void Awake()
     {
         collision = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -112,6 +114,21 @@ public class Block : MonoBehaviour
     {
         yield return null;
         UpdateSprite();
+    }
+
+
+    public virtual void PlaySFX()
+    {
+        audioSource.Play();
+    }
+
+
+    public virtual IEnumerator PlayFX()
+    {
+        yield return null;
+
+        PlaySFX();
+        StartCoroutine(Animation());
     }
 
 

@@ -17,13 +17,6 @@ public class BlockFlashing : Block
 
     public override IEnumerator Animation()
     {
-        yield return null;
-        StartCoroutine(FlashingAnimation());
-    }
-
-
-    IEnumerator FlashingAnimation()
-    {
         for (int i = 0; i < sprites.Length; i++)
         {
             spriteRenderer.sprite = isTransparent ? sprites[sprites.Length - i - 1] : sprites[i];
@@ -36,6 +29,6 @@ public class BlockFlashing : Block
     {
         isTransparent = !isTransparent;
         if (animate)
-            StartCoroutine(Animation());
+            StartCoroutine(PlayFX());
     }
 }

@@ -12,6 +12,9 @@ public class BlockPushable : Block
 
         base.OnPlayerEnter(player, playerDirection, animate);
         coords += playerDirection;
+
+        if (animate)
+            player.QueueAnimation(PlayFX());
     }
 
 

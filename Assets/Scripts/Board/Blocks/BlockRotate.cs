@@ -10,6 +10,9 @@ public class BlockRotation : Block
     {
         base.OnPlayerEnter(player, playerDirection, animate);
         player.QueueMove(RotateDirection(playerDirection), animate);
+
+        if (animate)
+            player.QueueAnimation(PlayFX());
     }
 
 

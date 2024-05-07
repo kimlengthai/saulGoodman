@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockVoid : Block
 {
-    public AudioSource audioVoidBlock;
     public override bool CanSeeThrough()
     {
         return true;
@@ -13,10 +12,6 @@ public class BlockVoid : Block
 
     public override bool CanPlayerMoveInside(Player player, Vector2Int playerDirection)
     {
-        if (audioVoidBlock != null)
-        {
-            audioVoidBlock.Play();
-        }
         return false;
     }
 

@@ -61,11 +61,9 @@ public class BlockLaser : Block
             foreach (Player player in Game.players)
                 if (player.coords == beamCoords)
                 {
-                    if (audioLaserBeam != null)
-                    {
-                        audioLaserBeam.Play();
-                    }
                     player.Die(animate);
+                    if (animate)
+                        player.QueueAnimation(PlayFX());
                 }
         
         if (animate)

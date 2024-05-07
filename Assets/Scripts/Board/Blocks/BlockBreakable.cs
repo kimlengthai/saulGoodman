@@ -36,7 +36,7 @@ public class BlockBreakable : Block
         durability--;
 
         if (animate)
-            player.QueueAnimation(Animation());
+            player.QueueAnimation(PlayFX());
     }
 
 

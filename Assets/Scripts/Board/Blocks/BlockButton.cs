@@ -17,9 +17,9 @@ public class BlockButton : Block
 
         if (animate)
         {
-            player.QueueAnimation(Animation());
+            player.QueueAnimation(PlayFX());
             foreach (BlockDoor door in doorsToUnlock)
-                player.QueueAnimation(door.Animation());
+                player.QueueAnimation(door.PlayFX());
         }
     }
 
@@ -42,13 +42,6 @@ public class BlockButton : Block
 
 
     public override IEnumerator Animation()
-    {
-        yield return null;
-        StartCoroutine(LeverAnimation());
-    }
-
-
-    IEnumerator LeverAnimation()
     {
         float time = 0;
         while (time < 1)

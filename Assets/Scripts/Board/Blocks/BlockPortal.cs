@@ -11,15 +11,12 @@ public class BlockPortal : Block
     {
         base.OnPlayerEnter(player, playerDirection, animate);
 
-        if (audioPortalBlock != null)
-        {
-            audioPortalBlock.Play();
-        }
         player.ForceCoords(destinationPortal.coords);
 
         if (animate)
         {
             Vector2 destinationPositionCoords = Game.board.GetBlockPosition(destinationPortal.coords);
+            player.QueueAnimation(PlayFX());
             player.QueueAnimation(player.MovementAnimation(destinationPositionCoords));
         }
     }

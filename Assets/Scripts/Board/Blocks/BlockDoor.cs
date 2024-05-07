@@ -6,8 +6,7 @@ public class BlockDoor : Block
 {
     [SerializeField] float animationSpeed;
     [SerializeField] bool startingOpen = false;
-    [SerializeField] AudioSource audioDoorOpen;
-    [SerializeField] AudioSource audioDoorClose;
+    [SerializeField] AudioSource audioSourceClose;
 
     bool? _open = null;
     public bool open
@@ -44,18 +43,21 @@ public class BlockDoor : Block
 
     public override IEnumerator Animation()
     {
-        yield return null;
-        StartCoroutine(ChangeSpriteColor(new Color(
+        yield return ChangeSpriteColor(new Color(
             spriteRenderer.color.r,
             spriteRenderer.color.g,
             spriteRenderer.color.b,
             open ? 0.5f : 1f
-        ), animationSpeed));
+        ), animationSpeed);
+    }
 
+
+    public override void PlaySFX()
+    {
         if (open)
-            audioDoorOpen.Play();
+            audioSource.Play();
         else
-            audioDoorClose.Play();
+            audioSourceClose.Play();
     }
 
 
