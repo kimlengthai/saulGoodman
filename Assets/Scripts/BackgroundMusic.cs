@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
 {
-    private static BackgroundMusic instance;
+    public static BackgroundMusic instance;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -12,21 +13,19 @@ public class BackgroundMusic : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            audioSource = GetComponent<AudioSource>();
+            audioSource.volume = PlayerPrefs.GetFloat("MusicVolume", audioSource.volume);
         }
         else
         {
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-  
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    public static void ChangeVolume(float volume)
     {
-        
+        instance.audioSource.volume = volume;
     }
 }

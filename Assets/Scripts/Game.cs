@@ -93,6 +93,12 @@ public class Game : MonoBehaviour
     }
 
 
+    public static int GetBestScore(string level)
+    {
+        return scores[level].Item1;
+    }
+
+
     public void Start()
     {
         foreach (Player player in players)

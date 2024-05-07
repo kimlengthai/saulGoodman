@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 
 [ExecuteInEditMode]
@@ -67,5 +68,11 @@ public class UI : MonoBehaviour
     public void UpdateLevelText()
     {
         levelText.text = Game.board.levelName.ToString();
+    }
+
+
+    public void OpenSettings()
+    {
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
 }
