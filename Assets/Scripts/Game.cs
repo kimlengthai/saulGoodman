@@ -330,7 +330,12 @@ public class Game : MonoBehaviour
         board.OnTurnChange(animate);
         
         foreach (Player player in players)
+        {
+            Vector2Int nextCoords = player.coords + playerDirection;
+            if (board.IsInsideBoard(nextCoords) && (board.GetBlock(nextCoords)?.CanPlayerMoveInside(player, playerDirection) ?? true))
+                player.audioSource.Play();
             player.QueueMove(playerDirection, animate);
+        }
         
         while (players.Any(player => player.HasActions()))
             CalcNextTick(animate);
