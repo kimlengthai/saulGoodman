@@ -52,9 +52,6 @@ public class Game : MonoBehaviour
     [SerializeField] int _twoStarsTurns;
     public static int twoStarsTurns;
 
-    [SerializeField] int _oneStarTurns;
-    public static int oneStarTurns;
-
     [SerializeField] Player[] _players;
     public static Player[] players;
 
@@ -67,7 +64,6 @@ public class Game : MonoBehaviour
         ui = _ui;
         threeStarsTurns = _threeStarsTurns;
         twoStarsTurns = _twoStarsTurns;
-        oneStarTurns = _oneStarTurns;
         players = _players;
 
         InitScores();
@@ -312,9 +308,7 @@ public class Game : MonoBehaviour
             return 3;
         else if (turn <= twoStarsTurns)
             return 2;
-        else if (turn <= oneStarTurns)
-            return 1;
-        return 0;
+        return 1;
     }
 
 

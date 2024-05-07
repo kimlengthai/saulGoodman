@@ -16,9 +16,6 @@ public class UI : MonoBehaviour
     [SerializeField] GameObject twoStars;
     [SerializeField] TextMeshProUGUI twoStarsText;
     [SerializeField] Image twoStarsCross;
-    [SerializeField] GameObject oneStar;
-    [SerializeField] TextMeshProUGUI oneStarText;
-    [SerializeField] Image oneStarCross;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] Image turnProgressBar;
 
@@ -38,30 +35,22 @@ public class UI : MonoBehaviour
         {
             threeStarsCross.enabled = true;
             if (Game.turn > Game.twoStarsTurns)
-            {
                 twoStarsCross.enabled = true;
-                if (Game.turn > Game.oneStarTurns)
-                    oneStarCross.enabled = true;
-            }
         }
 
-        turnProgressBar.fillAmount = (float)Game.turn / Game.oneStarTurns;
+        turnProgressBar.fillAmount = (float)Game.turn / Game.twoStarsTurns;
     }
 
 
     void UpdateTurnNeededText()
     {
-        threeStars.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (float)Game.threeStarsTurns / Game.oneStarTurns * threeStars.transform.parent.GetComponent<RectTransform>().rect.width, 1);
+        threeStars.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (float)Game.threeStarsTurns / Game.twoStarsTurns * threeStars.transform.parent.GetComponent<RectTransform>().rect.width, 1);
         threeStarsText.text = Game.threeStarsTurns.ToString();
         threeStarsCross.enabled = false;
 
-        twoStars.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (float)Game.twoStarsTurns / Game.oneStarTurns * twoStars.transform.parent.GetComponent<RectTransform>().rect.width, 1);
+        twoStars.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, twoStars.transform.parent.GetComponent<RectTransform>().rect.width, 1);
         twoStarsText.text = Game.twoStarsTurns.ToString();
         twoStarsCross.enabled = false;
-
-        oneStar.GetComponent<RectTransform>().SetInsetAndSizeFromParentEdge(RectTransform.Edge.Left, (float)Game.oneStarTurns / Game.oneStarTurns * oneStar.transform.parent.GetComponent<RectTransform>().rect.width, 1);
-        oneStarText.text = Game.oneStarTurns.ToString();
-        oneStarCross.enabled = false;
     }
 
 
