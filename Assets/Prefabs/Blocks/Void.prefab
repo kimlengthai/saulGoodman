@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 703a402bf768fdc45b421018f80952d7, type: 3}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
     m_RemovedGameObjects:
@@ -105,7 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockName: Void
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  shouldInit: 1
   spriteRenderer: {fileID: 0}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1

@@ -179,7 +179,7 @@ public class Game : MonoBehaviour
         lineRenderer.endWidth = 0.1f;
         lineRenderer.startColor = Color.green;
         lineRenderer.endColor = Color.green;
-        lineRenderer.sortingOrder = 1000;
+        lineRenderer.sortingOrder = 100;
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
     }
 
