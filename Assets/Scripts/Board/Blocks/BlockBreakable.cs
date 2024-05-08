@@ -18,7 +18,7 @@ public class BlockBreakable : Block
             
             _durability = value;
             if (_durability <= 0)
-                Game.board.RemoveBlock(coords);
+                Game.board.RemoveBlock(coords, destroy: false);
         }
     }
 
@@ -37,6 +37,15 @@ public class BlockBreakable : Block
 
         if (animate)
             player.QueueAnimation(PlayFX());
+    }
+
+
+    public override IEnumerator Animation()
+    {
+        yield return base.Animation();
+
+        if (durability <= 0)
+            Destroy(gameObject);
     }
 
 

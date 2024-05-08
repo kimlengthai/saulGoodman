@@ -119,6 +119,8 @@ public class Block : MonoBehaviour
 
     public virtual void PlaySFX()
     {
+        if (audioSource.clip == null) return;
+        
         audioSource.Play();
     }
 

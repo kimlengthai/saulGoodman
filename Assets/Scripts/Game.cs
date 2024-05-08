@@ -16,6 +16,7 @@ public class Game : MonoBehaviour
         "Level 2.1", "Level 2.2", "Level 2.3", //"Level 2.4",
         "Level 3.1", "Level 3.2", "Level 3.3", "Level 3.4",
         "Level 4.1", "Level 4.2", "Level 4.3", "Level 4.4",
+        "So Close",
     };
 
     public static Dictionary<string, (int, int)> scores = null;

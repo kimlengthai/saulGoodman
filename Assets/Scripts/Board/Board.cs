@@ -126,7 +126,7 @@ public class Board : MonoBehaviour
     }
 
 
-    public void RemoveBlock(Vector2Int coords)
+    public void RemoveBlock(Vector2Int coords, bool destroy = true)
     {
         if (!IsInsideBoard(coords))
         {
@@ -137,7 +137,9 @@ public class Board : MonoBehaviour
         if (blocks[coords.x, coords.y] == null)
             return;
 
-        Destroy(blocks[coords.x, coords.y].gameObject);
+        if (destroy)
+            Destroy(blocks[coords.x, coords.y].gameObject);
+        
         blocks[coords.x, coords.y] = null;
     }
 
