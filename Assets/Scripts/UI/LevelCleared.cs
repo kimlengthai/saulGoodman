@@ -13,6 +13,9 @@ public class LevelCleared : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI bestScoreText;
 
+    [SerializeField] GameObject scores;
+    [SerializeField] GameObject infos;
+
 
     public void Start()
     {
@@ -24,5 +27,16 @@ public class LevelCleared : MonoBehaviour
 
         for (int star = 0; star < starsImages.Length; star++)
             starsImages[star].enabled = star < stars;
+        
+        if (Game.board.levelName == Game.levels[0])
+        {
+            scores.SetActive(false);
+            infos.SetActive(true);
+        }
+        else
+        {
+            scores.SetActive(true);
+            infos.SetActive(false);
+        }
     }
 }

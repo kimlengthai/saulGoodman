@@ -4632,6 +4632,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Level 1.4
       objectReference: {fileID: 0}
+    - target: {fileID: 2757399780699793319, guid: a73f816e85f38403cb3ec08719925308, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -933903416, guid: 0fabee2d28c10443ba07c239024d6d45, type: 3}
     - target: {fileID: 2757399781300720064, guid: a73f816e85f38403cb3ec08719925308, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Level 1.4
