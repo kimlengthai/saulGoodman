@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class BlockVoid : Block
 {
+    public override void Start()
+    {
+        base.Start();
+        isTransparent = true;
+    }
+
+
     public override bool CanSeeThrough()
     {
         return true;

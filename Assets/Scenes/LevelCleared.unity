@@ -2748,9 +2748,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelManager: {fileID: 1827179663040529332, guid: 210288f3c78074b588dd8323c3a050f5, type: 3}
   undo: 0
-  restart: 1
+  restart: 0
   next: 1
-  menu: 1
+  menu: 0
 --- !u!1 &1979849293
 GameObject:
   m_ObjectHideFlags: 0
