@@ -68,6 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee47190598dd8410f83756fe4d46cbdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathSoundEffect: {fileID: 8300000, guid: da5fdfad00b0292429a9cdd352463c73, type: 3}
   particleSystem: {fileID: 6768743902631264512}
   isDead: 0
   isAnimating: 0

@@ -7,6 +7,7 @@ using System;
 [ExecuteInEditMode]
 public class Player : MonoBehaviour
 {
+    [SerializeField] AudioClip deathSoundEffect;
     [SerializeField] new ParticleSystem particleSystem;
 
     [HideInInspector] public bool isDead = false;
@@ -173,8 +174,18 @@ public class Player : MonoBehaviour
         isDead = true;
         if (animate)
             QueueAnimation(DieAnimation());
+
+        PlayDeathSoundEffect();
     }
 
+    /*Death sound effect*/
+    void PlayDeathSoundEffect()
+    {
+        if (audioSource != null && deathSoundEffect != null)
+        {
+            audioSource.PlayOneShot(deathSoundEffect);
+        }
+    }
 
     IEnumerator DieAnimation()
     {
