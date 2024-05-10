@@ -23,7 +23,8 @@ public class Settings : MonoBehaviour
     {
         Time.timeScale = 0;
 
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", BackgroundMusic.instance.audioSource.volume);
+        if (BackgroundMusic.instance != null)
+            musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", BackgroundMusic.instance.audioSource.volume);
 
         Game.audioMixer.GetFloat("Volume", out float soundVolume);
         soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", (soundVolume + 80f) / 100f);
@@ -42,7 +43,8 @@ public class Settings : MonoBehaviour
 
     public void VolumeMusicChanged()
     {
-        BackgroundMusic.ChangeVolume(musicSlider.value);
+        if (BackgroundMusic.instance != null)
+            BackgroundMusic.ChangeVolume(musicSlider.value);
         musicImage.sprite = musicSlider.value == 0 ? musicMuteIcon : musicIcon;
     }
 

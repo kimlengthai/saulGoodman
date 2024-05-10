@@ -62,6 +62,7 @@ public class UI : MonoBehaviour
 
     public void OpenSettings()
     {
-        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+        if (!SceneManager.GetSceneByName("Settings").isLoaded)
+            SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
 }
