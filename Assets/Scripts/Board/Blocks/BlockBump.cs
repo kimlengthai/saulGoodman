@@ -9,6 +9,6 @@ public class BlockBump : Block
         base.OnPlayerBump(player, playerDirection, animate);
 
         player.QueueMove(-playerDirection, animate);
-        player.QueueAnimation(PlayFX());
+        player.QueueAnimationBeforeLast(PlayFX());
     }
 }

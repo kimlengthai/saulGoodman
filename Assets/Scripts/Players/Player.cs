@@ -106,6 +106,18 @@ public class Player : MonoBehaviour
     }
 
 
+    public void QueueAnimationBeforeLast(IEnumerator animation)
+    {
+        Queue<IEnumerator> newQueue = new Queue<IEnumerator>();
+        while (coroutinesToPlay.Count > 1)
+            newQueue.Enqueue(coroutinesToPlay.Dequeue());
+        newQueue.Enqueue(animation);
+        if (coroutinesToPlay.Count > 0)
+            newQueue.Enqueue(coroutinesToPlay.Dequeue());
+        coroutinesToPlay = newQueue;
+    }
+
+
     public void ForceCoords(Vector2Int newCoords)
     {
         coords = newCoords;

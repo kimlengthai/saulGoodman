@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_DrawMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5efda8fb64ce347589d5a07e7c187de0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -114,6 +118,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5378547562867623168}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
+  blockInfoPrefab: {fileID: 0}
   startingDurability: 3
   spriteSheet:
   - {fileID: 893859131, guid: 3b340576ae18147ac94351d3af1cc37c, type: 3}

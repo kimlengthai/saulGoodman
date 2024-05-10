@@ -17,9 +17,9 @@ public class BlockButton : Block
 
         if (animate)
         {
-            player.QueueAnimation(PlayFX());
+            player.QueueAnimationBeforeLast(PlayFX());
             foreach (BlockDoor door in doorsToUnlock)
-                player.QueueAnimation(door.PlayFX());
+                player.QueueAnimationBeforeLast(door.PlayFX());
         }
     }
 

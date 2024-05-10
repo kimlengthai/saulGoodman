@@ -27,7 +27,7 @@ public class Settings : MonoBehaviour
             musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", BackgroundMusic.instance.audioSource.volume);
 
         Game.audioMixer.GetFloat("Volume", out float soundVolume);
-        soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", (soundVolume + 80f) / 100f);
+        soundSlider.value = PlayerPrefs.GetFloat("SoundVolume", (soundVolume + 20) / 40f);
 
         VolumeMusicChanged();
         VolumeSoundChanged();
@@ -59,7 +59,7 @@ public class Settings : MonoBehaviour
     public void VolumeSoundChanged()
     {
         soundImage.sprite = soundSlider.value == 0 ? soundMuteIcon : soundIcon;
-        Game.audioMixer.SetFloat("Volume", 100f*soundSlider.value - 80f);
+        Game.audioMixer.SetFloat("Volume", 40f*soundSlider.value - 20f);
     }
 
 

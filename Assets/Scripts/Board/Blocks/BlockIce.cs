@@ -15,7 +15,7 @@ public class BlockIce : Block
         player.QueueAction(SlidePlayer(player, playerDirection, animate));
 
         if (animate)
-            player.QueueAnimation(PlayFX());
+            player.QueueAnimationBeforeLast(PlayFX());
     }
 
     Action SlidePlayer(Player player, Vector2Int playerDirection, bool animate)
