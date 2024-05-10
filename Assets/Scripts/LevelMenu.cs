@@ -12,19 +12,14 @@ public class LevelMenu : MonoBehaviour
 
     void Start()
     {
-        Game.InitScores();
-
         foreach (Transform button in transform)
         {
-            bool isLevelCreated = Game.scores.ContainsKey(button.name);
+            int stars = PlayerPrefs.GetInt(button.name + " Stars", 0);
             for (int star = 0; star < 3; star++)
             {
                 Image starImage = button.Find("Stars/Star" + (star + 1) + "/Fill").GetComponent<Image>();
 
-                if (isLevelCreated && star < Game.scores[button.name].Item2)
-                    starImage.color = Color.yellow;
-                else
-                    starImage.color = noStarColor;
+                starImage.color = star < stars ? Color.yellow : noStarColor;
             }
         }
     }

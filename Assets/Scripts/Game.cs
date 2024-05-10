@@ -21,8 +21,6 @@ public class Game : MonoBehaviour
         "So Close",
     };
 
-    public static Dictionary<string, (int, int)> scores = null;
-
     public List<GameObject> blockPrefabs = new List<GameObject>();
     public static Dictionary<string, GameObject> blockNameToPrefab = new Dictionary<string, GameObject>();
     public static bool isPaused = false;
@@ -73,8 +71,6 @@ public class Game : MonoBehaviour
         players = _players;
         audioMixer = _audioMixer;
 
-        InitScores();
-
         foreach (GameObject blockPrefab in blockPrefabs)
         {
             Block block = blockPrefab.GetComponent<Block>();
@@ -85,20 +81,9 @@ public class Game : MonoBehaviour
     }
 
 
-    public static void InitScores()
-    {
-        if (scores != null)
-            return;
-
-        scores = new Dictionary<string, (int, int)>();
-        foreach (string level in levels)
-            scores[level] = (0, 0);
-    }
-
-
     public static int GetBestScore(string level)
     {
-        return scores[level].Item1;
+        return PlayerPrefs.GetInt(level, 0);
     }
 
 
@@ -154,8 +139,12 @@ public class Game : MonoBehaviour
 
         if (won)
         {
-            if (scores[board.levelName].Item1 == 0 || turn < scores[board.levelName].Item1)
-                scores[board.levelName] = (turn, CalcStars());
+            int score = PlayerPrefs.GetInt(board.levelName, 0);
+            if (score == 0 || turn < score)
+            {
+                PlayerPrefs.SetInt(board.levelName, turn);
+                PlayerPrefs.SetInt(board.levelName + " Stars", CalcStars());
+            }
 
             coroutinesToPlayAtEnd.Enqueue(LevelClearedAnimation());
         }
