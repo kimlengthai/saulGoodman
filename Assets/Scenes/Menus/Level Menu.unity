@@ -147,7 +147,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2757399781300720070, guid: a73f816e85f38403cb3ec08719925308, type: 3}
       propertyPath: m_Name
-      value: Bonus Level 1
+      value: So Close
       objectReference: {fileID: 0}
     - target: {fileID: 2757399781300720071, guid: a73f816e85f38403cb3ec08719925308, type: 3}
       propertyPath: m_Pivot.x

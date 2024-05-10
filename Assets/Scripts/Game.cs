@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Linq;
+using UnityEngine.InputSystem;
+using UnityEngine.Audio;
 
 
 [ExecuteInEditMode]
@@ -56,6 +58,9 @@ public class Game : MonoBehaviour
     [SerializeField] Player[] _players;
     public static Player[] players;
 
+    [SerializeField] AudioMixer _audioMixer;
+    public static AudioMixer audioMixer;
+
     public static Queue<IEnumerator> coroutinesToPlayAtEnd = new Queue<IEnumerator>();
 
     public void Awake()
@@ -66,6 +71,7 @@ public class Game : MonoBehaviour
         threeStarsTurns = _threeStarsTurns;
         twoStarsTurns = _twoStarsTurns;
         players = _players;
+        audioMixer = _audioMixer;
 
         InitScores();
 
@@ -209,6 +215,27 @@ public class Game : MonoBehaviour
     void OnRight()
     {
         OnTurnChange(Vector2Int.right);
+    }
+
+    Vector2 swipe;
+    void OnSwipe(InputValue inputValue)
+    {
+        swipe += inputValue.Get<Vector2>();
+    }
+
+
+    void OnSwipeEnd()
+    {
+        Vector2 swipe = this.swipe;
+        this.swipe = Vector2.zero;
+
+        if (swipe.magnitude < 100f)
+            return;
+
+        if (Mathf.Abs(swipe.x) > Mathf.Abs(swipe.y))
+            OnTurnChange(swipe.x > 0 ? Vector2Int.right : Vector2Int.left);
+        else
+            OnTurnChange(swipe.y > 0 ? Vector2Int.up : Vector2Int.down);
     }
 
 

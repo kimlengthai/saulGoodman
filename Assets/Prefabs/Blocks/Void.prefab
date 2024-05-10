@@ -12,10 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Void
       objectReference: {fileID: 0}
-    - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -112,3 +108,4 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
+  blockInfoPrefab: {fileID: 0}

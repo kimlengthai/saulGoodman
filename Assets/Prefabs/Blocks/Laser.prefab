@@ -47,10 +47,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.21
       objectReference: {fileID: 0}
-    - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -122,7 +118,7 @@ PrefabInstance:
     - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: b78ae4b6075a1a246a6168ce0579dc11, type: 3}
+      objectReference: {fileID: 8300000, guid: ae96d2fc5d66c4ade84a6fa54d833560, type: 3}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
@@ -162,6 +158,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
+  blockInfoPrefab: {fileID: 0}
   direction: {x: 0, y: 0}
   beamPrefab: {fileID: 822913382411740632, guid: 2143c0b36b2dc4f55b68fa90c92e60bf, type: 3}
   audioLaserBeam: {fileID: 0}

@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6005883078497586419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6005883078497586412}
+  - component: {fileID: 6005883078497586413}
+  - component: {fileID: 6005883078497586418}
+  m_Layer: 0
+  m_Name: Game
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6005883078497586412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005883078497586419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6005883078497586413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005883078497586419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4002847c879940e58b6baa078fc54ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockPrefabs:
+  - {fileID: 2278377753029399426, guid: aefd30285d72a4bdfb6cf636f3d4cce5, type: 3}
+  - {fileID: 8678926768671641441, guid: 4efafea796c6b465087962745d389716, type: 3}
+  - {fileID: 5590087274302742880, guid: 593336eec1c2f20449e0a4d176c6decc, type: 3}
+  - {fileID: 5590087274302742880, guid: b6650b3ede432b446a92f5c9756f0ab6, type: 3}
+  - {fileID: 5590087274302742880, guid: 2bb993743b0d3f542962b89b527acbd8, type: 3}
+  - {fileID: 9006757256392103104, guid: 334a6e88a46c94233ada849059b9511a, type: 3}
+  - {fileID: 5590087274302742880, guid: 4c4f801fa59944f66821073f9f12b7e0, type: 3}
+  - {fileID: 5590087274302742880, guid: d39fa6206457e4ca6a44e2da544271df, type: 3}
+  - {fileID: 5590087274302742880, guid: 1be252001e5a748e59c8ba6e218206fa, type: 3}
+  - {fileID: 8678926768671641441, guid: d3297b5f76673492eb8f8d63acafe18f, type: 3}
+  - {fileID: 8678926768671641441, guid: 4eeb0050de6da4d7da7ba4daa44b9883, type: 3}
+  - {fileID: 8678926768671641441, guid: 2bcb45a3657cb44749a85114102e6496, type: 3}
+  - {fileID: 5590087274302742880, guid: a928d80a8ffe04475942b5546f969b18, type: 3}
+  - {fileID: 5590087274302742880, guid: e61da22e22cc84551b21aa3ec529f8eb, type: 3}
+  - {fileID: 5590087274302742880, guid: 707fa0d0f8605416e87a3e4221653cdc, type: 3}
+  _board: {fileID: 0}
+  _ui: {fileID: 0}
+  _threeStarsTurns: 0
+  _twoStarsTurns: 0
+  _players:
+  - {fileID: 0}
+  - {fileID: 0}
+  _audioMixer: {fileID: 24100000, guid: 71f9319fc79ca4337a86eb12255b8a7c, type: 2}
+--- !u!114 &6005883078497586418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005883078497586419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 6093801d2b084452bb141102211432ae, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6005883078497586419}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6df2488-96f1-4e0a-99d9-4420e3393567
+    m_ActionName: Movements/Up[/Keyboard/w,/Keyboard/upArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f1c583a-34e6-40bf-a7a9-4fc56a9e6c04
+    m_ActionName: Movements/Down[/Keyboard/s,/Keyboard/downArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 67ddec27-839d-4f11-8ae9-018cd51c05d9
+    m_ActionName: Movements/Left[/Keyboard/a,/Keyboard/leftArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 10b0001d-e333-45dd-ab56-e33a78c11313
+    m_ActionName: Movements/Right[/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6005883078497586413}
+        m_TargetAssemblyTypeName: UnityEngine.Component, UnityEngine
+        m_MethodName: SendMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 53643ca0-cc5a-4633-8460-7e6f3e6a90a6
+    m_ActionName: Movements/Swipe[/Device Simulator Touchscreen/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 588a8d32-3fe9-4b76-82f5-70abbdd46b2f
+    m_ActionName: UI/Restart[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e900a159-d831-448e-ac54-42ef8b2fed74
+    m_ActionName: UI/Undo[/Keyboard/b,/Keyboard/backspace]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 40d6334b-a5b5-4d9a-8973-62e4bc2485d8
+    m_ActionName: UI/Menu[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 414d5c0c-0ac5-458b-ab2f-24777d2db610
+    m_ActionName: UI/Next[/Keyboard/n]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movements
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

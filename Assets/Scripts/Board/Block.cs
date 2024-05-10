@@ -12,6 +12,8 @@ public class Block : MonoBehaviour
     protected Collider2D collision;
     [SerializeField] Vector2Int startingCoords;
     [SerializeField] bool _isTransparent;
+    [SerializeField] GameObject blockInfoPrefab;
+    GameObject blockInfo;
     protected AudioSource audioSource;
     protected bool isTransparent
     {
@@ -19,7 +21,7 @@ public class Block : MonoBehaviour
         set
         {
             _isTransparent = value;
-            collision.enabled = !value;
+            gameObject.layer = value ? 0 : LayerMask.NameToLayer("Blocks");
         }
     }
 
@@ -67,6 +69,7 @@ public class Block : MonoBehaviour
 
     public virtual void Init()
     {
+        collision.enabled = true;
         isTransparent = _isTransparent;
         coords = startingCoords;
     }
@@ -182,6 +185,23 @@ public class Block : MonoBehaviour
         }
 
         spriteRenderer.color = targetColor;
+    }
+
+
+    protected virtual void OnMouseEnter()
+    {
+        if (blockInfoPrefab == null) return;
+
+        if (blockInfo == null)
+            blockInfo = Instantiate(blockInfoPrefab, transform.position + new Vector3(0.45f, 0f, 0f), Quaternion.identity, Game.ui.transform);
+        else
+            blockInfo.SetActive(true);
+    }
+
+
+    protected virtual void OnMouseExit()
+    {
+        blockInfo?.SetActive(false);
     }
 
 

@@ -81,9 +81,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: c9091b0308fda964ab5431c4b7ed802f, type: 3}
+      objectReference: {fileID: 8300000, guid: e026affebf1fa4e9b8acd134117ed94e, type: 3}
     m_RemovedComponents:
     - {fileID: 7342424140389364370, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
     - {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
@@ -124,6 +128,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
+  blockInfoPrefab: {fileID: 0}
 --- !u!60 &4661082730562543631
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +136,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5590087274302742880}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:

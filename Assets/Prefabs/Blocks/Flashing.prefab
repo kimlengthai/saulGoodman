@@ -124,6 +124,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3009656883961168450}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
+  blockInfoPrefab: {fileID: 2439806566854524745, guid: 349180ffc39e240d3962f794fd100660, type: 3}
   animationSpeed: 20
   sprites:
   - {fileID: 778964486, guid: ee99ed1eac27e4954a8fcda8034b7197, type: 3}

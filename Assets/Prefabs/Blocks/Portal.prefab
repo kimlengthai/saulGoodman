@@ -32,10 +32,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1816022155377330633, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3333648037926758564, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -99,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 6549064896333708016, guid: 1351186ad4f344f78b1102c3ffef65b1, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: d53298223f942c64cab7f4d5c2bbfaa5, type: 3}
+      objectReference: {fileID: 8300000, guid: 15c38af215d7d46baa4b6e4027bce470, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -135,5 +131,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3263879468731701731}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
+  blockInfoPrefab: {fileID: 0}
   destinationPortal: {fileID: 0}
   audioPortalBlock: {fileID: 0}
