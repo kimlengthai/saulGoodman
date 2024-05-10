@@ -44,8 +44,16 @@ public class BlockBreakable : Block
     {
         yield return base.Animation();
 
-        if (durability <= 0)
-            Destroy(gameObject);
+        if (durability > 0)
+            yield break;
+        
+        spriteRenderer.GetComponent<ParticleSystem>().Play();
+        spriteRenderer.enabled = false;
+
+        while (audioSource.isPlaying)
+            yield return null;
+
+        Destroy(gameObject);
     }
 
 

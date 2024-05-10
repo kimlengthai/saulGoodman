@@ -128,7 +128,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
-  blockInfoPrefab: {fileID: 0}
+  blockInfoPrefab: {fileID: 2439806566854524745, guid: 4369abdd6c7a743c096c90faa458f6e7, type: 3}
 --- !u!60 &4661082730562543631
 PolygonCollider2D:
   m_ObjectHideFlags: 0

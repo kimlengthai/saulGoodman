@@ -176,4 +176,4 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
-  blockInfoPrefab: {fileID: 0}
+  blockInfoPrefab: {fileID: 2439806566854524745, guid: 8faab0675dc844018bf5ca87b0712d7b, type: 3}
