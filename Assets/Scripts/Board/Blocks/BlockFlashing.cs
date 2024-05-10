@@ -6,8 +6,6 @@ public class BlockFlashing : Block
 {
     [SerializeField] float animationSpeed = 5f;
     [SerializeField] Sprite[] sprites;
-
-
     public override void UpdateSprite()
     {
         base.UpdateSprite();
