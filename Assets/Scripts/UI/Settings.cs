@@ -59,7 +59,11 @@ public class Settings : MonoBehaviour
     public void VolumeSoundChanged()
     {
         soundImage.sprite = soundSlider.value == 0 ? soundMuteIcon : soundIcon;
-        Game.audioMixer.SetFloat("Volume", 40f*soundSlider.value - 20f);
+
+        if (soundSlider.value == 0)
+            Game.audioMixer.SetFloat("Volume", -80f);
+        else
+            Game.audioMixer.SetFloat("Volume", 40f*soundSlider.value - 20f);
     }
 
 
