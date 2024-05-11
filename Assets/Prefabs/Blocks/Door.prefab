@@ -131,6 +131,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 0
+  blockInfoPrefab: {fileID: 2439806566854524745, guid: 6aa2bdb1699c30242aaca1e8afa5ace6, type: 3}
   animationSpeed: 5
   startingOpen: 0
   audioSourceClose: {fileID: 8732111610884200658}
