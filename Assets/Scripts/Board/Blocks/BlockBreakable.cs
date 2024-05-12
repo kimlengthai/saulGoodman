@@ -35,6 +35,9 @@ public class BlockBreakable : Block
         base.OnPlayerBump(player, playerDirection, animate);
         durability--;
 
+        if (durability <= 0)
+            isTransparent = true;
+
         if (animate)
             player.QueueAnimationBeforeLast(PlayFX());
     }

@@ -14,6 +14,9 @@ public class LevelMenu : MonoBehaviour
     {
         foreach (Transform button in transform)
         {
+            if (!button.GetComponent<Button>())
+                continue;
+
             int stars = PlayerPrefs.GetInt(button.name + " Stars", 0);
             for (int star = 0; star < 3; star++)
             {
