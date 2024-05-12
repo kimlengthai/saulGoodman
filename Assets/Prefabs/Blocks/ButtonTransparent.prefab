@@ -124,7 +124,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1777204683765708770}
   startingCoords: {x: 0, y: 0}
   _isTransparent: 1
-  blockInfoPrefab: {fileID: 2439806566854524745, guid: 8764a0a5bff3ae44fb4aa599157424dc, type: 3}
+  blockInfoPrefab: {fileID: 2439806566854524745, guid: 2c8f5b145a9e2a44c8412526fe7ae31c, type: 3}
   doorsToUnlock: []
   animationSpeed: 5
   sprites:
