@@ -5,6 +5,8 @@
 
 A game crafted for enthusiasts who enjoy problem-solving and stealth-action challenges.
 
+![Game Profile](screenshots/game_profile.png)
+
  ### Objective
 
 The goal is to outmaneuver and chase down the other player within a set number of moves. 
@@ -20,7 +22,7 @@ Are you ready to lead your way to triumph?
 
 * Stephen Khumlamphai - 13802172 : Level 2.x
 
-* Benedict Tannous   - 24663041 : Level 3.x
+* Benedict Tannous - 24663041 : Level 3.x
 
 * Aymeric Pierre Frederic Christophe Conti - 25061716 : Level 4.x
 
@@ -33,3 +35,19 @@ W / Up : Move up
 S / Down : Move down 
 
 D / Right : Move right
+
+### Game Features
+
+* Intuitive gameplay
+
+* Mind-bending puzzles
+
+* Thrilling chase sequences
+
+* Beautifully designed levels
+
+* Engaging sound effects and music
+
+### Video Trailer
+
+* https://youtu.be/YxEISfnZA5k
