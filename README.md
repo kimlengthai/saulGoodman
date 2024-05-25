@@ -7,7 +7,7 @@ A game crafted for enthusiasts who enjoy problem-solving and stealth-action chal
 
 ![Game Profile](screenshots/game_profile.png)
 
- ### Objective
+ ## Objective
 
 The goal is to outmaneuver and chase down the other player within a set number of moves. 
 Can you synchronise your movements, anticipate your other player's controller actions, and master the art of coordination to emerge victorious?
@@ -16,7 +16,7 @@ With its intuitive gameplay, mind-bending puzzles, and thrilling chase sequences
 Are you ready to lead your way to triumph?
 
 
-### Team - Contributors
+## Team - Contributors
 
 * Kimleng Thai - 24577494 : Level 1.x
 
@@ -26,7 +26,7 @@ Are you ready to lead your way to triumph?
 
 * Aymeric Pierre Frederic Christophe Conti - 25061716 : Level 4.x
 
-### Player Movement
+## Player Movement
 
 A / Left : Move left
 
@@ -36,7 +36,7 @@ S / Down : Move down
 
 D / Right : Move right
 
-### Game Features
+## Game Features
 
 * Intuitive gameplay
 
@@ -48,6 +48,6 @@ D / Right : Move right
 
 * Engaging sound effects and music
 
-### Video Trailer
+## Video Trailer
 
 * https://youtu.be/YxEISfnZA5k
